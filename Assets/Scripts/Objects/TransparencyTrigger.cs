@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class TransparencyTrigger : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
@@ -13,7 +14,7 @@ public class TransparencyTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        SetTransparency(0.5f);
+        SetTransparency(0.4f);
     }
 
     private void OnTriggerExit2D(Collider2D collider2D)
