@@ -7,7 +7,7 @@ using UnityEngine;
 public class OpeningTheDoor : MonoBehaviour
 {
     [SerializeField] private PlayerMove _player;
-    [SerializeField] private Sprite OpenedDoor, ClosedDoor;
+    [SerializeField] private Sprite OpenedDoor, ClosedDoor, OpenedDoor_Emission, ClosedDoor_Emission;
     
     private const float _interactionDistance = 1.5f;
     private bool _isOpened;
@@ -22,12 +22,35 @@ public class OpeningTheDoor : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
+        if (currentDistance < _interactionDistance)
         {
-            float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
-            if (currentDistance < _interactionDistance)
+            if (_boxCollider.enabled == true)
             {
-                MoveDoor();
+                _spriteRenderer.sprite = ClosedDoor_Emission;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    MoveDoor();
+                }
+            }
+            else
+            {
+                _spriteRenderer.sprite = OpenedDoor_Emission;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    MoveDoor();
+                }
+            }
+        }
+        else
+        {
+            if (_boxCollider.enabled == true)
+            {
+                _spriteRenderer.sprite = ClosedDoor;
+            }
+            else
+            {
+                _spriteRenderer.sprite = OpenedDoor;
             }
         }
     }

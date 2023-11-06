@@ -140,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 144
+        y: 288
         width: 64
         height: 128
       alignment: 9
@@ -161,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 104
-        y: 144
+        y: 288
         width: 64
         height: 128
       alignment: 9
@@ -182,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 144
+        y: 288
         width: 64
         height: 128
       alignment: 9
@@ -203,7 +203,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 144
         width: 64
         height: 128
       alignment: 9
@@ -224,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 104
-        y: 0
+        y: 144
         width: 64
         height: 128
       alignment: 9
@@ -236,6 +236,48 @@ TextureImporter:
       bones: []
       spriteID: e19e87aa650516045ab3ecfa6f5db145
       internalID: 76511687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HorizontalWalls_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05066397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8800011e47e84f429aa45334e0b4e22
+      internalID: -1955430857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HorizontalWalls_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 64
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05066397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef749005a3590a49a891497d35981ea
+      internalID: 1447767046
       vertices: []
       indices: 
       edges: []
@@ -256,6 +298,8 @@ TextureImporter:
       HorizontalWalls_2: -699379112
       HorizontalWalls_3: -1244957098
       HorizontalWalls_4: 76511687
+      HorizontalWalls_5: -1955430857
+      HorizontalWalls_6: 1447767046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
