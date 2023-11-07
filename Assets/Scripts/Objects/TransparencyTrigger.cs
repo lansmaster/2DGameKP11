@@ -12,9 +12,9 @@ public class TransparencyTrigger : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collider2D)
+    private void OnTriggerStay2D(Collider2D collider2D)
     {
-        SetTransparency(0.4f);
+        SetTransparency(0.5f);
     }
 
     private void OnTriggerExit2D(Collider2D collider2D)
