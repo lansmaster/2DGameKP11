@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private int SceneIndex;
+    [SerializeField] private int _sceneIndex;
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneIndex);
+        SceneManager.LoadScene(_sceneIndex);
     }
 
     public void ExitGame()
