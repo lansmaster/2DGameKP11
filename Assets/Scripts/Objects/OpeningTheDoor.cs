@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class OpeningTheDoor : MonoBehaviour
 {
     [SerializeField] private PlayerMove _player;
-    [SerializeField] private Sprite OpenedDoor, ClosedDoor, OpenedDoor_Emission, ClosedDoor_Emission;
-    
+    [SerializeField] private Sprite _openedDoor, _closedDoor, _openedDoorEmission, _closedDoorEmission;
+    [SerializeField] private Image _imgPressE;
+    [SerializeField] private Sprite _pressEOpen, _pressEClose;
+
     private const float _interactionDistance = 1.5f;
     private bool _isOpened;
     private SpriteRenderer _spriteRenderer;
@@ -25,9 +28,12 @@ public class OpeningTheDoor : MonoBehaviour
         float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
         if (currentDistance < _interactionDistance)
         {
+            _imgPressE.sprite = _pressEOpen;
+            _imgPressE.enabled = true;
+
             if (_boxCollider.enabled == true)
             {
-                _spriteRenderer.sprite = ClosedDoor_Emission;
+                _spriteRenderer.sprite = _closedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     MoveDoor();
@@ -35,7 +41,7 @@ public class OpeningTheDoor : MonoBehaviour
             }
             else
             {
-                _spriteRenderer.sprite = OpenedDoor_Emission;
+                _spriteRenderer.sprite = _openedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     MoveDoor();
@@ -44,13 +50,16 @@ public class OpeningTheDoor : MonoBehaviour
         }
         else
         {
+            _imgPressE.sprite = _pressEClose;
+            _imgPressE.enabled = false;
+
             if (_boxCollider.enabled == true)
             {
-                _spriteRenderer.sprite = ClosedDoor;
+                _spriteRenderer.sprite = _closedDoor;
             }
             else
             {
-                _spriteRenderer.sprite = OpenedDoor;
+                _spriteRenderer.sprite = _openedDoor;
             }
         }
     }
@@ -59,12 +68,12 @@ public class OpeningTheDoor : MonoBehaviour
     {
         if (_boxCollider.enabled == true)
         {
-            _spriteRenderer.sprite = OpenedDoor;
+            _spriteRenderer.sprite = _openedDoor;
             _boxCollider.enabled = false;
         }
         else
         {
-            _spriteRenderer.sprite = ClosedDoor;
+            _spriteRenderer.sprite = _closedDoor;
             _boxCollider.enabled = true;
         }
     }
