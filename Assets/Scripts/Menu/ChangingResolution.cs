@@ -13,10 +13,6 @@ public class ChangingResolution : MonoBehaviour
     {
         _resolutions = Screen.resolutions;
         _currentResolutionIndex = 0;
-        if (Screen.fullScreen)
-        {
-            _isfullScreen = true;
-        }
     }
 
     public void ResolutionUp()
@@ -37,12 +33,13 @@ public class ChangingResolution : MonoBehaviour
 
     public void SetResolution()
     {
-        Screen.SetResolution(_resolutions[_currentResolutionIndex].width, _resolutions[_currentResolutionIndex].height, Screen.fullScreen);
+        Screen.SetResolution(_resolutions[_currentResolutionIndex].width, _resolutions[_currentResolutionIndex].height, _isfullScreen);
     }
 
     public void FullScreenToggle()
     {
         _isfullScreen = !_isfullScreen;
+        Screen.fullScreen = _isfullScreen;
     }
 
     private void OnGUI()

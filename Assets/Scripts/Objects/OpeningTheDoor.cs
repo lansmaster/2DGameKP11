@@ -28,11 +28,11 @@ public class OpeningTheDoor : MonoBehaviour
         float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
         if (currentDistance < _interactionDistance)
         {
-            _imgPressE.sprite = _pressEOpen;
             _imgPressE.enabled = true;
 
             if (_boxCollider.enabled == true)
             {
+                _imgPressE.sprite = _pressEOpen;
                 _spriteRenderer.sprite = _closedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -41,6 +41,7 @@ public class OpeningTheDoor : MonoBehaviour
             }
             else
             {
+                _imgPressE.sprite = _pressEClose;
                 _spriteRenderer.sprite = _openedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -50,7 +51,6 @@ public class OpeningTheDoor : MonoBehaviour
         }
         else
         {
-            _imgPressE.sprite = _pressEClose;
             _imgPressE.enabled = false;
 
             if (_boxCollider.enabled == true)
