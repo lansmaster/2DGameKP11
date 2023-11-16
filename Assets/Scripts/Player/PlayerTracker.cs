@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerTracker : MonoBehaviour
 {
-    [SerializeField] private PlayerMove _player;
+    [SerializeField] private PlayerMover _player;
 
     private Transform _transform;
 

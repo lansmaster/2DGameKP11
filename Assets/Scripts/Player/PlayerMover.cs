@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMove : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
@@ -18,6 +18,12 @@ public class PlayerMove : MonoBehaviour
         _transform = GetComponent<Transform>();
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        if(FloorChanger.lastPlayerPositionBeforeMoving != null)
+        {
+            _transform.position = FloorChanger.lastPlayerPositionBeforeMoving;
+        }
+        
     }
 
     private void FixedUpdate()

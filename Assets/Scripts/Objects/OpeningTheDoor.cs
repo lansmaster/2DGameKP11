@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(BoxCollider2D))]
 public class OpeningTheDoor : MonoBehaviour
 {
-    [SerializeField] private PlayerMove _player;
+    [SerializeField] private PlayerMover _player;
     [SerializeField] private Sprite _openedDoor, _closedDoor, _openedDoorEmission, _closedDoorEmission;
     [SerializeField] private Image _imgPressE;
     [SerializeField] private Sprite _pressEOpen, _pressEClose;
