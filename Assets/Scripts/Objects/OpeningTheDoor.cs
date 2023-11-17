@@ -14,6 +14,7 @@ public class OpeningTheDoor : MonoBehaviour
 
     private const float _interactionDistance = 1.5f;
     private bool _isOpened;
+
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
 

@@ -11,7 +11,7 @@ public class PlayerMover : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody;
 
-    Vector3 movement;
+    private Vector3 movement;
 
     private void Start()
     {
@@ -19,9 +19,9 @@ public class PlayerMover : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        if(FloorChanger.lastPlayerPositionBeforeMoving != null)
+        if(FloorChanger.lastPlayerPositionBeforeTeleportation != null)
         {
-            _transform.position = FloorChanger.lastPlayerPositionBeforeMoving;
+            _transform.position = FloorChanger.lastPlayerPositionBeforeTeleportation;
         }
         
     }

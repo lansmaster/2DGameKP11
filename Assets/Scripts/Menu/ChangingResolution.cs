@@ -24,7 +24,7 @@ public class ChangingResolution : MonoBehaviour
         {
             _currentResolutionIndex++;
         }
-        _textResolution.text = $"{_resolutions[_currentResolutionIndex].width} x {_resolutions[_currentResolutionIndex].height}";
+        _textResolution.text = $"{_resolutions[_currentResolutionIndex].width} x {_resolutions[_currentResolutionIndex].height} {_resolutions[_currentResolutionIndex].refreshRateRatio}Hz";
     }
 
     public void ResolutionDown()
@@ -33,7 +33,7 @@ public class ChangingResolution : MonoBehaviour
         {
             _currentResolutionIndex--;
         }
-        _textResolution.text = $"{_resolutions[_currentResolutionIndex].width} x {_resolutions[_currentResolutionIndex].height}";
+        _textResolution.text = $"{_resolutions[_currentResolutionIndex].width} x {_resolutions[_currentResolutionIndex].height} {_resolutions[_currentResolutionIndex].refreshRateRatio}Hz";
     }
 
     public void SetResolution()
@@ -49,10 +49,10 @@ public class ChangingResolution : MonoBehaviour
         Screen.fullScreen = _isfullScreen;
     }
 
-    private void OnGUI()
-    {
-        GUILayout.Label($"{_resolutions[_currentResolutionIndex].width} x {_resolutions[_currentResolutionIndex].height} {_resolutions[_currentResolutionIndex].refreshRateRatio}Hz");
-    }
+    //private void OnGUI()
+    //{
+    //    GUILayout.Label($"{_resolutions[_currentResolutionIndex].width} x {_resolutions[_currentResolutionIndex].height} {_resolutions[_currentResolutionIndex].refreshRateRatio}Hz");
+    //}
 
     private void LoadSave()
     {
