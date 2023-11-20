@@ -77,20 +77,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -103,20 +89,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -129,7 +101,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -140,18 +111,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 46
-        height: 49
+        y: 0
+        width: 184
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13f2df682f6498d4f8295634ad75df70
-      internalID: -947031418
+      spriteID: 1006458062c0ada4fb17b1d183231460
+      internalID: 1098699880
       vertices: []
       indices: 
       edges: []
@@ -160,19 +131,19 @@ TextureImporter:
       name: Arrows_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 1
-        width: 49
-        height: 49
+        x: 178
+        y: 2
+        width: 194
+        height: 198
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c146f87a23cabb45bd99c4c27757647
-      internalID: -839155300
+      spriteID: f6e7f98bd778a93479e8a9848730fd7e
+      internalID: 987347685
       vertices: []
       indices: 
       edges: []
@@ -181,19 +152,19 @@ TextureImporter:
       name: Arrows_2
       rect:
         serializedVersion: 2
-        x: 140
-        y: 1
-        width: 46
-        height: 49
+        x: 560
+        y: 0
+        width: 184
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e8b20134af0429468912da03b9ffb17
-      internalID: -1263183320
+      spriteID: 9f17a19a4af695848b318b116c3644c8
+      internalID: 1203962999
       vertices: []
       indices: 
       edges: []
@@ -202,19 +173,19 @@ TextureImporter:
       name: Arrows_3
       rect:
         serializedVersion: 2
-        x: 93
-        y: 1
-        width: 49
-        height: 49
+        x: 372
+        y: 0
+        width: 194
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597a69b0d56c292449a200b423fa4a22
-      internalID: 1605917082
+      spriteID: 22b6593e919db414fa7871f7137b3fba
+      internalID: 1504215417
       vertices: []
       indices: 
       edges: []
@@ -230,10 +201,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Arrows_0: -947031418
-      Arrows_1: -839155300
-      Arrows_2: -1263183320
-      Arrows_3: 1605917082
+      Arrows_0: 1098699880
+      Arrows_1: 987347685
+      Arrows_2: 1203962999
+      Arrows_3: 1504215417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
