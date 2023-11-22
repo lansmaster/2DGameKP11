@@ -11,8 +11,6 @@ public class PlayerMover : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody;
 
-    private Vector3 movement;
-
     private void Start()
     {
         _transform = GetComponent<Transform>();
@@ -28,7 +26,7 @@ public class PlayerMover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
         
 
         _animator.SetFloat("Horizontal", movement.x);
