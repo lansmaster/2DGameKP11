@@ -34,10 +34,12 @@ public class FloorChanger : MonoBehaviour
 
                 if(_isUpper)
                 {
+                    Inventory.SaveSlots();
                     SceneManager.LoadScene(_currentSceneIndex + 1);
                 }
                 else
                 {
+                    Inventory.SaveSlots();
                     SceneManager.LoadScene(_currentSceneIndex - 1);
                 }
             }

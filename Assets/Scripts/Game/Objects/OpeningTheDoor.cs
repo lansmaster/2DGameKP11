@@ -8,7 +8,7 @@ public class OpeningTheDoor : MonoBehaviour
     [SerializeField] private PlayerMover _player;
     [SerializeField] private Sprite _openedDoor, _closedDoor, _openedDoorEmission, _closedDoorEmission;
     [SerializeField] private Image _imgPressE;
-    [SerializeField] private Sprite _pressEOpen, _pressEClose;
+    [SerializeField] private Sprite _pressEOpenDoor, _pressECloseDoor;
 
     private const float _interactionDistance = 1.5f;
     private bool _isOpened;
@@ -31,7 +31,7 @@ public class OpeningTheDoor : MonoBehaviour
 
             if (_boxCollider.enabled == true)
             {
-                _imgPressE.sprite = _pressEOpen;
+                _imgPressE.sprite = _pressEOpenDoor;
                 _spriteRenderer.sprite = _closedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -40,7 +40,7 @@ public class OpeningTheDoor : MonoBehaviour
             }
             else
             {
-                _imgPressE.sprite = _pressEClose;
+                _imgPressE.sprite = _pressECloseDoor;
                 _spriteRenderer.sprite = _openedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
 
 public class ItemInfo : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class ItemInfo : MonoBehaviour
     private Button _exitButton;
     private Button _dropButton;
 
-    private GameObject _itemObject;
+    private GameObject _itemGameObject;
     private InventorySlot _currentSlot;
 
     //private Item InfoItem;
@@ -46,8 +45,8 @@ public class ItemInfo : MonoBehaviour
     public void Drop()
     {
         Vector3 dropPosition = new Vector3(_playerMover.transform.position.x + 3f, _playerMover.transform.position.y, _playerMover.transform.position.z);
-        _itemObject.SetActive(true);
-        _itemObject.transform.position = dropPosition;
+        _itemGameObject.SetActive(true);
+        _itemGameObject.transform.position = dropPosition;
 
         _currentSlot.ClearSlot();
         Close();
@@ -57,7 +56,7 @@ public class ItemInfo : MonoBehaviour
     {
         ChangeInfo(item);
 
-        _itemObject = itemObject;
+        _itemGameObject = itemObject;
         _currentSlot = currentSlot;
 
         _itemInfo.SetActive(true);

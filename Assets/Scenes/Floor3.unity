@@ -1846,8 +1846,8 @@ MonoBehaviour:
   _openedDoorEmission: {fileID: 1447767046, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _closedDoorEmission: {fileID: -1955430857, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _imgPressE: {fileID: 1336357944}
-  _pressEOpen: {fileID: 21300000, guid: c2c93393e8a20624e9bf77a3e13aed8d, type: 3}
-  _pressEClose: {fileID: 21300000, guid: 5b6309ff9af29ca47859960d2f39e408, type: 3}
+  _pressEOpenDoor: {fileID: 21300000, guid: c2c93393e8a20624e9bf77a3e13aed8d, type: 3}
+  _pressECloseDoor: {fileID: 21300000, guid: 5b6309ff9af29ca47859960d2f39e408, type: 3}
 --- !u!4 &466113874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8875989450263442654, guid: 3f63259c5d6823045a990d40fc2a9539, type: 3}
@@ -4681,8 +4681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 641853896}
   _isUpper: 0
-  _floorDoor: {fileID: 0}
-  _floorDoor_Emission: {fileID: 0}
+  _floorDoor: {fileID: 21300000, guid: d5c0ef711a320314fb01e9138a255131, type: 3}
+  _floorDoor_Emission: {fileID: 21300000, guid: b649a7c525a5f2d4ab43cb47e7539509, type: 3}
 --- !u!1001 &1225840241
 PrefabInstance:
   m_ObjectHideFlags: 0

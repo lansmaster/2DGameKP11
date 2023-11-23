@@ -5,16 +5,16 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private ItemInfo _itemInfo;
     
-    public Item SlotItem;
-    private GameObject _itemObject;
+    public Item ItemInSlot;
+    public GameObject itemGameObject;
 
-    private Image _icon;
+    public Image slotIcon;
     private Button _button;
 
 
     private void Start()
     {
-        _icon = gameObject.transform.GetChild(0).GetComponent<Image>();
+        slotIcon = gameObject.transform.GetChild(0).GetComponent<Image>();
         
         _button = GetComponent<Button>();
 
@@ -23,25 +23,25 @@ public class InventorySlot : MonoBehaviour
 
     public void PutInSlot(Item item, GameObject itemObject)
     {
-        SlotItem = item;
-        _itemObject = itemObject;   
-        _icon.sprite = item.icon;
-        _icon.enabled = true;
+        ItemInSlot = item;
+        itemGameObject = itemObject;   
+        slotIcon.sprite = item.icon;
+        slotIcon.enabled = true;
     }
 
     void SlotClicked()
     {
-        if (SlotItem != null)
+        if (ItemInSlot != null)
         {
-            _itemInfo.Open(SlotItem, _itemObject, this);
+            _itemInfo.Open(ItemInSlot, itemGameObject, this);
         }
     }
 
     public void ClearSlot()
     {
-        SlotItem = null;
-        _itemObject = null;
-        _icon.sprite = null;
-        _icon.enabled = false;
+        ItemInSlot = null;
+        itemGameObject = null;
+        slotIcon.sprite = null;
+        slotIcon.enabled = false;
     }
 }
