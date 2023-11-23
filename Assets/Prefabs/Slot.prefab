@@ -34,6 +34,7 @@ RectTransform:
   m_Children:
   - {fileID: 5734829935504827965}
   m_Father: {fileID: 0}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14f5616aad3e4be2a40b103f4c93437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemInfo: {fileID: 0}
   SlotItem: {fileID: 0}
 --- !u!1 &7949445706468014134
 GameObject:
@@ -166,11 +168,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7286915216438455529}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.7324066, y: -2.5491638}
-  m_SizeDelta: {x: 44.7184, y: 44.913605}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 37.516, y: 37.615}
+  m_SizeDelta: {x: 75.033, y: 75.229}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6877063453795461398
 CanvasRenderer:

@@ -4,7 +4,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject _inventory;
     [SerializeField] private Transform _slotsTransform;
-    private InventorySlot[] _inventorySlots = new InventorySlot[15];
+    private InventorySlot[] _inventorySlots = new InventorySlot[16];
 
     private bool _isOpened = false;
 
