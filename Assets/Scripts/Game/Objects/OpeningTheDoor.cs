@@ -15,11 +15,15 @@ public class OpeningTheDoor : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
+    private PolygonCollider2D _polygonCollider;
 
-    private void Awake()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
+        _polygonCollider = GetComponent<PolygonCollider2D>();
+
+        _polygonCollider.enabled = false;
     }
 
     private void Update()
@@ -69,11 +73,13 @@ public class OpeningTheDoor : MonoBehaviour
         {
             _spriteRenderer.sprite = _openedDoor;
             _boxCollider.enabled = false;
+            _polygonCollider.enabled = true;
         }
         else
         {
             _spriteRenderer.sprite = _closedDoor;
             _boxCollider.enabled = true;
+            _polygonCollider.enabled = false;
         }
     }
 }

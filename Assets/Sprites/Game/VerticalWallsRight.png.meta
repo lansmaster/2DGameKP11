@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe20a71809e9ad041906daaacd199ae4
+guid: ba723cb20429f0544b766cfac5f7ca58
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -77,6 +77,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +103,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,133 +129,197 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VerticalWalls_0
+      name: VerticalWallsRight_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 152
+        y: 464
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 50, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9fe3a53a290bfb4f8133b8e5b870de0
-      internalID: 1745796947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VerticalWalls_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 152
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
       border: {x: 50, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9a9ae5651a1ee242a219c3610df6600
-      internalID: 870539620
+      spriteID: 3a2c2da401d42434884f55c185f487fe
+      internalID: -653486241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VerticalWalls_2
+      name: VerticalWallsRight_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 77
+        x: 104
+        y: 464
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 50, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d978c7a6e7434d9439de6340e541df16
-      internalID: -1442539274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VerticalWalls_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 77
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
       border: {x: 50, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddc82422e78b35b4fa9a9ad1fda7aae8
-      internalID: 766269819
+      spriteID: 75920dcc1435f7d44aed934646846fca
+      internalID: -1989734870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VerticalWalls_4
+      name: VerticalWallsRight_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 464
+        width: 64
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
+      border: {x: 50, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f0a585161900642b805da1e7cac586
+      internalID: 1691496086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalWallsRight_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232
+        width: 64
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
+      border: {x: 50, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8957585e8f0ac7a42b26e422b6f405be
+      internalID: -1415532767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalWallsRight_4
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 232
+        width: 64
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
+      border: {x: 50, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5154c4725d1f2144ca8c19ce37771ac3
+      internalID: -414827381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalWallsRight_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 232
+        width: 64
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
+      border: {x: 50, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3621d7ec9c023746b020d9a61515fa5
+      internalID: 622774891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalWallsRight_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 50, w: 0}
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdf571a697633a64487a9bc9da6a4c96
-      internalID: -2022111677
+      spriteID: dcc93b5d5ce06ba479706e69904c3d45
+      internalID: -1440242394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VerticalWalls_5
+      name: VerticalWallsRight_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 104
         y: 0
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08866240e4fe8841b8b8b8114d3c557
+      internalID: 564556258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalWallsRight_8
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 64
+        height: 192
+      alignment: 9
+      pivot: {x: 0.896, y: 0.14}
       border: {x: 50, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7489104de68756743acb5a921f1692e3
-      internalID: -713195173
+      spriteID: 2bd34b5cbb151c2418d1fb9d65be9d60
+      internalID: -1272183142
       vertices: []
       indices: 
       edges: []
@@ -243,12 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      VerticalWalls_0: 1745796947
-      VerticalWalls_1: 870539620
-      VerticalWalls_2: -1442539274
-      VerticalWalls_3: 766269819
-      VerticalWalls_4: -2022111677
-      VerticalWalls_5: -713195173
+      VerticalWallsRight_0: -653486241
+      VerticalWallsRight_1: -1989734870
+      VerticalWallsRight_2: 1691496086
+      VerticalWallsRight_3: -1415532767
+      VerticalWallsRight_4: -414827381
+      VerticalWallsRight_5: 622774891
+      VerticalWallsRight_6: -1440242394
+      VerticalWallsRight_7: 564556258
+      VerticalWallsRight_8: -1272183142
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

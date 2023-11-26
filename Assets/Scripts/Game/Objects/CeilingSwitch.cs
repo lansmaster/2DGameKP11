@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(TilemapRenderer))]
-public class CeilingSwitcher : MonoBehaviour
+public class CeilingSwitch : MonoBehaviour
 {
     private TilemapRenderer _tilemapRenderer;
 
