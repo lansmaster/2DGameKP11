@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class OpeningTheDoor : MonoBehaviour
 {
     [SerializeField] private PlayerMover _player;
-    [SerializeField] private Sprite _openedDoor, _closedDoor, _openedDoorEmission, _closedDoorEmission;
-    [SerializeField] private Image _imgPressE;
-    [SerializeField] private Sprite _pressEOpenDoor, _pressECloseDoor;
+    [SerializeField] private Sprite _closedDoor, _openedDoor, _closedDoorEmission, _openedDoorEmission;
 
-    private const float _interactionDistance = 1.5f;
-    private bool _isOpened;
+    private const float _interactionDistance = 1f;
+    public bool isOpened;
 
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
@@ -31,11 +29,8 @@ public class OpeningTheDoor : MonoBehaviour
         float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
         if (currentDistance < _interactionDistance)
         {
-            _imgPressE.enabled = true;
-
             if (_boxCollider.enabled == true)
             {
-                _imgPressE.sprite = _pressEOpenDoor;
                 _spriteRenderer.sprite = _closedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -44,7 +39,6 @@ public class OpeningTheDoor : MonoBehaviour
             }
             else
             {
-                _imgPressE.sprite = _pressECloseDoor;
                 _spriteRenderer.sprite = _openedDoorEmission;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -54,8 +48,6 @@ public class OpeningTheDoor : MonoBehaviour
         }
         else
         {
-            _imgPressE.enabled = false;
-
             if (_boxCollider.enabled == true)
             {
                 _spriteRenderer.sprite = _closedDoor;
@@ -74,12 +66,16 @@ public class OpeningTheDoor : MonoBehaviour
             _spriteRenderer.sprite = _openedDoor;
             _boxCollider.enabled = false;
             _polygonCollider.enabled = true;
+
+            isOpened = true;
         }
         else
         {
             _spriteRenderer.sprite = _closedDoor;
             _boxCollider.enabled = true;
             _polygonCollider.enabled = false;
+
+            isOpened = false;
         }
     }
 }

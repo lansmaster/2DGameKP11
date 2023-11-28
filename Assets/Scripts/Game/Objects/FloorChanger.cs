@@ -12,7 +12,7 @@ public class FloorChanger : MonoBehaviour
     public static Vector3 lastPlayerPositionBeforeTeleportation;
 
     private int _currentSceneIndex;
-    private const float _interactionDistance = 1.5f;
+    private const float _interactionDistance = 1f;
 
     private void Start()
     {

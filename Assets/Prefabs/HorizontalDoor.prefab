@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1794301091568964138}
   - component: {fileID: 1976945447848294707}
   - component: {fileID: 978130350233600086}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HorizontalDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,3 +264,4 @@ MonoBehaviour:
   _imgPressE: {fileID: 0}
   _pressEOpenDoor: {fileID: 21300000, guid: c2c93393e8a20624e9bf77a3e13aed8d, type: 3}
   _pressECloseDoor: {fileID: 21300000, guid: 5b6309ff9af29ca47859960d2f39e408, type: 3}
+  IsOpened: 0
