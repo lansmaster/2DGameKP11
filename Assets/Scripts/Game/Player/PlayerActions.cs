@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[RequireComponent (typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerMover))]
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private Image _imgPressE;
@@ -27,7 +27,7 @@ public class PlayerActions : MonoBehaviour
 
 
         DoorDetected?.Invoke(CheckingDoors(isDoor, doorCollider));
-        
+
 
         CheckingItems();
     }
