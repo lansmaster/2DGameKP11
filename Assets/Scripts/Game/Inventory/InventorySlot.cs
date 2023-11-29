@@ -5,7 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private ItemInfo _itemInfo;
     
-    public Item ItemInSlot;
+    public AssetItem ItemInSlot;
     public GameObject itemGameObject;
 
     public Image slotIcon;
@@ -21,11 +21,11 @@ public class InventorySlot : MonoBehaviour
         _button.onClick.AddListener(SlotClicked);
     }
 
-    public void PutInSlot(Item item, GameObject itemObject)
+    public void PutInSlot(AssetItem item, GameObject itemObject)
     {
         ItemInSlot = item;
         itemGameObject = itemObject;   
-        slotIcon.sprite = item.icon;
+        slotIcon.sprite = item.Icon;
         slotIcon.enabled = true;
     }
 

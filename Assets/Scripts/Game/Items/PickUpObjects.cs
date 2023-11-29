@@ -6,7 +6,7 @@ public class PickUpObjects : MonoBehaviour
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Sprite _default, _emission;
 
-    public Item item;
+    public AssetItem item;
     private GameObject _itemGameObject;
     private SpriteRenderer _spriteRenderer;
 

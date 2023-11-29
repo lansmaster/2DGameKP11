@@ -30,11 +30,11 @@ public class ItemInfo : MonoBehaviour
         _dropButton.onClick.AddListener(Drop);
     }
 
-    public void ChangeInfo(Item item)
+    public void ChangeInfo(AssetItem item)
     {
         _title.text = item.Name;
         _description.text = item.Description;
-        _iconImage.sprite = item.icon;
+        _iconImage.sprite = item.Icon;
     }
 
     public void Use() 
@@ -52,7 +52,7 @@ public class ItemInfo : MonoBehaviour
         Close();
     }
 
-    public void Open(Item item, GameObject itemObject, InventorySlot currentSlot)
+    public void Open(AssetItem item, GameObject itemObject, InventorySlot currentSlot)
     {
         ChangeInfo(item);
 

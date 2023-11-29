@@ -9,7 +9,7 @@ public class UseOfItems : MonoBehaviour
         instance = this;
     }
 
-    public void Use(Item item)
+    public void Use(AssetItem item)
     {
         // здесь прописывается механика свойств. То есть если предмет хилит, это прописывается здесь
     }

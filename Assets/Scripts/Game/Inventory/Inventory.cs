@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void PutInEmptySlot(Item item, GameObject itemObject)
+    public void PutInEmptySlot(AssetItem item, GameObject itemObject)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
