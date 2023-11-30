@@ -44,7 +44,7 @@ public class ItemInfo : MonoBehaviour
 
     public void Drop()
     {
-        Vector3 dropPosition = new Vector3(_playerMover.transform.position.x + 3f, _playerMover.transform.position.y, _playerMover.transform.position.z);
+        Vector3 dropPosition = new Vector3(_playerMover.transform.position.x + 1.5f, _playerMover.transform.position.y, _playerMover.transform.position.z);
         _itemGameObject.SetActive(true);
         _itemGameObject.transform.position = dropPosition;
 
