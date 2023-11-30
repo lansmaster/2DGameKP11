@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327705318925054466}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5, y: 2.10133, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4389757674171719969
 SpriteRenderer:
@@ -186,7 +186,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327705318925054466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -257,11 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _openedDoor: {fileID: 76511687, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _closedDoor: {fileID: -1244957098, guid: 843e643de519e9e409299435cb5af04e, type: 3}
-  _openedDoorEmission: {fileID: 1447767046, guid: 843e643de519e9e409299435cb5af04e, type: 3}
+  _openedDoor: {fileID: 76511687, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _closedDoorEmission: {fileID: -1955430857, guid: 843e643de519e9e409299435cb5af04e, type: 3}
-  _imgPressE: {fileID: 0}
-  _pressEOpenDoor: {fileID: 21300000, guid: c2c93393e8a20624e9bf77a3e13aed8d, type: 3}
-  _pressECloseDoor: {fileID: 21300000, guid: 5b6309ff9af29ca47859960d2f39e408, type: 3}
-  IsOpened: 0
+  _openedDoorEmission: {fileID: 1447767046, guid: 843e643de519e9e409299435cb5af04e, type: 3}
+  isOpened: 0

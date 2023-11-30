@@ -5,15 +5,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerActions : MonoBehaviour
 {
+    [SerializeField] private float _interactionDistance;
+
+    [Header("Взаимодействие с дверю: ")]
     [SerializeField] private Image _imgPressE;
     [SerializeField] private Sprite _pressEOpenDoor, _pressECloseDoor;
     [SerializeField] private LayerMask _doors;
 
     private PlayerMover _player;
 
-    private const float _interactionDistance = 1f;
-
-    public event UnityAction<bool> DoorDetected;
+    public UnityAction<bool> DoorDetected;
 
     private void Start()
     {
@@ -25,9 +26,7 @@ public class PlayerActions : MonoBehaviour
         bool isDoor = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _doors);
         Collider2D doorCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _doors);
 
-
         DoorDetected?.Invoke(CheckingDoors(isDoor, doorCollider));
-
 
         CheckingItems();
     }
@@ -38,7 +37,7 @@ public class PlayerActions : MonoBehaviour
         {
             _imgPressE.enabled = true;
 
-            if (collider.TryGetComponent<OpeningTheDoor>(out OpeningTheDoor door))
+            if (collider.gameObject.TryGetComponent(out OpeningTheDoor door))
             {
                 if (door.isOpened)
                 {
@@ -52,7 +51,7 @@ public class PlayerActions : MonoBehaviour
                 }
             }
 
-            return true;
+            return false;
         }
         else
         {

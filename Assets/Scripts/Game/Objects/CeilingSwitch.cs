@@ -15,7 +15,7 @@ public class CeilingSwitch : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collider2D)
     {
-        _tilemapRenderer.sortingOrder = -1;
+        _tilemapRenderer.sortingOrder = -5;
     }
 
     private void OnTriggerExit2D(Collider2D collider2D)
