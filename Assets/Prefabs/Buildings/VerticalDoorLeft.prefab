@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6204263280195902430, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9015858747947115767, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_SpriteTilingProperty.border.z

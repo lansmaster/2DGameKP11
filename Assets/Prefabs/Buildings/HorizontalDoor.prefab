@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 8304827187937455932}
   - component: {fileID: 1717602512393524500}
   - component: {fileID: 1794301091568964138}
-  - component: {fileID: 1976945447848294707}
   - component: {fileID: 978130350233600086}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: HorizontalDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4389757674171719969
 SpriteRenderer:
@@ -232,18 +231,6 @@ PolygonCollider2D:
       - {x: 0.50000024, y: -0.1011827}
       - {x: 0.49999487, y: 0.11756277}
   m_UseDelaunayMesh: 0
---- !u!114 &1976945447848294707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7327705318925054466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc1adaa832a6cd44a9c808e227d72f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &978130350233600086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fb4190073c7f74a81d1ab984acd056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _closedDoor: {fileID: -1244957098, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _openedDoor: {fileID: 76511687, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _closedDoorEmission: {fileID: -1955430857, guid: 843e643de519e9e409299435cb5af04e, type: 3}

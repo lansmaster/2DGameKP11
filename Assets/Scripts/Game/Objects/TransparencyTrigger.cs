@@ -13,12 +13,18 @@ public class TransparencyTrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collider2D)
     {
-        SetTransparency(0.5f);
+        if (collider2D.gameObject.tag == "Player")
+        {
+            SetTransparency(0.3f);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collider2D)
     {
-        SetTransparency(1f);
+        if (collider2D.gameObject.tag == "Player")
+        {
+            SetTransparency(1f);
+        }
     }
 
     private void SetTransparency(float alpha)

@@ -4,62 +4,51 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class OpeningTheDoor : MonoBehaviour
 {
-    [SerializeField] private PlayerActions _player;
     [SerializeField] private Sprite _closedDoor, _openedDoor, _closedDoorEmission, _openedDoorEmission;
 
     public bool isOpened;
-    private float _interactionDistance = 1f;
 
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
     private PolygonCollider2D _polygonCollider;
 
-    private void Start()
+    private void OnEnable()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
-
-        _player.DoorDetected += DoorActons;
     }
 
-    private void DoorActons(bool DoorDetected)
+    private void Update()
     {
-        //float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
-        //DoorDetected = _interactionDistance > currentDistance;
-
-        if (DoorDetected)
+        if (_boxCollider.enabled == true)
         {
-            if (_boxCollider.enabled == true)
+            _spriteRenderer.sprite = _closedDoor;
+        }
+        else
+        {
+            _spriteRenderer.sprite = _openedDoor;
+        }
+    }
+
+    public void DoorActons()
+    {
+        if (_boxCollider.enabled == true)
+        {
+            _spriteRenderer.sprite = _closedDoorEmission;
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                _spriteRenderer.sprite = _closedDoorEmission;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    DoorSwitch();
-                }
-            }
-            else
-            {
-                _spriteRenderer.sprite = _openedDoorEmission;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    DoorSwitch();
-                }
+                DoorSwitch();
             }
         }
         else
         {
-            if (_boxCollider.enabled == true)
+            _spriteRenderer.sprite = _openedDoorEmission;
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                _spriteRenderer.sprite = _closedDoor;
-            }
-            else
-            {
-                _spriteRenderer.sprite = _openedDoor;
+                DoorSwitch();
             }
         }
-
-
     }
 
     private void DoorSwitch()
