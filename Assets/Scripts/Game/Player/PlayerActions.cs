@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerActions : MonoBehaviour
@@ -66,7 +65,7 @@ public class PlayerActions : MonoBehaviour
                     _imgPressE.sprite = _pressEOpenDoor;
                 }
 
-                door.DoorActons(true);
+                door.DoorActons();
             }
 
         }
@@ -85,15 +84,14 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private void CheckingItem(bool isItem, Collider2D itemCollider)
+    private void CheckingItem(bool itemFound, Collider2D itemCollider)
     {
-        if (isItem)
+        if (itemFound)
         {
             if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
             {
                 item.PickUp();
             }
         }
-        
     }
 }

@@ -1,29 +1,31 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class PickUpItems : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
-    [SerializeField] private Sprite _default, _emission;
 
     public AssetItem item;
+
     private GameObject _itemGameObject;
-    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _itemGameObject = gameObject;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _animator.SetBool("Emission", false);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        _spriteRenderer.sprite = _default;
+        _animator.SetBool("Emission", false);
     }
 
     public void PickUp()
     {
-        _spriteRenderer.sprite = _emission;
+        _animator.SetBool("Emission", true);
 
         if (Input.GetKeyDown(KeyCode.E))
         {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7074330548792071933}
   - component: {fileID: 2441618326021309796}
   m_Layer: 0
-  m_Name: Table
+  m_Name: PCTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140372474061720179}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7276077574974939040
 SpriteRenderer:
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3406419c3fe2d514f8981b0832b70521, type: 3}
+  m_Sprite: {fileID: -1826699118, guid: f97c166bab1ad214da91c4a754dbdb8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.71875, y: 1.71875}
+  m_Size: {x: 0.96875, y: 0.984375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -118,18 +118,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0151690245, y: -0.106184125}
+  m_Offset: {x: -0.0015429258, y: 0.19245505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.47737044, y: 0.44682053}
-    oldSize: {x: 1.71875, y: 1.71875}
-    newSize: {x: 1.71875, y: 1.71875}
+    pivot: {x: 0.5, y: 0.2064849}
+    oldSize: {x: 0.96875, y: 0.984375}
+    newSize: {x: 0.96875, y: 0.984375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7479236, y: 0.7175853}
+  m_Size: {x: 0.8841846, y: 0.80161333}
   m_EdgeRadius: 0
 --- !u!50 &2441618326021309796
 Rigidbody2D:
@@ -143,7 +143,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 300
   m_LinearDrag: 5
   m_AngularDrag: 0
   m_GravityScale: 0

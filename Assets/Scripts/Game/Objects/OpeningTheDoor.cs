@@ -21,35 +21,9 @@ public class OpeningTheDoor : MonoBehaviour
         _polygonCollider = GetComponent<PolygonCollider2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        DoorActons(false);
-    }
-
-    public void DoorActons(bool doorFound)
-    {
-        if (doorFound)
-        {
-            if (_boxCollider.enabled == true)
-            {
-                _spriteRenderer.sprite = _closedDoorEmission;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    DoorSwitch();
-                }
-            }
-            else
-            {
-                _spriteRenderer.sprite = _openedDoorEmission;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    DoorSwitch();
-                }
-            }
-        }
-        else
-        {
-            if (_boxCollider.enabled == true)
+        if (_boxCollider.enabled == true)
         {
             _spriteRenderer.sprite = _closedDoor;
         }
@@ -57,8 +31,26 @@ public class OpeningTheDoor : MonoBehaviour
         {
             _spriteRenderer.sprite = _openedDoor;
         }
+    }
+
+    public void DoorActons()
+    {
+        if (_boxCollider.enabled == true)
+        {
+            _spriteRenderer.sprite = _closedDoorEmission;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                DoorSwitch();
+            }
         }
-       
+        else
+        {
+            _spriteRenderer.sprite = _openedDoorEmission;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                DoorSwitch();
+            }
+        }
     }
 
     private void DoorSwitch()

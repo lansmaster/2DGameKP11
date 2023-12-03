@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7754869a39093934381873ebd4d77cfc
+guid: 0479649174a850e4e811a00a8c6fea7d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Couch_0
+      name: BagOttoman_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 75
-        width: 128
-        height: 50
+        x: 3
+        y: 0
+        width: 57
+        height: 62
       alignment: 9
       pivot: {x: 0.5, y: 0.2064849}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896bc3c78a9d3fa4eb01b3e42e20c46f
-      internalID: 1870405748
+      spriteID: 3225ad81b99d04f429a946684564df50
+      internalID: -821886734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Couch_1
+      name: BagOttoman_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 0
-        width: 128
-        height: 50
+        width: 57
+        height: 62
       alignment: 9
       pivot: {x: 0.5, y: 0.2064849}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,8 +171,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb2f0fe36d49c9945a36e6e47711a143
-      internalID: -1620653082
+      spriteID: 40e47ac800e3f2747b86dcdc4974e126
+      internalID: 57946339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BagOttoman_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 57
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2064849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1778ecda6b12a84449baabde5cd00ab1
+      internalID: 1507917594
       vertices: []
       indices: 
       edges: []
@@ -188,8 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Couch_0: 1870405748
-      Couch_1: -1620653082
+      BagOttoman_0: -821886734
+      BagOttoman_1: 57946339
+      BagOttoman_2: 1507917594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
