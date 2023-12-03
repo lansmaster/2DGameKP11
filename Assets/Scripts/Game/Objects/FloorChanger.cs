@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class FloorChanger : MonoBehaviour
 {
     [SerializeField] private PlayerMover _player;

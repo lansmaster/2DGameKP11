@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class PickUpItems : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
@@ -10,7 +10,7 @@ public class PickUpItems : MonoBehaviour
     private GameObject _itemGameObject;
     private SpriteRenderer _spriteRenderer;
 
-    private void OnEnable()
+    private void Start()
     {
         _itemGameObject = gameObject;
         _spriteRenderer = GetComponent<SpriteRenderer>();

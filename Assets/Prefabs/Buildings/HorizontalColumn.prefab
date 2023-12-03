@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9053642129913449533}
   - component: {fileID: 2661206081945179207}
   m_Layer: 0
-  m_Name: Column
+  m_Name: HorizontalColumn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

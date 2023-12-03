@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerActions : MonoBehaviour
@@ -38,7 +39,7 @@ public class PlayerActions : MonoBehaviour
     private void FindingDoor()
     {
         Collider2D doorCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _doorsLayerMask);
-        if (doorCollider != null && doorCollider.layerOverridePriority == 0)
+        if (doorCollider != null)
         {
             CheckingDoor(true, doorCollider);
         }
@@ -48,9 +49,9 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private void CheckingDoor(bool isDoor, Collider2D doorCollider = null)
+    private void CheckingDoor(bool doorFound, Collider2D doorCollider = null)
     {
-        if (isDoor)
+        if (doorFound)
         {
             _imgPressE.enabled = true;
 
@@ -65,7 +66,7 @@ public class PlayerActions : MonoBehaviour
                     _imgPressE.sprite = _pressEOpenDoor;
                 }
 
-                door.DoorActons();
+                door.DoorActons(true);
             }
 
         }
@@ -80,15 +81,19 @@ public class PlayerActions : MonoBehaviour
         Collider2D itemCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _itemsLayerMask);
         if (itemCollider != null)
         {
-            CheckingItem(itemCollider);
+            CheckingItem(true, itemCollider);
         }
     }
 
-    private void CheckingItem(Collider2D itemCollider)
+    private void CheckingItem(bool isItem, Collider2D itemCollider)
     {
-        if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
+        if (isItem)
         {
-            item.PickUp();
+            if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
+            {
+                item.PickUp();
+            }
         }
+        
     }
 }

@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(PolygonCollider2D))]
 public class OpeningTheDoor : MonoBehaviour
 {
     [SerializeField] private Sprite _closedDoor, _openedDoor, _closedDoorEmission, _openedDoorEmission;
@@ -12,7 +14,7 @@ public class OpeningTheDoor : MonoBehaviour
     private BoxCollider2D _boxCollider;
     private PolygonCollider2D _polygonCollider;
 
-    private void OnEnable()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
@@ -21,7 +23,33 @@ public class OpeningTheDoor : MonoBehaviour
 
     private void Update()
     {
-        if (_boxCollider.enabled == true)
+        DoorActons(false);
+    }
+
+    public void DoorActons(bool doorFound)
+    {
+        if (doorFound)
+        {
+            if (_boxCollider.enabled == true)
+            {
+                _spriteRenderer.sprite = _closedDoorEmission;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    DoorSwitch();
+                }
+            }
+            else
+            {
+                _spriteRenderer.sprite = _openedDoorEmission;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    DoorSwitch();
+                }
+            }
+        }
+        else
+        {
+            if (_boxCollider.enabled == true)
         {
             _spriteRenderer.sprite = _closedDoor;
         }
@@ -29,26 +57,8 @@ public class OpeningTheDoor : MonoBehaviour
         {
             _spriteRenderer.sprite = _openedDoor;
         }
-    }
-
-    public void DoorActons()
-    {
-        if (_boxCollider.enabled == true)
-        {
-            _spriteRenderer.sprite = _closedDoorEmission;
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                DoorSwitch();
-            }
         }
-        else
-        {
-            _spriteRenderer.sprite = _openedDoorEmission;
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                DoorSwitch();
-            }
-        }
+       
     }
 
     private void DoorSwitch()

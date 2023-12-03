@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(TilemapRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class RoomTransparencyTrigger : MonoBehaviour
 {
     private TilemapRenderer _tilemapRenderer;

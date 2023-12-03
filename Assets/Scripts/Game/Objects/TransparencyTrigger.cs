@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(BoxCollider2D))]
 public class TransparencyTrigger : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
