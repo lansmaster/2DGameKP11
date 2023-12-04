@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject _inventory;
     [SerializeField] private Transform _slotsTransform;
     private InventorySlot[] inventorySlots = new InventorySlot[16];
 
@@ -14,7 +13,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        _inventory.transform.localScale = Vector3.zero;
+        transform.localScale = Vector3.zero;
 
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -40,12 +39,12 @@ public class Inventory : MonoBehaviour
         {
             if (_isOpened)
             {
-                _inventory.transform.localScale = Vector3.zero;
+                transform.localScale = Vector3.zero;
                 _isOpened = false;
             }
             else
             {
-                _inventory.transform.localScale = Vector3.one;
+                transform.localScale = Vector3.one;
                 _isOpened = true;
             }
         }

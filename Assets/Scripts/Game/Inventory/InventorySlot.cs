@@ -6,19 +6,14 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] private ItemInfo _itemInfo;
     
     public AssetItem ItemInSlot;
-    public GameObject itemGameObject;
+    private GameObject itemGameObject;
 
-    public Image slotIcon;
-    private Button _button;
+    private Image slotIcon;
 
 
     private void Start()
     {
         slotIcon = gameObject.transform.GetChild(0).GetComponent<Image>();
-        
-        _button = GetComponent<Button>();
-
-        _button.onClick.AddListener(SlotClicked);
     }
 
     public void PutInSlot(AssetItem item, GameObject itemObject)
@@ -29,7 +24,7 @@ public class InventorySlot : MonoBehaviour
         slotIcon.enabled = true;
     }
 
-    void SlotClicked()
+    public void SlotClicked()
     {
         if (ItemInSlot != null)
         {
