@@ -107,7 +107,10 @@ public class PlayerActions : MonoBehaviour
         {
             if(characterCollider.gameObject.TryGetComponent(out Teacher203 character))
             {
-                character.ShowDialog();
+                if (character.dialogIsStart == false)
+                {
+                    character.StartDialog();
+                }
             }
         }
     }

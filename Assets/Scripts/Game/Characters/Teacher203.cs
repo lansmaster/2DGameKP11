@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 
 public class Teacher203 : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Teacher203 : MonoBehaviour
     private Button _notButton;
     private TextMeshProUGUI _notButtonText;
 
+    public bool dialogIsStart = false;
+
     private void Start()
     {
         _dialogIcon = _dialogPanel.transform.GetChild(0).GetComponent<Image>();
@@ -28,23 +31,30 @@ public class Teacher203 : MonoBehaviour
         ShowButtons(false);
     }
 
-    public void ShowDialog()
+    private void Update()
+    {
+
+    }
+
+    public void StartDialog()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            dialogIsStart = true;
+
             GetDialog();
         }
     }
 
     private void GetDialog()
     {
-        _dialogPanel.SetActive(true);
+        ShowDialog(true);
 
         _dialogIcon.sprite = _dialogImage;
 
         _text.text = "Я расскажу историю о том как я...";
 
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
 
             _text.gameObject.SetActive(false);
             _dialogIcon.sprite = _playerDialogImage;
@@ -54,17 +64,15 @@ public class Teacher203 : MonoBehaviour
 
             _notButtonText.text = "*Отойти подальше*";
 
-            if (_yesButton.onClick != null)
-            {
-                _dialogPanel.SetActive(false);
-            }
-            if (_notButton.onClick != null)
-            {
-                _dialogPanel.SetActive(false);
-            }
+            _notButton.onClick.AddListener(() => ShowDialog(false));
         }
 
         
+    }
+
+    private void ShowDialog(bool show)
+    {
+        _dialogPanel.SetActive(show);
     }
 
     private void ShowButtons(bool show)
