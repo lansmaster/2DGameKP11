@@ -14,6 +14,9 @@ public class PlayerActions : MonoBehaviour
     [Header("Взаимодействие с предметами: ")]
     [SerializeField] private LayerMask _itemsLayerMask;
 
+    [Header("Взаимодействие с персонажами: ")]
+    [SerializeField] private LayerMask _charactersLayerMask;
+
     private PlayerMover _player;
 
     private void Start()
@@ -26,6 +29,8 @@ public class PlayerActions : MonoBehaviour
         FindingDoor();
 
         FindingItem();
+
+        FindingCharacter();
     }
 
     //private void OnDrawGizmos()
@@ -91,6 +96,18 @@ public class PlayerActions : MonoBehaviour
             if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
             {
                 item.PickUp();
+            }
+        }
+    }
+
+    private void FindingCharacter()
+    {
+        Collider2D characterCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _charactersLayerMask);
+        if (characterCollider != null)
+        {
+            if(characterCollider.gameObject.TryGetComponent(out Teacher203 character))
+            {
+                character.ShowDialog();
             }
         }
     }
