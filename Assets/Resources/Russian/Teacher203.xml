@@ -1,0 +1,14 @@
+<dialogue name="Teacher203">
+  <node id="0" npcText="Привет!">
+    <answer text="Чем я могу помочь?" toNode="1" questValue="0" questName="Teacher203Quest" />
+    <answer text="Я нашел ваши документы." toNode="2" questStatus="2" questValueGreater="1" questName="Teacher203Quest" />
+    <answer text="Здравствуйте. Извените, я спешу." exit="True" />
+  </node>
+  <node id="1" npcText="Можешь помочь мне с одним небольшим делом?">
+    <answer text="Да, конечно." exit="True" questStatus="1" questName="Teacher203Quest" />
+    <answer text="Извените, у меня нет времени." exit="True" />
+  </node>
+  <node id="2" npcText="Спасибо больше! Я уже начал волноватся. ">
+    <answer text="Всего доброго!" exit="True" />
+  </node>
+</dialogue>

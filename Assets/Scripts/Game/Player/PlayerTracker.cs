@@ -11,7 +11,7 @@ public class PlayerTracker : MonoBehaviour
         _transform = GetComponent<Transform>();
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         _transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _transform.position.z);
     }

@@ -45,18 +45,6 @@ public class PlayerActions : MonoBehaviour
         Collider2D doorCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _doorsLayerMask);
         if (doorCollider != null)
         {
-            CheckingDoor(true, doorCollider);
-        }
-        else
-        {
-            CheckingDoor(false);
-        }
-    }
-
-    private void CheckingDoor(bool doorFound, Collider2D doorCollider = null)
-    {
-        if (doorFound)
-        {
             _imgPressE.enabled = true;
 
             if (doorCollider.gameObject.TryGetComponent(out OpeningTheDoor door))
@@ -72,7 +60,6 @@ public class PlayerActions : MonoBehaviour
 
                 door.DoorActons();
             }
-
         }
         else
         {
@@ -84,14 +71,6 @@ public class PlayerActions : MonoBehaviour
     {
         Collider2D itemCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _itemsLayerMask);
         if (itemCollider != null)
-        {
-            CheckingItem(true, itemCollider);
-        }
-    }
-
-    private void CheckingItem(bool itemFound, Collider2D itemCollider)
-    {
-        if (itemFound)
         {
             if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
             {
@@ -105,11 +84,11 @@ public class PlayerActions : MonoBehaviour
         Collider2D characterCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _charactersLayerMask);
         if (characterCollider != null)
         {
-            if(characterCollider.gameObject.TryGetComponent(out Teacher203 character))
+            if(characterCollider.gameObject.TryGetComponent(out DialogueTrigger tr))
             {
-                if (character.dialogIsStart == false)
+                if (tr != null && tr.fileName != string.Empty)
                 {
-                    character.StartDialog();
+                    DialogueManager.Internal.DialogueStart(tr.fileName);
                 }
             }
         }
