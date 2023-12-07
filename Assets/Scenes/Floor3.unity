@@ -8222,6 +8222,9 @@ MonoBehaviour:
   _itemsLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  _charactersLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &644709600
 GameObject:
   m_ObjectHideFlags: 0
@@ -11825,6 +11828,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 366139577}
     m_Modifications:
+    - target: {fileID: 1663142674362264656, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 111560044, guid: bfdc2a0d0120dc948ae6f0678a29db46, type: 3}
     - target: {fileID: 3819120141369596929, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.895
@@ -35633,14 +35640,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 366139577}
     m_Modifications:
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 641853896}
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _imgPressE
-      value: 
-      objectReference: {fileID: 1336357944}
     - target: {fileID: 618613894382212928, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.895
@@ -35685,6 +35684,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalWallLeft (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 641853896}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _imgPressE
+      value: 
+      objectReference: {fileID: 1336357944}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

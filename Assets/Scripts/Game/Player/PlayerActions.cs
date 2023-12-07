@@ -84,11 +84,14 @@ public class PlayerActions : MonoBehaviour
         Collider2D characterCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _charactersLayerMask);
         if (characterCollider != null)
         {
-            if(characterCollider.gameObject.TryGetComponent(out DialogueTrigger tr))
+            if(characterCollider.gameObject.TryGetComponent(out NPCTrigger trigger))
             {
-                if (tr != null && tr.fileName != string.Empty)
+                if (trigger != null)
                 {
-                    DialogueManager.Internal.DialogueStart(tr.fileName);
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        trigger.OnTrigger();
+                    }
                 }
             }
         }
