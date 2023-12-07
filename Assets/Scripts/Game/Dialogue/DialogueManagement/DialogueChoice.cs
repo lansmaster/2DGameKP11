@@ -43,11 +43,9 @@ public class DialogueChoice : MonoBehaviour
 
     public void HideChoises()
     {
-        //foreach(var button in _choices) // 1 способ
-        //{
-        //    button.SetActive(false);
-        //}
-
-        Array.ForEach(_choices, button => { button.SetActive(false); }); // 2 способ
+        foreach (var button in _choices)
+        {
+            button.SetActive(false);
+        }
     }
 }

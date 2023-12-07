@@ -39,6 +39,11 @@ public class DialogueWindow : MonoBehaviour
         return value;
     }
 
+    private void Awake()
+    {
+        Init();
+    }
+
     public void Init()
     {
         IsStatusAnswer = false;

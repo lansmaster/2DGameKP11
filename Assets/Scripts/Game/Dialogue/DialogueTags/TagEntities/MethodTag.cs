@@ -9,6 +9,6 @@ public class MethodTag : MonoBehaviour, ITag
 
         var method = dialogueMethods.GetType().GetMethod(value);
 
-        method.Invoke (dialogueMethods, null);
+        method.Invoke(dialogueMethods, parameters: null);
     }
 }
