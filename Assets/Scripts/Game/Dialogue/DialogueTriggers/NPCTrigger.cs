@@ -11,7 +11,7 @@ public class NPCTrigger : MonoBehaviour
         _dialogueController = FindObjectOfType<DialogueController>();
     }
 
-    public void OnTrigger()
+    public void TriggerAction()
     {
         _dialogueController.EnterDialogueMode(_inkJSON);
     }
