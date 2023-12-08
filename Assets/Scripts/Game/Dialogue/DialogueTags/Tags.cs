@@ -9,8 +9,8 @@ public class Tags : MonoBehaviour
     private void Start()
     {
         _map.Add("speaker", GetComponent<SpeakerTag>());
-        _map.Add("method", GetComponent<SpeakerTag>());
-        _map.Add("cooldown", GetComponent<SpeakerTag>());
+        _map.Add("method", GetComponent<MethodTag>());
+        _map.Add("cooldown", GetComponent<CooldownTag>());
     }
 
     public ITag GetValue(string key)

@@ -8,7 +8,7 @@ public class CooldownTag : MonoBehaviour, ITag
     {
         float number = (float)Convert.ToDouble(value.Replace(".", ","));
 
-        var dialogueWindow = GetComponent<DialogueWindow>();
+        DialogueWindow dialogueWindow = GetComponent<DialogueWindow>();
 
         try
         {

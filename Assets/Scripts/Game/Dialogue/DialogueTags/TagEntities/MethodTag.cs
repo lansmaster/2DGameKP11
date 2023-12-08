@@ -5,7 +5,7 @@ public class MethodTag : MonoBehaviour, ITag
 {
     public void Calling(string value)
     {
-        var dialogueMethods = GetComponent<DialogueMethods>();
+        DialogueMethods dialogueMethods = GetComponent<DialogueMethods>();
 
         var method = dialogueMethods.GetType().GetMethod(value);
 

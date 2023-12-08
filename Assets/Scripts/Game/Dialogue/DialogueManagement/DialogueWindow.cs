@@ -22,7 +22,9 @@ public class DialogueWindow : MonoBehaviour
 
     public float CoolDownNewLettew
     {
-        get => _cooldownNewLetter;
+        get {
+            return _cooldownNewLetter;
+        } 
         private set
         {
             _cooldownNewLetter = CheckCooldown(value);

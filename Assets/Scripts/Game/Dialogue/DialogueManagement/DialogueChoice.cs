@@ -7,6 +7,7 @@ public class DialogueChoice : MonoBehaviour
 {
     [SerializeField] private GameObject[] _choices;
     private TextMeshProUGUI[] _choicesText;
+   
 
     public void Init()
     {

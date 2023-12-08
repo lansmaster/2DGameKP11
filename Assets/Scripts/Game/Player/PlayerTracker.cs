@@ -13,6 +13,6 @@ public class PlayerTracker : MonoBehaviour
 
     private void LateUpdate()
     {
-        _transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _transform.position.z);
+        _transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + 0.5f, _transform.position.z);
     }
 }
