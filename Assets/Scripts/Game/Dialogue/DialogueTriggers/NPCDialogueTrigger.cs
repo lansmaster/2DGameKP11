@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NPCTrigger : MonoBehaviour
+public class NPCDialogueTrigger : MonoBehaviour
 {
     [SerializeField] private TextAsset _inkJSON;
 

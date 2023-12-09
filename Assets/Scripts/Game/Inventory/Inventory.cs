@@ -1,8 +1,5 @@
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -10,6 +7,8 @@ public class Inventory : MonoBehaviour
     private InventorySlot[] inventorySlots = new InventorySlot[16];
 
     private bool _isOpened = false;
+
+    public UnityAction<bool> InventoryIsOpened;
 
     private void Start()
     {
@@ -47,6 +46,8 @@ public class Inventory : MonoBehaviour
                 transform.localScale = Vector3.one;
                 _isOpened = true;
             }
+
+            InventoryIsOpened.Invoke(_isOpened);
         }
     }
 }
