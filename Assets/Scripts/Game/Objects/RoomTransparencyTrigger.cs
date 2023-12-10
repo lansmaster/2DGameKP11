@@ -1,24 +1,25 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
+using UnityEngine.Rendering.Universal;
 
-[RequireComponent(typeof(TilemapRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class RoomTransparencyTrigger : MonoBehaviour
 {
-    private TilemapRenderer _tilemapRenderer;
     private SpriteRenderer[] _spriteRenderers;
+    private Light2D _light;
 
     private void Start()
     {
-        _tilemapRenderer = GetComponent<TilemapRenderer>();
+        _light = GetComponentInChildren<Light2D>();
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+        _light.enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            _tilemapRenderer.sortingOrder = -5;
+            _light.enabled = true;
 
             foreach (var wall in _spriteRenderers)
             {
@@ -31,7 +32,7 @@ public class RoomTransparencyTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            _tilemapRenderer.sortingOrder = 1;
+            _light.enabled = false;
 
             foreach (var wall in _spriteRenderers)
             {
