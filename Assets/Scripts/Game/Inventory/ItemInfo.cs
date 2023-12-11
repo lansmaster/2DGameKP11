@@ -14,6 +14,8 @@ public class ItemInfo : MonoBehaviour
     private GameObject _itemGameObject;
     private InventorySlot _currentSlot;
 
+    private Rigidbody2D _itemRigidbody;
+
     //private Item InfoItem;
 
     private void Start()
@@ -21,6 +23,8 @@ public class ItemInfo : MonoBehaviour
         _title = _itemInfo.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         _description = _itemInfo.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         _iconImage = _itemInfo.transform.GetChild(2).GetComponent<Image>();
+
+        
     }
 
     public void ChangeInfo(AssetItem item)
@@ -37,9 +41,16 @@ public class ItemInfo : MonoBehaviour
 
     public void Drop()
     {
-        Vector3 dropPosition = new Vector3(_playerMover.transform.position.x + 0.5f, _playerMover.transform.position.y, _playerMover.transform.position.z);
+        float positiveRandomValue = Random.Range(0.2f, 0.5f);
+        float negativeRandomValue = Random.Range(-0.5f, -0.2f);
+        float xRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
+        float yRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
+
+        Vector3 dropPosition = new Vector3(_playerMover.transform.position.x + xRandomValue, _playerMover.transform.position.y + yRandomValue, _playerMover.transform.position.z);
         _itemGameObject.SetActive(true);
         _itemGameObject.transform.position = dropPosition;
+        
+        _itemRigidbody.velocity = new Vector3(xRandomValue * 2, yRandomValue * 2, 0);
 
         _currentSlot.ClearSlot();
         Close();
@@ -50,6 +61,7 @@ public class ItemInfo : MonoBehaviour
         ChangeInfo(item);
 
         _itemGameObject = itemObject;
+        _itemRigidbody = _itemGameObject.GetComponent<Rigidbody2D>();
         _currentSlot = currentSlot;
 
         _itemInfo.SetActive(true);
