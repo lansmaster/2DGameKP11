@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private const float _animationChangeRate = 2;
 
     private Inventory _inventory;
-    private bool _inventoryIsOpened = false;
+    private bool _UIIsOpened = false;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(_inventoryIsOpened == true)
+        if(_UIIsOpened == true)
         {
             SlowingDownPlayer();
         }
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     private void SetActiveMover(bool active)
     {
         _mover.enabled = !active;
-        _inventoryIsOpened = true;
+        _UIIsOpened = true;
     }
 
     private void SlowingDownPlayer()
