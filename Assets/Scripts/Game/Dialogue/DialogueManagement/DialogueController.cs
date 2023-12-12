@@ -18,6 +18,7 @@ public class DialogueController : MonoBehaviour
         _dialogueWindow = GetComponent<DialogueWindow>();
 
         _dialogueTag.Init();
+        _dialogueWindow.Init();
     }
 
     private void Start()
@@ -27,9 +28,7 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
-        if (_dialogueWindow.IsStatusAnswer == true || 
-            _dialogueWindow.IsPlaying == false || 
-            _dialogueWindow.CanContinueToNextLine == false)
+        if (_dialogueWindow.IsStatusAnswer == true || _dialogueWindow.IsPlaying == false || _dialogueWindow.CanContinueToNextLine == false)
         {
             return;
         }
@@ -82,7 +81,7 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    public void MakeChoice(int choiceIndex)
+    public void MakeChoice(int choiceIndex) // Повесил на кнопки
     {
         _dialogueWindow.MakeChoice();
 

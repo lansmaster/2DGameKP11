@@ -3,11 +3,13 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(DialogueChoice))]
 public class DialogueWindow : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _displayName;
+    [SerializeField] private Image _textWindow; 
     [SerializeField] private TextMeshProUGUI _displayText;
 
     [SerializeField] private GameObject _dialogueWindow;
@@ -39,11 +41,6 @@ public class DialogueWindow : MonoBehaviour
         }
 
         return value;
-    }
-
-    private void Awake()
-    {
-        Init();
     }
 
     public void Init()
@@ -103,6 +100,8 @@ public class DialogueWindow : MonoBehaviour
 
     public IEnumerator DisplayLine(Story story)
     {
+        _textWindow.enabled = true;
+
         string line = story.Continue();
 
         ClearText();
@@ -138,8 +137,16 @@ public class DialogueWindow : MonoBehaviour
             }
         }
 
-        CanContinueToNextLine = true;
+        do
+        {
+            yield return new WaitForSeconds(0.001f);
+        }
+        while (!Input.GetMouseButton(0));
 
+        _textWindow.enabled = false;
+
+        CanContinueToNextLine = true;
+        
         IsStatusAnswer = _dialogueChoice.DisplayChoices(story);
     }
 }

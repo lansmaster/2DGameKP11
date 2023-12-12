@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SpriteRenderer))]
 public class FloorChanger : MonoBehaviour
 {
-    [SerializeField] private PlayerMover _player;
     [SerializeField] private bool _isUpper;
     [SerializeField] private Sprite _floorDoor, _floorDoor_Emission;
+
+    private Player _player;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -24,14 +25,14 @@ public class FloorChanger : MonoBehaviour
 
     private void Update()
     {
-        float currentDistance = Vector3.Distance(transform.position, _player.transform.position);
+        float currentDistance = Vector3.Distance(transform.position, _player.Position);
         if (currentDistance < _interactionDistance)
         {
             _spriteRenderer.sprite = _floorDoor_Emission;
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                lastPlayerPositionBeforeTeleportation = _player.transform.position;
+                lastPlayerPositionBeforeTeleportation = _player.Position;
 
                 if(_isUpper)
                 {

@@ -7,7 +7,6 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
-    private Transform _transform;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
 
@@ -18,13 +17,12 @@ public class PlayerMover : MonoBehaviour
 
     private void Start()
     {
-        _transform = GetComponent<Transform>();
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
         if(FloorChanger.lastPlayerPositionBeforeTeleportation != null)
         {
-            _transform.position = FloorChanger.lastPlayerPositionBeforeTeleportation;
+            transform.position = FloorChanger.lastPlayerPositionBeforeTeleportation;
         }
 
         currentWalkSpeed = _walkSpeed;

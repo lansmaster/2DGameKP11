@@ -5,26 +5,31 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private ItemInfo _itemInfo;
     
-    public AssetItem ItemInSlot;
+    private AssetItem ItemInSlot;
     private GameObject itemGameObject;
 
     private Image slotIcon;
 
+    public bool IsEmpty {  get; private set; }
 
-    private void Start()
+    public void Init()
     {
         slotIcon = gameObject.transform.GetChild(0).GetComponent<Image>();
+
+        IsEmpty = true;
     }
 
     public void PutInSlot(AssetItem item, GameObject itemObject)
     {
+        IsEmpty = false;
+
         ItemInSlot = item;
         itemGameObject = itemObject;   
         slotIcon.sprite = item.Icon;
         slotIcon.enabled = true;
     }
 
-    public void SlotClicked()
+    public void SlotClicked() // Повесил на кнопки
     {
         if (ItemInSlot != null)
         {
@@ -34,6 +39,8 @@ public class InventorySlot : MonoBehaviour
 
     public void ClearSlot()
     {
+        IsEmpty = true;
+
         ItemInSlot = null;
         itemGameObject = null;
         slotIcon.sprite = null;

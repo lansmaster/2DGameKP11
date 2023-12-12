@@ -17,11 +17,11 @@ public class PlayerActions : MonoBehaviour
     [Header("Взаимодействие с персонажами: ")]
     [SerializeField] private LayerMask _charactersLayerMask;
 
-    private PlayerMover _player;
+    private Player _player;
 
     private void Start()
     {
-        _player = GetComponent<PlayerMover>();
+        _player = GetComponent<Player>();
     }
 
     private void Update()
@@ -42,7 +42,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingDoor()
     {
-        Collider2D doorCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _doorsLayerMask);
+        Collider2D doorCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _doorsLayerMask);
         if (doorCollider != null)
         {
             _imgPressE.enabled = true;
@@ -69,7 +69,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingItem()
     {
-        Collider2D itemCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _itemsLayerMask);
+        Collider2D itemCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _itemsLayerMask);
         if (itemCollider != null)
         {
             if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
@@ -81,7 +81,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingCharacter()
     {
-        Collider2D characterCollider = Physics2D.OverlapCircle(_player.transform.position, _interactionDistance, _charactersLayerMask);
+        Collider2D characterCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _charactersLayerMask);
         if (characterCollider != null)
         {
             if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
