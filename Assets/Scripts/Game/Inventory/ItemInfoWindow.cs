@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ItemInfo : MonoBehaviour
+public class ItemInfoWindow : MonoBehaviour
 {
-    [SerializeField] private GameObject _itemInfo;
+    [SerializeField] private GameObject _itemInfoWindow;
 
     private Player _player;
 
@@ -19,9 +19,9 @@ public class ItemInfo : MonoBehaviour
 
     public void Init()
     {
-        _title = _itemInfo.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        _description = _itemInfo.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        _iconImage = _itemInfo.transform.GetChild(2).GetComponent<Image>();
+        _title = _itemInfoWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        _description = _itemInfoWindow.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        _iconImage = _itemInfoWindow.transform.GetChild(2).GetComponent<Image>();
 
         _player = FindObjectOfType<Player>();
     }
@@ -33,7 +33,7 @@ public class ItemInfo : MonoBehaviour
         _iconImage.sprite = item.Icon;
     }
 
-    public void Use() 
+    public void Use()
     {
     }
 
@@ -62,11 +62,11 @@ public class ItemInfo : MonoBehaviour
         _itemRigidbody = _itemGameObject.GetComponent<Rigidbody2D>();
         _currentSlot = currentSlot;
 
-        _itemInfo.SetActive(true);
+        _itemInfoWindow.SetActive(true);
     }
 
     public void Close() // повесил на кнопку
     {
-        _itemInfo.SetActive(false);
+        _itemInfoWindow.SetActive(false);
     }
 }

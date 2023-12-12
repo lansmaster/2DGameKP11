@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {   
-    [SerializeField] private ItemInfo _itemInfo;
+    private ItemInfoWindow _itemInfoWindow;
 
     private AssetItem _itemInSlot;
     private GameObject _itemGameObject;
@@ -14,11 +14,11 @@ public class InventorySlot : MonoBehaviour
 
     public void Init()
     {
+        _itemInfoWindow = FindObjectOfType<ItemInfoWindow>();
+
         _slotIcon = transform.GetChild(0).GetComponent<Image>();
 
         IsEmpty = true;
-
-        _itemInfo.Init();
     }
 
     public void PutInSlot(AssetItem item, GameObject itemObject)
@@ -35,7 +35,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (_itemInSlot != null)
         {
-            _itemInfo.Open(_itemInSlot, _itemGameObject, this);
+            _itemInfoWindow.Open(_itemInSlot, _itemGameObject, this);
         }
     }
 

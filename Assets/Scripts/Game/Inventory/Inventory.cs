@@ -6,6 +6,8 @@ public class Inventory : MonoBehaviour
 
     private InventorySlot[] _inventorySlots = new InventorySlot[25];
 
+    private ItemInfoWindow _itemInfoWindow;
+
     public bool IsOpened { get; private set; }
 
     private void Awake()
@@ -17,6 +19,9 @@ public class Inventory : MonoBehaviour
             _inventorySlots[i] = _slotsContainer.GetChild(i).GetComponent<InventorySlot>();
             _inventorySlots[i].Init();
         }
+
+        _itemInfoWindow = GetComponent<ItemInfoWindow>();
+        _itemInfoWindow.Init();
     }
     private void Update()
     {
