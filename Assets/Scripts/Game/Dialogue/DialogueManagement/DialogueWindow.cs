@@ -76,6 +76,7 @@ public class DialogueWindow : MonoBehaviour
     public void ClearText()
     {
         SetText("");
+        _textWindow.enabled = true;
     }
 
     public void SetName(string namePerson)
@@ -100,8 +101,6 @@ public class DialogueWindow : MonoBehaviour
 
     public IEnumerator DisplayLine(Story story)
     {
-        _textWindow.enabled = true;
-
         string line = story.Continue();
 
         ClearText();
@@ -137,16 +136,12 @@ public class DialogueWindow : MonoBehaviour
             }
         }
 
-        do
-        {
-            yield return new WaitForSeconds(0.001f);
-        }
-        while (!Input.GetMouseButton(0) && !Input.GetKeyDown(KeyCode.Space));
-
-        _textWindow.enabled = false;
-
         CanContinueToNextLine = true;
         
         IsStatusAnswer = _dialogueChoice.DisplayChoices(story);
+        if (IsStatusAnswer == true)
+        {
+            _textWindow.enabled = false;
+        }
     }
 }
