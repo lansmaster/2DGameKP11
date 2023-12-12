@@ -16,17 +16,11 @@ public class Player : MonoBehaviour
     public Vector3 Position
     {
         get => transform.position;
-        
-        private set
-        {
-            transform.position = value;
-        }
+        private set { }
     }
 
     private void Start()
     {
-        Position = transform.position;
-
         _mover = GetComponent<PlayerMover>();
         _actions = GetComponent<PlayerActions>();
 
@@ -39,7 +33,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(_dialogueWindow.IsPlaying || _inventory.IsOpened)
+        if (_dialogueWindow.IsPlaying || _inventory.IsOpened)
         {
             SetActiveMover(false);
             SlowingDownPlayer();

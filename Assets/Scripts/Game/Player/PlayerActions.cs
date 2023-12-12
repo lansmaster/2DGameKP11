@@ -88,10 +88,7 @@ public class PlayerActions : MonoBehaviour
             {
                 if (dialogueTrigger != null)
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        dialogueTrigger.TriggerAction();
-                    }
+                    dialogueTrigger.TriggerAction();
                 }
             }
         }
