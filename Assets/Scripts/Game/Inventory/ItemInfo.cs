@@ -17,7 +17,7 @@ public class ItemInfo : MonoBehaviour
 
     private Rigidbody2D _itemRigidbody;
 
-    private void Start()
+    public void Init()
     {
         _title = _itemInfo.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         _description = _itemInfo.transform.GetChild(1).GetComponent<TextMeshProUGUI>();

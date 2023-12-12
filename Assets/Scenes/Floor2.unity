@@ -615,12 +615,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (10)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -1508,7 +1508,6 @@ GameObject:
   - component: {fileID: 83413644}
   - component: {fileID: 83413643}
   - component: {fileID: 83413642}
-  - component: {fileID: 83413641}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1528,8 +1527,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 180058966}
   - {fileID: 831313190}
+  - {fileID: 180058966}
   - {fileID: 4517403}
   - {fileID: 922200865}
   - {fileID: 282002394}
@@ -1541,19 +1540,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &83413641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83413639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e62f2a0b7e94a86b26c28b08c9796e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemInfo: {fileID: 180058965}
 --- !u!114 &83413642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,12 +1625,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (18)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -4240,12 +4226,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (19)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -5726,12 +5712,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (2)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -6294,12 +6280,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (7)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -7507,7 +7493,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450280784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7516,8 +7502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110.810875, y: 79.73627}
-  m_SizeDelta: {x: 166.4375, y: -345.7356}
+  m_AnchoredPosition: {x: -110.727905, y: 79.6248}
+  m_SizeDelta: {x: 159.2516, y: -353.3472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450280786
 MonoBehaviour:
@@ -8347,12 +8333,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (22)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -10303,12 +10289,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (5)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -11889,12 +11875,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (12)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -12019,12 +12005,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (20)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -13360,6 +13346,7 @@ GameObject:
   - component: {fileID: 831313193}
   - component: {fileID: 831313192}
   - component: {fileID: 831313191}
+  - component: {fileID: 831313194}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -13440,6 +13427,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831313189}
   m_CullTransparentMesh: 1
+--- !u!114 &831313194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831313189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e62f2a0b7e94a86b26c28b08c9796e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemInfo: {fileID: 180058965}
 --- !u!1001 &833796597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14235,12 +14235,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (23)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -15441,12 +15441,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (4)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -22507,7 +22507,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 83413641}
+      - m_Target: {fileID: 831313194}
         m_TargetAssemblyTypeName: ItemInfo, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -23018,12 +23018,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (14)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -23429,7 +23429,7 @@ PrefabInstance:
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -25168,7 +25168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 83413641}
+      - m_Target: {fileID: 831313194}
         m_TargetAssemblyTypeName: ItemInfo, Assembly-CSharp
         m_MethodName: Drop
         m_Mode: 1
@@ -25293,12 +25293,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (8)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -25740,12 +25740,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (24)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -28139,7 +28139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2537c18ae13d7d48ad852bc471510a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 819548202}
 --- !u!81 &1406379301
 AudioListener:
   m_ObjectHideFlags: 0
@@ -29715,12 +29714,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (6)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -30632,12 +30631,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (3)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -31906,12 +31905,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (15)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -32036,12 +32035,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (9)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -32305,12 +32304,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (16)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -33456,12 +33455,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (1)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -34222,12 +34221,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (17)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -36517,12 +36516,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (13)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -37764,12 +37763,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (11)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0
@@ -39258,12 +39257,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120754740249571362, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Name
-      value: Slot (21)
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1078854191355844822, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: _itemInfo
       value: 
-      objectReference: {fileID: 83413641}
+      objectReference: {fileID: 831313194}
     - target: {fileID: 6548388049086277421, guid: d1a192372da2f5347b93fc9e087113f9, type: 3}
       propertyPath: m_Type
       value: 0

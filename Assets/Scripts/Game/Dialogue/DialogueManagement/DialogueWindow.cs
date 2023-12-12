@@ -141,7 +141,7 @@ public class DialogueWindow : MonoBehaviour
         {
             yield return new WaitForSeconds(0.001f);
         }
-        while (!Input.GetMouseButton(0));
+        while (!Input.GetMouseButton(0) && !Input.GetKeyDown(KeyCode.Space));
 
         _textWindow.enabled = false;
 

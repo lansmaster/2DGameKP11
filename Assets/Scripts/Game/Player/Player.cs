@@ -17,11 +17,16 @@ public class Player : MonoBehaviour
     {
         get => transform.position;
         
-        private set { }
+        private set
+        {
+            transform.position = value;
+        }
     }
 
     private void Start()
     {
+        Position = transform.position;
+
         _mover = GetComponent<PlayerMover>();
         _actions = GetComponent<PlayerActions>();
 

@@ -18,6 +18,7 @@ public class FloorChanger : MonoBehaviour
 
     private void Start()
     {
+        _player = FindObjectOfType<Player>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
