@@ -2332,6 +2332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorizontalDoor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 306
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11512,6 +11516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorizontalDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 305A
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13796,6 +13804,10 @@ PrefabInstance:
     - target: {fileID: 7327705318925054466, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
       propertyPath: m_Name
       value: HorizontalDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 307
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16586,6 +16598,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorizontalDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 8960779664186914927, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 650146600}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19783,6 +19803,10 @@ PrefabInstance:
     - target: {fileID: 7327705318925054466, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 305
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -7,22 +6,26 @@ using UnityEngine.Tilemaps;
 public class OpeningTheDoor : MonoBehaviour
 {
     [SerializeField] private Sprite _closedDoor, _openedDoor, _closedDoorEmission, _openedDoorEmission;
-
-    public bool isOpened;
+    
+    public bool isOpened { get; private set; }
 
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
     private PolygonCollider2D _polygonCollider;
+    private RoomNumberSign _roomNumberSign;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
+        _roomNumberSign = GetComponent<RoomNumberSign>();
     }
 
     private void FixedUpdate()
     {
+        _roomNumberSign.Show(false);
+
         if (_boxCollider.enabled == true)
         {
             _spriteRenderer.sprite = _closedDoor;
@@ -35,6 +38,8 @@ public class OpeningTheDoor : MonoBehaviour
 
     public void DoorActons()
     {
+        _roomNumberSign.Show(true);
+
         if (_boxCollider.enabled == true)
         {
             _spriteRenderer.sprite = _closedDoorEmission;
