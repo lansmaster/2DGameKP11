@@ -12,8 +12,8 @@ public class PlayerMover : MonoBehaviour
 
     private const float _speedChangeRate = 4.0f;
 
-    private float currentWalkSpeed;
-    private float currentRunSpeed;
+    private float _currentWalkSpeed;
+    private float _currentRunSpeed;
 
     private void Start()
     {
@@ -25,8 +25,8 @@ public class PlayerMover : MonoBehaviour
             transform.position = FloorChanger.lastPlayerPositionBeforeTeleportation;
         }
 
-        currentWalkSpeed = _walkSpeed;
-        currentRunSpeed = _runSpeed;
+        _currentWalkSpeed = _walkSpeed;
+        _currentRunSpeed = _runSpeed;
     }
 
     private void Update()
@@ -44,15 +44,15 @@ public class PlayerMover : MonoBehaviour
 
         if (!runMode)
         {
-            currentWalkSpeed = Mathf.MoveTowards(currentWalkSpeed, _walkSpeed, _speedChangeRate * Time.deltaTime);
-            _rigidbody.velocity = new Vector2(movement.x, movement.y) * currentWalkSpeed;
-            currentRunSpeed = currentWalkSpeed;
+            _currentWalkSpeed = Mathf.MoveTowards(_currentWalkSpeed, _walkSpeed, _speedChangeRate * Time.deltaTime);
+            _rigidbody.velocity = new Vector2(movement.x, movement.y) * _currentWalkSpeed;
+            _currentRunSpeed = _currentWalkSpeed;
         }
         else
         {
-            currentRunSpeed = Mathf.MoveTowards(currentRunSpeed, _runSpeed, _speedChangeRate * Time.deltaTime);
-            _rigidbody.velocity = new Vector2(movement.x, movement.y) * currentRunSpeed;
-            currentWalkSpeed = currentRunSpeed;
+            _currentRunSpeed = Mathf.MoveTowards(_currentRunSpeed, _runSpeed, _speedChangeRate * Time.deltaTime);
+            _rigidbody.velocity = new Vector2(movement.x, movement.y) * _currentRunSpeed;
+            _currentWalkSpeed = _currentRunSpeed;
         }
     }
 

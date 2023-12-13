@@ -11955,6 +11955,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 366139577}
     m_Modifications:
+    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _roomNumber
+      value: 303
+      objectReference: {fileID: 0}
     - target: {fileID: 1663142674362264656, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12019,7 +12023,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalDoorLeft
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2624154267143211103, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16598,15 +16603,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorizontalDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 304
+      objectReference: {fileID: 0}
     - target: {fileID: 8960779664186914927, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 650146600}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 94594664332230715, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -19804,10 +19810,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _roomNumber
-      value: 305
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21919,6 +21921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 366139577}
     m_Modifications:
+    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _roomNumber
+      value: 302
+      objectReference: {fileID: 0}
     - target: {fileID: 1663142674362264656, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
       propertyPath: m_Sprite
       value: 
