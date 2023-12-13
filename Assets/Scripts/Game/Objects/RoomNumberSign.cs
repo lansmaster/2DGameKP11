@@ -8,17 +8,28 @@ public class RoomNumberSign : MonoBehaviour
 
     private TextMeshProUGUI _roomNumberSignText;
     private SpriteRenderer _roomNumberSignImage;
+    private Animator _roomNumberSignAnimator;
 
     private void Start()
     {
         _roomNumberSignText = _roomNumberSign.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         _roomNumberSignImage = _roomNumberSign.GetComponent<SpriteRenderer>();
+        _roomNumberSignAnimator = _roomNumberSign.GetComponent<Animator>();
 
         _roomNumberSignText.text = _roomNumber;
     }
 
     public void Show(bool show)
     {
+        if (!show) 
+        { 
+            _roomNumberSignAnimator.StartPlayback();  
+        } 
+        else 
+        { 
+            _roomNumberSignAnimator.StopPlayback(); 
+        }
+
         _roomNumberSignImage.enabled = show;
         _roomNumberSignText.enabled = show;
     }
