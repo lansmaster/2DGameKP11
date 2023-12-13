@@ -77,7 +77,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -90,7 +89,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -103,7 +101,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -116,7 +113,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -129,7 +125,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -140,7 +135,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
+        y: 432
         width: 64
         height: 128
       alignment: 9
@@ -161,7 +156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 104
-        y: 288
+        y: 432
         width: 64
         height: 128
       alignment: 9
@@ -182,7 +177,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 288
+        y: 432
         width: 64
         height: 128
       alignment: 9
@@ -203,7 +198,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 144
+        y: 288
         width: 64
         height: 128
       alignment: 9
@@ -224,7 +219,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 104
-        y: 144
+        y: 288
         width: 64
         height: 128
       alignment: 9
@@ -245,7 +240,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 144
         width: 64
         height: 128
       alignment: 9
@@ -266,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 104
-        y: 0
+        y: 144
         width: 64
         height: 128
       alignment: 9
@@ -287,7 +282,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 144
+        y: 288
         width: 64
         height: 128
       alignment: 9
@@ -308,7 +303,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 208
-        y: 0
+        y: 144
         width: 64
         height: 128
       alignment: 9
@@ -320,6 +315,27 @@ TextureImporter:
       bones: []
       spriteID: 984b2eca3aed1bd479cd1af84e07ef84
       internalID: -1950162223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HorizontalWalls_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05066397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abed4ed27e71f5343841310403c6c1ec
+      internalID: -1132708262
       vertices: []
       indices: 
       edges: []
@@ -344,6 +360,7 @@ TextureImporter:
       HorizontalWalls_6: 1447767046
       HorizontalWalls_7: 463048085
       HorizontalWalls_8: -1950162223
+      HorizontalWalls_9: -1132708262
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

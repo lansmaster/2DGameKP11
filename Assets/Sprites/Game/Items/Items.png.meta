@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 192
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,10 +110,10 @@ TextureImporter:
       name: Items_0
       rect:
         serializedVersion: 2
-        x: 92
-        y: 512
-        width: 72
-        height: 68
+        x: 0
+        y: 106
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: Items_1
       rect:
         serializedVersion: 2
-        x: 520
-        y: 488
-        width: 80
-        height: 112
+        x: 100
+        y: 106
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,9 +152,9 @@ TextureImporter:
       name: Items_2
       rect:
         serializedVersion: 2
-        x: 904
-        y: 512
-        width: 112
+        x: 200
+        y: 106
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: Items_3
       rect:
         serializedVersion: 2
-        x: 92
-        y: 96
-        width: 72
-        height: 68
+        x: 300
+        y: 106
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Items_4
       rect:
         serializedVersion: 2
-        x: 520
-        y: 72
-        width: 80
-        height: 112
+        x: 400
+        y: 106
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,9 +215,9 @@ TextureImporter:
       name: Items_5
       rect:
         serializedVersion: 2
-        x: 904
-        y: 96
-        width: 112
+        x: 0
+        y: 2
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -228,6 +228,90 @@ TextureImporter:
       bones: []
       spriteID: d431af55869115b448fcc212e8f6a5f0
       internalID: 1645435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Items_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44b74b830468144eae0c876b0f1ce81
+      internalID: -606573253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Items_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0487f06cca48e44486915b9551e08b3
+      internalID: 1611924843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Items_8
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef84ff2f3dee88c4f9c49a2e447deae8
+      internalID: -2043136622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Items_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046751647ceb306428e27e03fe4ab7b1
+      internalID: 817297002
       vertices: []
       indices: 
       edges: []
@@ -249,6 +333,10 @@ TextureImporter:
       Items_3: 1133284526
       Items_4: 1089311838
       Items_5: 1645435
+      Items_6: -606573253
+      Items_7: 1611924843
+      Items_8: -2043136622
+      Items_9: 817297002
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
