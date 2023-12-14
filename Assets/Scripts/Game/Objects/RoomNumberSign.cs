@@ -6,31 +6,33 @@ public class RoomNumberSign : MonoBehaviour
     [SerializeField] private string _roomNumber;
     [SerializeField] private GameObject _roomNumberSign;
 
-    private TextMeshProUGUI _roomNumberSignText;
-    private SpriteRenderer _roomNumberSignImage;
-    private Animator _roomNumberSignAnimator;
+    private TextMeshProUGUI _text;
+    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
+    private GameObject _canvas;
 
     private void Start()
     {
-        _roomNumberSignText = _roomNumberSign.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        _roomNumberSignImage = _roomNumberSign.GetComponent<SpriteRenderer>();
-        _roomNumberSignAnimator = _roomNumberSign.GetComponent<Animator>();
+        _text = _roomNumberSign.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        _spriteRenderer = _roomNumberSign.GetComponent<SpriteRenderer>();
+        _animator = _roomNumberSign.GetComponent<Animator>();
+        _canvas = _roomNumberSign.transform.GetChild(0).gameObject;
 
-        _roomNumberSignText.text = _roomNumber;
+        _text.text = _roomNumber;
     }
 
     public void Show(bool show)
     {
         if (!show) 
         { 
-            _roomNumberSignAnimator.StartPlayback();  
+            _animator.StartPlayback();  
         } 
         else 
         { 
-            _roomNumberSignAnimator.StopPlayback(); 
+            _animator.StopPlayback(); 
         }
 
-        _roomNumberSignImage.enabled = show;
-        _roomNumberSignText.enabled = show;
+        _canvas.SetActive(show);
+        _spriteRenderer.enabled = show;
     }
 }

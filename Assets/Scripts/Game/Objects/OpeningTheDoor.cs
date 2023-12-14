@@ -24,7 +24,10 @@ public class OpeningTheDoor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _roomNumberSign.Show(false);
+        if(_roomNumberSign != null)
+        {
+            _roomNumberSign.Show(false);
+        }
 
         if (_boxCollider.enabled == true)
         {
@@ -38,7 +41,10 @@ public class OpeningTheDoor : MonoBehaviour
 
     public void DoorActons()
     {
-        _roomNumberSign.Show(true);
+        if (_roomNumberSign != null)
+        {
+            _roomNumberSign.Show(true);
+        }
 
         if (_boxCollider.enabled == true)
         {
