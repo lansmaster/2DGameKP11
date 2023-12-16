@@ -139,7 +139,7 @@ TextureImporter:
       name: PCTable_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 105
         y: 105
         width: 62
         height: 63
@@ -160,7 +160,7 @@ TextureImporter:
       name: PCTable_1
       rect:
         serializedVersion: 2
-        x: 105
+        x: 209
         y: 105
         width: 62
         height: 63
@@ -181,7 +181,7 @@ TextureImporter:
       name: PCTable_2
       rect:
         serializedVersion: 2
-        x: 209
+        x: 314
         y: 105
         width: 62
         height: 62
@@ -202,7 +202,7 @@ TextureImporter:
       name: PCTable_3
       rect:
         serializedVersion: 2
-        x: 1
+        x: 105
         y: 1
         width: 62
         height: 63
@@ -223,7 +223,7 @@ TextureImporter:
       name: PCTable_4
       rect:
         serializedVersion: 2
-        x: 105
+        x: 209
         y: 1
         width: 62
         height: 63
@@ -244,7 +244,7 @@ TextureImporter:
       name: PCTable_5
       rect:
         serializedVersion: 2
-        x: 209
+        x: 313
         y: 1
         width: 62
         height: 63
@@ -257,6 +257,27 @@ TextureImporter:
       bones: []
       spriteID: 0962dbf41004ab449a43e72cfe73ba54
       internalID: 91491659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PCTable_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 62
+        height: 63
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4f4238e9541be42b34b54774b316f6
+      internalID: -1105867483
       vertices: []
       indices: 
       edges: []
@@ -278,6 +299,7 @@ TextureImporter:
       PCTable_3: -901359756
       PCTable_4: -535906100
       PCTable_5: 91491659
+      PCTable_6: -1304135515
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
