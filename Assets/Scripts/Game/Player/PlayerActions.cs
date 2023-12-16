@@ -17,6 +17,9 @@ public class PlayerActions : MonoBehaviour
     [Header("Взаимодействие с персонажами: ")]
     [SerializeField] private LayerMask _charactersLayerMask;
 
+    [Header("Взаимодействие с лестницами: ")]
+    [SerializeField] private LayerMask _floorChangersLayerMask;
+
     private Player _player;
 
     private void Start()
@@ -31,6 +34,8 @@ public class PlayerActions : MonoBehaviour
         FindingItem();
 
         FindingCharacter();
+
+        FindingFloorChanger();
     }
 
     //private void OnDrawGizmos()
@@ -58,7 +63,7 @@ public class PlayerActions : MonoBehaviour
                     _imgPressE.sprite = _pressEOpenDoor;
                 }
 
-                door.DoorActons();
+                door.Actions();
             }
         }
         else
@@ -86,10 +91,19 @@ public class PlayerActions : MonoBehaviour
         {
             if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
             {
-                if (dialogueTrigger != null)
-                {
-                    dialogueTrigger.TriggerAction();
-                }
+                dialogueTrigger.TriggerAction();
+            }
+        }
+    }
+
+    private void FindingFloorChanger()
+    {
+        Collider2D floorChangerCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _floorChangersLayerMask);
+        if (floorChangerCollider != null)
+        {
+            if(floorChangerCollider.gameObject.TryGetComponent(out FloorChanger floorChanger))
+            {
+                floorChanger.Actions();
             }
         }
     }

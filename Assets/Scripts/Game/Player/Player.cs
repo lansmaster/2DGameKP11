@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (_dialogueWindow.IsPlaying || _inventory.IsOpened)
+        if (_dialogueWindow.IsPlaying || _inventory.IsOpened || FloorChanger.IsOpend)
         {
             SetActiveMover(false);
             SlowingDownPlayer();

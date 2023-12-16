@@ -39,7 +39,7 @@ public class OpeningTheDoor : MonoBehaviour
         }
     }
 
-    public void DoorActons()
+    public void Actions()
     {
         if (_roomNumberSign != null)
         {

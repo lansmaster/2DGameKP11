@@ -20,9 +20,9 @@ public class PlayerMover : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        if(FloorChanger.lastPlayerPositionBeforeTeleportation != null)
+        if (FloorChanger.LastPlayerPositionBeforeTeleportation != null)
         {
-            transform.position = FloorChanger.lastPlayerPositionBeforeTeleportation;
+            transform.position = FloorChanger.LastPlayerPositionBeforeTeleportation;
         }
 
         _currentWalkSpeed = _walkSpeed;

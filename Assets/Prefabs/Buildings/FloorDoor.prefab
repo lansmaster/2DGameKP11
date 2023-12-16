@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1692643832151981785}
   - component: {fileID: 378889939320314012}
   - component: {fileID: 8773998034591138703}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FloorDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7179188694967004603}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.82, y: -2.23, z: -0.08069344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14, y: -3.9033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -143,6 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5313d0929c55f394690b47a35e2818fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isUpper: 0
+  _floorChangerWindow: {fileID: 0}
+  _choices:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _floorDoor: {fileID: 21300000, guid: d5c0ef711a320314fb01e9138a255131, type: 3}
   _floorDoor_Emission: {fileID: 21300000, guid: b649a7c525a5f2d4ab43cb47e7539509, type: 3}
