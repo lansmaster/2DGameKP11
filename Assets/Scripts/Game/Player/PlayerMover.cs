@@ -24,6 +24,10 @@ public class PlayerMover : MonoBehaviour
         {
             transform.position = FloorChanger.LastPlayerPositionBeforeTeleportation;
         }
+        else
+        {
+            transform.position = new Vector3(-2.25f, 5.5f, 0);
+        }
 
         _currentWalkSpeed = _walkSpeed;
         _currentRunSpeed = _runSpeed;

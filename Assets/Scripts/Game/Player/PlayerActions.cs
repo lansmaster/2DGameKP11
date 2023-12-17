@@ -117,5 +117,9 @@ public class PlayerActions : MonoBehaviour
                 _imgPressE_FloorChanger.enabled = false;
             }
         }
+        else
+        {
+            _imgPressE_FloorChanger.enabled = false;
+        }
     }
 }
