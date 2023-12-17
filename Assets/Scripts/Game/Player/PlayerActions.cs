@@ -12,9 +12,11 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask _doorsLayerMask;
 
     [Header("Взаимодействие с предметами: ")]
+    [SerializeField] private Image _imgPressE_PickUpItem;
     [SerializeField] private LayerMask _itemsLayerMask;
 
     [Header("Взаимодействие с персонажами: ")]
+    [SerializeField] private Image _imgPressE_Dialogue;
     [SerializeField] private LayerMask _charactersLayerMask;
 
     [Header("Взаимодействие с лестницами: ")]
@@ -78,10 +80,16 @@ public class PlayerActions : MonoBehaviour
         Collider2D itemCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _itemsLayerMask);
         if (itemCollider != null)
         {
+            _imgPressE_PickUpItem.enabled = true;
+
             if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
             {
                 item.PickUp();
             }
+        }
+        else
+        {
+            _imgPressE_PickUpItem.enabled = false;
         }
     }
 
@@ -90,10 +98,16 @@ public class PlayerActions : MonoBehaviour
         Collider2D characterCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _charactersLayerMask);
         if (characterCollider != null)
         {
+            _imgPressE_Dialogue.enabled = true;
+
             if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
             {
                 dialogueTrigger.TriggerAction();
             }
+        }
+        else
+        {
+            _imgPressE_Dialogue.enabled = false;
         }
     }
 

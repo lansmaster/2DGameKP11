@@ -3,7 +3,7 @@
 -> Choises
 
 == Choises ==
-+ [Кто вы?] -> Who
+* [Кто вы?] -> Who
 * [Интересные истории] -> Smalltalk
 + [Уйти от разговора] -> QuitDialog
 

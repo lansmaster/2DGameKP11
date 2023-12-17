@@ -3,8 +3,8 @@
 -> Choises
 
 == Choises ==
-+ [Добрый день. Кто вы?] -> Who
-+ [Истории] -> Smalltalk
+* [Добрый день. Кто вы?] -> Who
+* [Истории] -> Smalltalk
 + [Уйти от разговора] -> QuitDialog
 
 

@@ -14,19 +14,11 @@ public class PauseMenu: MonoBehaviour
         {
             if (_isEnabled)
             {
-                _pauseMenu.SetActive(false);
-                Time.timeScale = 1f;
-                if(_optionsMenu.gameObject.activeSelf == true)
-                {
-                    _optionsMenu.SetActive(false);
-                }
-                _isEnabled = false;
+                SetActive(false);
             }
             else
             {
-                _pauseMenu.SetActive(true);
-                Time.timeScale = 0f;
-                _isEnabled = true;
+                SetActive(true);
             }
         }   
     }
@@ -35,5 +27,16 @@ public class PauseMenu: MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SetActive(bool active)
+    {
+        _pauseMenu.SetActive(active);
+        Time.timeScale = active ? 0f : 1f;
+        if (_optionsMenu.gameObject.activeSelf == true)
+        {
+            _optionsMenu.SetActive(active);
+        }
+        _isEnabled = active;
     }
 }
