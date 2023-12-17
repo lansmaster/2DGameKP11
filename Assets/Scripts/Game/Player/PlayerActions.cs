@@ -7,7 +7,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private float _interactionDistance;
 
     [Header("Взаимодействие с дверю: ")]
-    [SerializeField] private Image _imgPressE;
+    [SerializeField] private Image _imgPressE_Door;
     [SerializeField] private Sprite _pressEOpenDoor, _pressECloseDoor;
     [SerializeField] private LayerMask _doorsLayerMask;
 
@@ -18,6 +18,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask _charactersLayerMask;
 
     [Header("Взаимодействие с лестницами: ")]
+    [SerializeField] private Image _imgPressE_FloorChanger;
     [SerializeField] private LayerMask _floorChangersLayerMask;
 
     private Player _player;
@@ -50,17 +51,17 @@ public class PlayerActions : MonoBehaviour
         Collider2D doorCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _doorsLayerMask);
         if (doorCollider != null)
         {
-            _imgPressE.enabled = true;
+            _imgPressE_Door.enabled = true;
 
             if (doorCollider.gameObject.TryGetComponent(out OpeningTheDoor door))
             {
                 if (door.isOpened)
                 {
-                    _imgPressE.sprite = _pressECloseDoor;
+                    _imgPressE_Door.sprite = _pressECloseDoor;
                 }
                 else
                 {
-                    _imgPressE.sprite = _pressEOpenDoor;
+                    _imgPressE_Door.sprite = _pressEOpenDoor;
                 }
 
                 door.Actions();
@@ -68,7 +69,7 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
-            _imgPressE.enabled = false;
+            _imgPressE_Door.enabled = false;
         }
     }
 
@@ -101,12 +102,19 @@ public class PlayerActions : MonoBehaviour
         Collider2D floorChangerCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _floorChangersLayerMask);
         if (floorChangerCollider != null)
         {
-            if(floorChangerCollider.layerOverridePriority == 1)
+            if (floorChangerCollider.layerOverridePriority == 1)
             {
+                _imgPressE_FloorChanger.enabled = true;
+                _imgPressE_FloorChanger.sprite = _pressEOpenDoor;
+
                 if (floorChangerCollider.gameObject.TryGetComponent(out FloorChanger floorChanger))
                 {
                     floorChanger.Actions();
                 }
+            }
+            else
+            {
+                _imgPressE_FloorChanger.enabled = false;
             }
         }
     }
