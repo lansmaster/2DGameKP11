@@ -101,9 +101,12 @@ public class PlayerActions : MonoBehaviour
         Collider2D floorChangerCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _floorChangersLayerMask);
         if (floorChangerCollider != null)
         {
-            if(floorChangerCollider.gameObject.TryGetComponent(out FloorChanger floorChanger))
+            if(floorChangerCollider.layerOverridePriority == 1)
             {
-                floorChanger.Actions();
+                if (floorChangerCollider.gameObject.TryGetComponent(out FloorChanger floorChanger))
+                {
+                    floorChanger.Actions();
+                }
             }
         }
     }
