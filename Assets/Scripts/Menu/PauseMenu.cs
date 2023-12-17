@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu: MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _optionsMenu;
 
     private bool _isEnabled = false;
 
@@ -15,6 +16,10 @@ public class PauseMenu: MonoBehaviour
             {
                 _pauseMenu.SetActive(false);
                 Time.timeScale = 1f;
+                if(_optionsMenu.gameObject.activeSelf == true)
+                {
+                    _optionsMenu.SetActive(false);
+                }
                 _isEnabled = false;
             }
             else
@@ -26,7 +31,7 @@ public class PauseMenu: MonoBehaviour
         }   
     }
 
-    public void ExitToMainMenu()
+    public void ExitToMainMenu() // повесил на кнопку
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");

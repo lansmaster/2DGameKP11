@@ -2,7 +2,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class FloorChanger : MonoBehaviour

@@ -55,7 +55,7 @@ public class ChangingResolution : MonoBehaviour
 
     private void LoadSave()
     {
-        if (PlayerPrefs.GetInt("CurrentResolutionIndex") != 0)
+        if (PlayerPrefs.HasKey("CurrentResolutionIndex"))
         {
             _currentResolutionIndex = PlayerPrefs.GetInt("CurrentResolutionIndex");
         }
