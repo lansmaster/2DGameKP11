@@ -113,7 +113,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingFloorChanger()
     {
-        Collider2D floorChangerCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _floorChangersLayerMask);
+        Collider2D floorChangerCollider = Physics2D.OverlapPoint(_player.Position, _floorChangersLayerMask);
         if (floorChangerCollider != null)
         {
             if (floorChangerCollider.layerOverridePriority == 1)

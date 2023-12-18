@@ -104,6 +104,8 @@ public class FloorChanger : MonoBehaviour
             }
         }
     }
+    
+    //
 
     private void InitChoises()
     {
@@ -132,6 +134,8 @@ public class FloorChanger : MonoBehaviour
             button.SetActive(false);
         }
     }
+    
+    //
 
     private void UpFloor()
     {
