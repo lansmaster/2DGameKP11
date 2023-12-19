@@ -22,6 +22,8 @@ public class Inventory : MonoBehaviour
 
         _itemInfoWindow = GetComponent<ItemInfoWindow>();
         _itemInfoWindow.Init();
+
+        DontDestroyOnLoad(transform.parent.gameObject);
     }
     private void Update()
     {
@@ -40,13 +42,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void PutInEmptySlot(AssetItem item, GameObject itemObject)
+    public void PutInEmptySlot(AssetItem item, string itemName)
     {
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
             if (_inventorySlots[i].IsEmpty == true)
             {
-                _inventorySlots[i].PutInSlot(item, itemObject);
+                _inventorySlots[i].PutInSlot(item, itemName);
                 return;
             }
         }

@@ -1,17 +1,16 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class FloorChanger : MonoBehaviour
 {
     [SerializeField] private GameObject _floorChangerWindow;
     [SerializeField] private GameObject[] _choices;
-    [SerializeField] private Sprite _floorDoor, _floorDoor_Emission;
+    [SerializeField] private Sprite _floorDoor_Emission;
 
     private Player _player;
-    private SpriteRenderer _spriteRenderer;
 
     public static Vector3 LastPlayerPositionBeforeTeleportation { get; private set; }
     public static bool IsOpend { get; private set; }
@@ -28,21 +27,17 @@ public class FloorChanger : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         InitChoises();
     }
 
-    private void FixedUpdate()
+    public void Actions(GameObject floorDoor)
     {
-        _spriteRenderer.sprite = _floorDoor;
-    }
+        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-    public void Actions()
-    {
-        _spriteRenderer.sprite = _floorDoor_Emission;
+        SpriteRenderer spriteRenderer = floorDoor.GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = _floorDoor_Emission;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -141,12 +136,20 @@ public class FloorChanger : MonoBehaviour
     {
         IsOpend = false;
 
+        HideChoises();
+
+        _floorChangerWindow.SetActive(false);
+
         SceneManager.LoadScene(_currentSceneIndex + 1);
     }
 
     private void DownFloor()
     {
         IsOpend = false;
+
+        HideChoises();
+
+        _floorChangerWindow.SetActive(false);
 
         SceneManager.LoadScene(_currentSceneIndex - 1);
     }

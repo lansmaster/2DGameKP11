@@ -7,6 +7,8 @@ public class PlayerTracker : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void LateUpdate()

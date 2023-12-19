@@ -6,7 +6,7 @@ public class InventorySlot : MonoBehaviour
     private ItemInfoWindow _itemInfoWindow;
 
     private AssetItem _itemInSlot;
-    private GameObject _itemGameObject;
+    private string _itemName;
 
     private Image _slotIcon;
 
@@ -21,12 +21,12 @@ public class InventorySlot : MonoBehaviour
         IsEmpty = true;
     }
 
-    public void PutInSlot(AssetItem item, GameObject itemObject)
+    public void PutInSlot(AssetItem item, string itemName)
     {
         IsEmpty = false;
 
         _itemInSlot = item;
-        _itemGameObject = itemObject;   
+        _itemName = itemName;
         _slotIcon.sprite = item.Icon;
         _slotIcon.enabled = true;
     }
@@ -35,7 +35,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (_itemInSlot != null)
         {
-            _itemInfoWindow.Open(_itemInSlot, _itemGameObject, this);
+            _itemInfoWindow.Open(_itemInSlot, _itemName, this);
         }
     }
 
@@ -44,7 +44,7 @@ public class InventorySlot : MonoBehaviour
         IsEmpty = true;
 
         _itemInSlot = null;
-        _itemGameObject = null;
+        _itemName = null;
         _slotIcon.sprite = null;
         _slotIcon.enabled = false;
     }

@@ -20,6 +20,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask _charactersLayerMask;
 
     [Header("Взаимодействие с лестницами: ")]
+    [SerializeField] private FloorChanger _floorChanger;
     [SerializeField] private Image _imgPressE_FloorChanger;
     [SerializeField] private LayerMask _floorChangersLayerMask;
 
@@ -82,7 +83,7 @@ public class PlayerActions : MonoBehaviour
         {
             _imgPressE_PickUpItem.enabled = true;
 
-            if (itemCollider.gameObject.TryGetComponent(out PickUpItems item))
+            if (itemCollider.gameObject.TryGetComponent(out Item item))
             {
                 item.PickUp();
             }
@@ -121,10 +122,7 @@ public class PlayerActions : MonoBehaviour
                 _imgPressE_FloorChanger.enabled = true;
                 _imgPressE_FloorChanger.sprite = _pressEOpenDoor;
 
-                if (floorChangerCollider.gameObject.TryGetComponent(out FloorChanger floorChanger))
-                {
-                    floorChanger.Actions();
-                }
+                _floorChanger.Actions(floorChangerCollider.gameObject);
             }
             else
             {

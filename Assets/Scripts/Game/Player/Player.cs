@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
 
         _inventory = FindObjectOfType<Inventory>();
         _dialogueWindow = FindObjectOfType<DialogueWindow>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()

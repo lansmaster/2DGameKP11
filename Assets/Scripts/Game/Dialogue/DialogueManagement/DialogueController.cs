@@ -19,6 +19,8 @@ public class DialogueController : MonoBehaviour
 
         _dialogueTag.Init();
         _dialogueWindow.Init();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

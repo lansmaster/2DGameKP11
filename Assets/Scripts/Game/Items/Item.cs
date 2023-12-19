@@ -1,21 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class PickUpItems : MonoBehaviour
+public class Item : MonoBehaviour
 {   
     [SerializeField] private Sprite _default, _emission;
-    [SerializeField] private AssetItem item;
+    [SerializeField] private AssetItem _item;
     
     private Inventory _inventory;
 
-    private GameObject _itemGameObject;
     private SpriteRenderer _spriteRenderer;
+
+    public string Name { get { return _item.name; } private set { } }
 
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _itemGameObject = gameObject;
     }
 
     private void FixedUpdate()
@@ -29,8 +29,8 @@ public class PickUpItems : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _inventory.PutInEmptySlot(item, _itemGameObject);
-            gameObject.SetActive(false);
+            _inventory.PutInEmptySlot(_item, Name);
+            Destroy(gameObject);
         }
     }
 }

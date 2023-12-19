@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1692643832151981785}
   - component: {fileID: 378889939320314012}
   - component: {fileID: 2172448884633644519}
-  - component: {fileID: 8773998034591138703}
+  - component: {fileID: 6665134567226258366}
   m_Layer: 10
   m_Name: FloorDoor
   m_TagString: Untagged
@@ -177,7 +177,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8232002, y: 1.2589567}
   m_EdgeRadius: 0
---- !u!114 &8773998034591138703
+--- !u!114 &6665134567226258366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,13 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7179188694967004603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5313d0929c55f394690b47a35e2818fe, type: 3}
+  m_Script: {fileID: 11500000, guid: bfd3e359bcfb2c644bb85a79d1fe7687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _floorChangerWindow: {fileID: 0}
-  _choices:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _floorDoor: {fileID: 21300000, guid: d5c0ef711a320314fb01e9138a255131, type: 3}
-  _floorDoor_Emission: {fileID: 21300000, guid: b649a7c525a5f2d4ab43cb47e7539509, type: 3}
+  _default: {fileID: 21300000, guid: d5c0ef711a320314fb01e9138a255131, type: 3}

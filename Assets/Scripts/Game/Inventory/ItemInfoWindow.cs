@@ -5,32 +5,35 @@ using TMPro;
 public class ItemInfoWindow : MonoBehaviour
 {
     [SerializeField] private GameObject _itemInfoWindow;
+    [SerializeField] private TextMeshProUGUI _title;
+    [SerializeField] private TextMeshProUGUI _description;
+    [SerializeField] private Image _iconImage;
 
     private Player _player;
+    private Items _items;
 
-    private TextMeshProUGUI _title;
-    private TextMeshProUGUI _description;
-    private Image _iconImage;
-
+    private string _itemName;
     private GameObject _itemGameObject;
-    private InventorySlot _currentSlot;
-
     private Rigidbody2D _itemRigidbody;
+
+    private InventorySlot _currentSlot;
 
     public void Init()
     {
-        _title = _itemInfoWindow.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        _description = _itemInfoWindow.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        _iconImage = _itemInfoWindow.transform.GetChild(2).GetComponent<Image>();
-
+        _items = FindObjectOfType<Items>();
         _player = FindObjectOfType<Player>();
     }
 
-    public void ChangeInfo(AssetItem item)
+    private void SetInfo(AssetItem item, string itemName, InventorySlot currentSlot)
     {
         _title.text = item.Name;
         _description.text = item.Description;
         _iconImage.sprite = item.Icon;
+
+        _itemName = itemName;
+        _itemGameObject = _items.GetItem(_itemName);
+        _itemRigidbody = _itemGameObject.GetComponent<Rigidbody2D>();
+        _currentSlot = currentSlot;
     }
 
     public void Use()
@@ -45,8 +48,8 @@ public class ItemInfoWindow : MonoBehaviour
         float yRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
 
         Vector3 dropPosition = new Vector3(_player.Position.x + xRandomValue, _player.Position.y + yRandomValue, _player.Position.z);
-        _itemGameObject.SetActive(true);
-        _itemGameObject.transform.position = dropPosition;
+
+        Instantiate(_itemGameObject, dropPosition, Quaternion.identity);
         
         _itemRigidbody.velocity = new Vector3(xRandomValue * 2, yRandomValue * 2, 0);
 
@@ -54,13 +57,9 @@ public class ItemInfoWindow : MonoBehaviour
         Close();
     }
 
-    public void Open(AssetItem item, GameObject itemObject, InventorySlot currentSlot)
+    public void Open(AssetItem item, string itemName, InventorySlot currentSlot)
     {
-        ChangeInfo(item);
-
-        _itemGameObject = itemObject;
-        _itemRigidbody = _itemGameObject.GetComponent<Rigidbody2D>();
-        _currentSlot = currentSlot;
+        SetInfo(item, itemName, currentSlot);
 
         _itemInfoWindow.SetActive(true);
     }

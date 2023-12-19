@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8829856470238721467}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.226, y: 0.626, z: 0}
+  m_LocalPosition: {x: 17.179434, y: -5.082747, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3028673450532885539
 SpriteRenderer:
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _default: {fileID: 1887873210, guid: 92095bc3dfd0f11438aea2bd067390d8, type: 3}
   _emission: {fileID: 1645435, guid: 92095bc3dfd0f11438aea2bd067390d8, type: 3}
-  item: {fileID: 11400000, guid: 5ce9d92dd49f26640ba0a0716159a8af, type: 2}
+  _item: {fileID: 11400000, guid: 5ce9d92dd49f26640ba0a0716159a8af, type: 2}
 --- !u!60 &1847435612761731210
 PolygonCollider2D:
   m_ObjectHideFlags: 0
