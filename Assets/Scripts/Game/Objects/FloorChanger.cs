@@ -109,15 +109,11 @@ public class FloorChanger : MonoBehaviour
 
         ushort index = 0;
         foreach(GameObject choice in _choices)
-        {
             _choicesText[index++] = choice.GetComponentInChildren<TextMeshProUGUI>();
-        }
 
         index = 0;
         foreach(GameObject choice in _choices)
-        {
             _choicesButtons[index++] = choice.GetComponent<Button>();
-        }
 
         HideChoises();
     }
@@ -125,9 +121,7 @@ public class FloorChanger : MonoBehaviour
     private void HideChoises()
     {
         foreach (var button in _choices)
-        {
             button.SetActive(false);
-        }
     }
     
     //

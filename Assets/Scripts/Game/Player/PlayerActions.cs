@@ -84,9 +84,7 @@ public class PlayerActions : MonoBehaviour
             _imgPressE_PickUpItem.enabled = true;
 
             if (itemCollider.gameObject.TryGetComponent(out Item item))
-            {
                 item.PickUp();
-            }
         }
         else
         {
@@ -102,9 +100,7 @@ public class PlayerActions : MonoBehaviour
             _imgPressE_Dialogue.enabled = true;
 
             if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
-            {
                 dialogueTrigger.TriggerAction();
-            }
         }
         else
         {

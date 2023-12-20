@@ -10468,18 +10468,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284186736}
     m_Modifications:
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _roomNumber
-      value: 304
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _roomNumberSign
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8960779664186914927, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3750641299928217887, guid: e811f947c5e4411468b1cb46bdbc37b4, type: 3}
       propertyPath: m_Name
       value: HorizontalWallInRoom (2)
@@ -10527,6 +10515,18 @@ PrefabInstance:
     - target: {fileID: 5775087253355670224, guid: e811f947c5e4411468b1cb46bdbc37b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumberSign
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960779664186914927, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 94594664332230715, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
@@ -14562,7 +14562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628849823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.06, y: 3.74, z: 0}
+  m_LocalPosition: {x: -2.91, y: 5.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23099,42 +23099,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 765014673}
     m_Modifications:
-    - target: {fileID: 978130350233600086, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 978130350233600086, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _imgPressE
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 978130350233600086, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _doors.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1717602512393524500, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1717602512393524500, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1717602512393524500, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_LayerOverridePriority
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304827187937455932, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_LayerOverridePriority
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304827187937455932, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_ForceSendLayers.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304827187937455932, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_ForceReceiveLayers.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 3750641299928217887, guid: e811f947c5e4411468b1cb46bdbc37b4, type: 3}
       propertyPath: m_Name
       value: HorizontalWallInRoom (1)
@@ -23186,6 +23150,42 @@ PrefabInstance:
     - target: {fileID: 7893749312200719967, guid: e811f947c5e4411468b1cb46bdbc37b4, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 978130350233600086, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 978130350233600086, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _imgPressE
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 978130350233600086, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _doors.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717602512393524500, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717602512393524500, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717602512393524500, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304827187937455932, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304827187937455932, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_ForceSendLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304827187937455932, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 978130350233600086, guid: 353c30f9fd56e0a40bda01234eef2bd4, type: 3}
       propertyPath: _player
@@ -45356,10 +45356,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 765014673}
     m_Modifications:
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _roomNumber
-      value: 305A
-      objectReference: {fileID: 0}
     - target: {fileID: 3750641299928217887, guid: e811f947c5e4411468b1cb46bdbc37b4, type: 3}
       propertyPath: m_Name
       value: HorizontalWallInRoom (7)
@@ -45420,6 +45416,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 305A
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48859,11 +48859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6628383209319994449, guid: bd1a2c1c4d5d4db43baf5f9301149baa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4160001
+      value: -2.31
       objectReference: {fileID: 0}
     - target: {fileID: 6628383209319994449, guid: bd1a2c1c4d5d4db43baf5f9301149baa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.531
+      value: 3.95
       objectReference: {fileID: 0}
     - target: {fileID: 6628383209319994449, guid: bd1a2c1c4d5d4db43baf5f9301149baa, type: 3}
       propertyPath: m_LocalPosition.z

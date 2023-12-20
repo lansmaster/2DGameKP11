@@ -32,7 +32,6 @@ public class ItemInfoWindow : MonoBehaviour
 
         _itemName = itemName;
         _itemGameObject = _items.GetItem(_itemName);
-        _itemRigidbody = _itemGameObject.GetComponent<Rigidbody2D>();
         _currentSlot = currentSlot;
     }
 
@@ -49,9 +48,9 @@ public class ItemInfoWindow : MonoBehaviour
 
         Vector3 dropPosition = new Vector3(_player.Position.x + xRandomValue, _player.Position.y + yRandomValue, _player.Position.z);
 
-        Instantiate(_itemGameObject, dropPosition, Quaternion.identity);
-        
-        _itemRigidbody.velocity = new Vector3(xRandomValue * 2, yRandomValue * 2, 0);
+        _itemRigidbody = Instantiate(_itemGameObject, dropPosition, Quaternion.identity).GetComponent<Rigidbody2D>();
+
+        _itemRigidbody.velocity = new Vector2(xRandomValue * 2, yRandomValue * 2);
 
         _currentSlot.ClearSlot();
         Close();
