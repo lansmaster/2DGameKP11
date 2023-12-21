@@ -22,8 +22,6 @@ public class Inventory : MonoBehaviour
 
         _itemInfoWindow = GetComponent<ItemInfoWindow>();
         _itemInfoWindow.Init();
-
-        DontDestroyOnLoad(transform.parent.gameObject);
     }
     private void Update()
     {

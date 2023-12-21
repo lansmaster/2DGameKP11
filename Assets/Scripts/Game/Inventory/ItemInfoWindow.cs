@@ -10,13 +10,11 @@ public class ItemInfoWindow : MonoBehaviour
     [SerializeField] private Image _iconImage;
 
     private Player _player;
+    private InventorySlot _currentSlot;
     private Items _items;
 
-    private string _itemName;
     private GameObject _itemGameObject;
-    private Rigidbody2D _itemRigidbody;
-
-    private InventorySlot _currentSlot;
+    private string _itemName;
 
     public void Init()
     {
@@ -48,9 +46,10 @@ public class ItemInfoWindow : MonoBehaviour
 
         Vector3 dropPosition = new Vector3(_player.Position.x + xRandomValue, _player.Position.y + yRandomValue, _player.Position.z);
 
-        _itemRigidbody = Instantiate(_itemGameObject, dropPosition, Quaternion.identity).GetComponent<Rigidbody2D>();
+        GameObject currentItem = Instantiate(_itemGameObject, dropPosition, Quaternion.identity);
+        Rigidbody2D currentItemRigidbody = currentItem.GetComponent<Rigidbody2D>();
 
-        _itemRigidbody.velocity = new Vector2(xRandomValue * 2, yRandomValue * 2);
+        currentItemRigidbody.velocity = new Vector2(xRandomValue * 2, yRandomValue * 2);
 
         _currentSlot.ClearSlot();
         Close();
