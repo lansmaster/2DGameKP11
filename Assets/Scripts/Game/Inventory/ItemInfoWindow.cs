@@ -12,6 +12,7 @@ public class ItemInfoWindow : MonoBehaviour
     private Player _player;
     private InventorySlot _currentSlot;
     private Items _items;
+    private Inventory _inventory;
 
     private GameObject _itemGameObject;
     private string _itemName;
@@ -20,6 +21,9 @@ public class ItemInfoWindow : MonoBehaviour
     {
         _items = FindObjectOfType<Items>();
         _player = FindObjectOfType<Player>();
+        _inventory = FindObjectOfType<Inventory>();
+
+        _inventory.OnClose += Close;
     }
 
     private void SetInfo(AssetItem item, string itemName, InventorySlot currentSlot)

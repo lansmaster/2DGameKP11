@@ -25,7 +25,7 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         _animator.SetBool("Emission", true);
 
-        if (Input.GetKeyDown(KeyCode.E) && !_dialogueWindow.IsPlaying)
+        if (Input.GetKeyDown(KeyCode.E) && !_dialogueWindow.isPlaying)
         {
             _dialogueController.EnterDialogueMode(_inkJSON);
         }

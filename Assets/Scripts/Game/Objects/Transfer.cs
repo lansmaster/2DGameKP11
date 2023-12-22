@@ -3,18 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class Transfer : MonoBehaviour
 {
-    private int _currentSceneIndex;
+    private Transfer[] _gameObjects;
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        _gameObjects = FindObjectsOfType<Transfer>();
+        if (_gameObjects.Length > 1)
+            Destroy(gameObject);
+        else
+            DontDestroyOnLoad(gameObject);
+
+        //SceneManager.sceneLoaded += (scene, loadSceneMode) => DestroyOnLoad(scene, loadSceneMode);
+
+
     }
+
+    //private void DestroyOnLoad(Scene scene, LoadSceneMode loadSceneMode)
+    //{
+    //    if (scene.buildIndex == 0)
+    //        Destroy(gameObject);
+    //}
 
     private void Update()
     {
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        if (_currentSceneIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
             Destroy(gameObject);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class Inventory : MonoBehaviour
 
     private ItemInfoWindow _itemInfoWindow;
 
-    public bool IsOpened { get; private set; }
+    public bool isOpened { get; private set; }
+
+    public UnityAction OnClose;
 
     private void Awake()
     {
@@ -27,16 +30,15 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (IsOpened)
-            {
-                transform.localScale = Vector3.zero;
-                IsOpened = false;
-            }
+            if (isOpened)
+                Close();
             else
-            {
-                transform.localScale = Vector3.one;
-                IsOpened = true;
-            }
+                Open();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        { 
+            if (isOpened)
+                Close();
         }
     }
 
@@ -50,5 +52,19 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void Open()
+    {
+        transform.localScale = Vector3.one;
+        isOpened = true;
+    }
+
+    private void Close()
+    {
+        transform.localScale = Vector3.zero;
+        isOpened = false;
+        
+        OnClose();
     }
 }

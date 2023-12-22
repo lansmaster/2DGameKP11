@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     private Inventory _inventory;
     private DialogueWindow _dialogueWindow;
+    private PauseMenu _pauseMenu;
 
     public Vector3 Position
     {
@@ -29,11 +30,12 @@ public class Player : MonoBehaviour
 
         _inventory = FindObjectOfType<Inventory>();
         _dialogueWindow = FindObjectOfType<DialogueWindow>();
+        _pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     private void Update()
     {
-        if (_dialogueWindow.IsPlaying || _inventory.IsOpened || FloorChanger.IsOpend)
+        if (_dialogueWindow.isPlaying || _inventory.isOpened || FloorChanger.IsOpend)
         {
             SetActiveMover(false);
             SlowingDownPlayer();
@@ -42,6 +44,12 @@ public class Player : MonoBehaviour
         {
             SetActiveMover(true);
         }
+
+        if(_inventory.isOpened)
+            _pauseMenu.canOpen = false;
+        else
+            _pauseMenu.canOpen = true;
+
     }
 
     private void SetActiveMover(bool active)

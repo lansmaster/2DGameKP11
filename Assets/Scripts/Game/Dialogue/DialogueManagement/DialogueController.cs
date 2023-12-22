@@ -28,7 +28,7 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
-        if (_dialogueWindow.IsStatusAnswer == true || _dialogueWindow.IsPlaying == false || _dialogueWindow.CanContinueToNextLine == false)
+        if (_dialogueWindow.IsStatusAnswer == true || _dialogueWindow.isPlaying == false || _dialogueWindow.CanContinueToNextLine == false)
         {
             return;
         }

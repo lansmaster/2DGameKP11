@@ -8,19 +8,16 @@ public class PauseMenu: MonoBehaviour
 
     private bool _isEnabled = false;
 
+    public bool canOpen { get; set; }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (_isEnabled)
-            {
-                SetActive(false);
-            }
-            else
-            {
-                SetActive(true);
-            }
-        }   
+        if (canOpen)
+            if (Input.GetKeyDown(KeyCode.Escape))
+                if (_isEnabled)
+                    SetActive(false);
+                else
+                    SetActive(true);
     }
 
     public void ExitToMainMenu() // повесил на кнопку
@@ -34,10 +31,10 @@ public class PauseMenu: MonoBehaviour
     {
         _pauseMenu.SetActive(active);
         Time.timeScale = active ? 0f : 1f;
+
         if (_optionsMenu.gameObject.activeSelf == true)
-        {
             _optionsMenu.SetActive(active);
-        }
+
         _isEnabled = active;
     }
 }
