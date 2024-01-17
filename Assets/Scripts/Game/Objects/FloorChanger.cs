@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class FloorChanger : MonoBehaviour
