@@ -1,7 +1,6 @@
 using UnityEngine;
 using Mono.Data.Sqlite;
 using System.Data;
-using UnityEditor.MemoryProfiler;
 
 public class SavePlayerPositionToDataBase : MonoBehaviour
 {
@@ -9,64 +8,54 @@ public class SavePlayerPositionToDataBase : MonoBehaviour
 
     private string dbName = "PlayerPositionDB";
     
-    private IDbConnection connection;
+    private IDbConnection _connection;
 
     private void Start()
     {
-        connection = new SqliteConnection(string.Format("URI=file:Assets/StreamingAssets/DataBases/{0}.db", dbName));
+        _connection = new SqliteConnection(string.Format("FullUri=file:{0}.db?cache=shared", dbName));
     }
 
-    void Update()
+    public void SavePlayerPosition()
     {
-        // When pressed Q
-        if (Input.GetKeyDown(KeyCode.Q))
+        _connection.Open();
+
+        PushCommand(string.Format("UPDATE Coordinates SET XAxis = {0}, YAxis = {1}, ZAxis = {2} WHERE Slot = 1", 
+            _playerTransfom.position.x, _playerTransfom.position.y, _playerTransfom.position.z), 
+            _connection);
+
+        _connection.Close();
+    }
+
+    public void LoadPlayerPosition()
+    {
+        _connection.Open();
+
+        IDataReader dataReader = ReadSavedData(); //
+
+        while (dataReader.Read())
         {
-            // Open database
-            connection.Open();
-            // Update Data in Save Slot
-            PushCommand(string.Format("UPDATE Coordinates SET XAxis = {0}, YAxis = {1} , ZAxis = {2} WHERE Slot = 1;", _playerTransfom.position.x, _playerTransfom.position.y, _playerTransfom.position.z), connection);
+            _playerTransfom.position = new Vector3(dataReader.GetFloat(1), dataReader.GetFloat(2), dataReader.GetFloat(3));
         }
 
-        // When pressed E
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // Open database
-            connection.Open();
-
-            // Read X , Y , Z Axis
-            IDataReader dataReader = ReadSavedData();
-
-            // Separate Float Data and assign to player position
-            while (dataReader.Read())
-            {
-                // Assigning saved position
-                _playerTransfom.position = new Vector3(dataReader.GetFloat(1), dataReader.GetFloat(2), dataReader.GetFloat(3));
-            }
-        }
-
-        // Close database
-        connection.Close();
+        _connection.Close();
     }
 
     private void PushCommand(string commandString, IDbConnection connection)
     {
-        // Create new command
         IDbCommand command = connection.CreateCommand();
-        // Add your comment text (queries)
+
         command.CommandText = string.Format("{0}", commandString);
-        // Execute command reader - execute command
+
         command.ExecuteReader();
     }
 
-    // Read last position from coordinates table
     private IDataReader ReadSavedData()
     {
-        // Create command (query)
-        IDbCommand command = connection.CreateCommand();
-        // Get all data in Slot = 1 from coordinates table
-        command.CommandText = "SELECT * FROM Coordinates WHERE Slot = 1;";
-        // Execute command
-        IDataReader dataReader = command.ExecuteReader();
+        IDbCommand commad = _connection.CreateCommand();
+
+        commad.CommandText = "SELECT * FROM Coordinates WHERE Slot = 1";
+
+        IDataReader dataReader = commad.ExecuteReader();
         return dataReader;
     }
 }
