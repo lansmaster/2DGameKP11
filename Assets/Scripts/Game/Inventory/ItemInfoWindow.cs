@@ -37,10 +37,6 @@ public class ItemInfoWindow : MonoBehaviour
         _currentSlot = currentSlot;
     }
 
-    public void Use()
-    {
-    }
-
     public void Drop() // повесил на кнопку
     {
         float positiveRandomValue = Random.Range(0.2f, 0.5f);

@@ -3,12 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
-public class OpeningTheDoor : MonoBehaviour
+public class Door : MonoBehaviour
 {
     [SerializeField] private Sprite _closedDoor, _openedDoor, _closedDoorEmission, _openedDoorEmission;
     
     public bool isOpened { get; private set; }
 
+
+    private PlayerActions _playerActions;
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
     private PolygonCollider2D _polygonCollider;
@@ -16,6 +18,8 @@ public class OpeningTheDoor : MonoBehaviour
 
     private void Start()
     {
+        _playerActions = FindObjectOfType<PlayerActions>();
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
@@ -41,6 +45,8 @@ public class OpeningTheDoor : MonoBehaviour
 
     public void Actions()
     {
+        _playerActions.PlayerApproachedTheDoor += EnableEmission;
+
         if (_roomNumberSign != null)
         {
             _roomNumberSign.Show(true);
@@ -81,6 +87,19 @@ public class OpeningTheDoor : MonoBehaviour
             _polygonCollider.enabled = false;
 
             isOpened = false;
+        }
+    }
+
+    private void EnableEmission(bool enable)
+    {
+        if (enable)
+        {
+
+        }
+        else
+        {
+            //
+            _playerActions.PlayerApproachedTheDoor -= EnableEmission;
         }
     }
 }

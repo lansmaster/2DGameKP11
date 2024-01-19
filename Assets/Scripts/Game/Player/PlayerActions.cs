@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerMover))]
@@ -25,6 +26,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask _floorChangersLayerMask;
 
     private Player _player;
+    public UnityAction<bool> PlayerApproachedTheDoor;
+    public UnityAction<bool> PlayerApproachedTheItem;
 
     private void Start()
     {
@@ -56,8 +59,10 @@ public class PlayerActions : MonoBehaviour
         {
             _imgPressE_Door.enabled = true;
 
-            if (doorCollider.gameObject.TryGetComponent(out OpeningTheDoor door))
+            if (doorCollider.gameObject.TryGetComponent(out Door door))
             {
+                PlayerApproachedTheDoor?.Invoke(true);
+
                 if (door.isOpened)
                 {
                     _imgPressE_Door.sprite = _pressECloseDoor;
@@ -72,6 +77,8 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
+            PlayerApproachedTheDoor?.Invoke(false);
+
             _imgPressE_Door.enabled = false;
         }
     }
@@ -84,10 +91,16 @@ public class PlayerActions : MonoBehaviour
             _imgPressE_PickUpItem.enabled = true;
 
             if (itemCollider.gameObject.TryGetComponent(out Item item))
+            {
+                PlayerApproachedTheItem?.Invoke(true);
+                
                 item.PickUp();
+            }
         }
         else
         {
+            PlayerApproachedTheItem?.Invoke(false);
+
             _imgPressE_PickUpItem.enabled = false;
         }
     }
