@@ -19,6 +19,8 @@ public class RoomNumberSign : MonoBehaviour
         _canvas = _roomNumberSign.transform.GetChild(0).gameObject;
 
         _text.text = _roomNumber;
+
+        Show(false);
     }
 
     public void Show(bool show)

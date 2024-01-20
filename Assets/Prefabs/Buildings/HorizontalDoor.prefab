@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2247932959520608291}
-  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -168,7 +167,6 @@ RectTransform:
   m_Children:
   - {fileID: 2084006197455257958}
   m_Father: {fileID: 6633293587840056610}
-  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -192,6 +190,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -265,6 +264,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327705318925054466}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5, y: 2.10133, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -272,7 +272,6 @@ Transform:
   m_Children:
   - {fileID: 6633293587840056610}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4389757674171719969
 SpriteRenderer:
@@ -436,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fb4190073c7f74a81d1ab984acd056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _closedDoor: {fileID: -1244957098, guid: 843e643de519e9e409299435cb5af04e, type: 3}
-  _openedDoor: {fileID: 76511687, guid: 843e643de519e9e409299435cb5af04e, type: 3}
+  _closedDoorDefault: {fileID: -1244957098, guid: 843e643de519e9e409299435cb5af04e, type: 3}
+  _openedDoorDefault: {fileID: 76511687, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _closedDoorEmission: {fileID: -1955430857, guid: 843e643de519e9e409299435cb5af04e, type: 3}
   _openedDoorEmission: {fileID: 1447767046, guid: 843e643de519e9e409299435cb5af04e, type: 3}
 --- !u!114 &7928460323682695597
@@ -479,6 +478,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8960779664186914927}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.515, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -486,7 +486,6 @@ Transform:
   m_Children:
   - {fileID: 2247932959520608291}
   m_Father: {fileID: 2805577337195524514}
-  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7744733198805792687
 SpriteRenderer:
