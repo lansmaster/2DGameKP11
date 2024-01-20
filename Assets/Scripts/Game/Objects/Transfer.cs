@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Transfer : MonoBehaviour
 {
-    public static Transfer instance {  get; private set; }
+    public static Transfer instance { get; private set; }
 
     private void Start()
     {
@@ -11,9 +11,11 @@ public class Transfer : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            return;
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);    
+        }
 
         SceneManager.sceneLoaded += DestroyOnLoad;
 
