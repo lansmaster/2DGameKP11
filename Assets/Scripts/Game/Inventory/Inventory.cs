@@ -15,7 +15,8 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
 
         transform.localScale = Vector3.zero;
     }

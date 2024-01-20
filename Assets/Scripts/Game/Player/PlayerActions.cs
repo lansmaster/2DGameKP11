@@ -7,7 +7,7 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private float _interactionDistance;
 
-    [Header("Взаимодействие с дверю: ")]
+    [Header("Взаимодействие с дверьми: ")]
     [SerializeField] private Image _imgPressE_Door;
     [SerializeField] private Sprite _pressEOpenDoor, _pressECloseDoor;
     [SerializeField] private LayerMask _doorsLayerMask;
@@ -49,92 +49,93 @@ public class PlayerActions : MonoBehaviour
     private void FindingDoor()
     {
         Collider2D doorCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _doorsLayerMask);
-        if (doorCollider != null)
-        {
-            _imgPressE_Door.enabled = true;
 
-            if (doorCollider.gameObject.TryGetComponent(out Door door))
-            {
-                PlayerApproachedTheDoor?.Invoke(true);
-
-                if (door.isOpened)
-                {
-                    _imgPressE_Door.sprite = _pressECloseDoor;
-                }
-                else
-                {
-                    _imgPressE_Door.sprite = _pressEOpenDoor;
-                }
-
-                door.Actions();
-            }
-        }
-        else
+        if (doorCollider == null)
         {
             PlayerApproachedTheDoor?.Invoke(false);
 
             _imgPressE_Door.enabled = false;
+
+            return;
+        }
+
+        _imgPressE_Door.enabled = true;
+
+        if (doorCollider.gameObject.TryGetComponent(out Door door))
+        {
+            PlayerApproachedTheDoor?.Invoke(true);
+
+            if (door.isOpened)
+            {
+                _imgPressE_Door.sprite = _pressECloseDoor;
+            }
+            else
+            {
+                _imgPressE_Door.sprite = _pressEOpenDoor;
+            }
+
+            door.Actions();
         }
     }
 
     private void FindingItem()
     {
         Collider2D itemCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _itemsLayerMask);
-        if (itemCollider != null)
-        {
-            _imgPressE_PickUpItem.enabled = true;
-
-            if (itemCollider.gameObject.TryGetComponent(out Item item))
-            {
-                PlayerApproachedTheItem?.Invoke(true);
-                
-                item.PickUp();
-            }
-        }
-        else
+        
+        if (itemCollider == null)
         {
             PlayerApproachedTheItem?.Invoke(false);
 
             _imgPressE_PickUpItem.enabled = false;
+
+            return;
+        }
+
+        _imgPressE_PickUpItem.enabled = true;
+
+        if (itemCollider.gameObject.TryGetComponent(out Item item))
+        {
+            PlayerApproachedTheItem?.Invoke(true);
+                
+            item.PickUp();
         }
     }
 
     private void FindingCharacter()
     {
         Collider2D characterCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _charactersLayerMask);
-        if (characterCollider != null)
-        {
-            _imgPressE_Dialogue.enabled = true;
-
-            if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
-                dialogueTrigger.TriggerAction();
-        }
-        else
+        
+        if (characterCollider == null)
         {
             _imgPressE_Dialogue.enabled = false;
+
+            return;
         }
+
+        _imgPressE_Dialogue.enabled = true;
+
+        if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
+            dialogueTrigger.TriggerAction();
+        
     }
 
     private void FindingFloorChanger()
     {
         Collider2D floorChangerCollider = Physics2D.OverlapPoint(Player.instance.position, _floorChangersLayerMask);
-        if (floorChangerCollider != null)
-        {
-            if (floorChangerCollider.layerOverridePriority == 1)
-            {
-                _imgPressE_FloorChanger.enabled = true;
-                _imgPressE_FloorChanger.sprite = _pressEOpenDoor;
-
-                _floorChanger.Actions(floorChangerCollider.gameObject);
-            }
-            else
-            {
-                _imgPressE_FloorChanger.enabled = false;
-            }
-        }
-        else
+        
+        if (floorChangerCollider == null || floorChangerCollider.layerOverridePriority != 1)
         {
             _imgPressE_FloorChanger.enabled = false;
+        
+            return;
+        }
+        
+        if (floorChangerCollider.layerOverridePriority == 1)
+        {
+            _imgPressE_FloorChanger.enabled = true;
+            _imgPressE_FloorChanger.sprite = _pressEOpenDoor;
+
+            _floorChanger.Actions(floorChangerCollider.gameObject);
         }
     }
 }

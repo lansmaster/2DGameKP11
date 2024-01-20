@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
 
         mover = GetComponent<PlayerMover>();
         actions = GetComponent<PlayerActions>();
