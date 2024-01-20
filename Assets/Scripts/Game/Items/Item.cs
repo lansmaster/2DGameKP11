@@ -14,8 +14,8 @@ public class Item : MonoBehaviour
 
     private void Start()
     {
-        _inventory = FindObjectOfType<Inventory>();
-        _playerActions = FindObjectOfType<PlayerActions>();
+        _inventory = Inventory.instance;
+        _playerActions = Player.instance.actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

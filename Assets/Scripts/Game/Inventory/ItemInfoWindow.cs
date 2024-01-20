@@ -20,8 +20,8 @@ public class ItemInfoWindow : MonoBehaviour
     public void Init()
     {
         _items = FindObjectOfType<Items>();
-        _player = FindObjectOfType<Player>();
-        _inventory = FindObjectOfType<Inventory>();
+        _player = Player.instance;
+        _inventory = Inventory.instance;
 
         _inventory.OnClose += Close;
     }
@@ -44,7 +44,7 @@ public class ItemInfoWindow : MonoBehaviour
         float xRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
         float yRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
 
-        Vector3 dropPosition = new Vector3(_player.Position.x + xRandomValue, _player.Position.y + yRandomValue, _player.Position.z);
+        Vector3 dropPosition = new Vector3(_player.position.x + xRandomValue, _player.position.y + yRandomValue, _player.position.z);
 
         GameObject currentItem = Instantiate(_itemGameObject, dropPosition, Quaternion.identity);
         Rigidbody2D currentItemRigidbody = currentItem.GetComponent<Rigidbody2D>();

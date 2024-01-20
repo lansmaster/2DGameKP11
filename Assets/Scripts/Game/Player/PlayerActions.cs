@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(Player))]
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private float _interactionDistance;
@@ -25,14 +25,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private Image _imgPressE_FloorChanger;
     [SerializeField] private LayerMask _floorChangersLayerMask;
 
-    private Player _player;
     public UnityAction<bool> PlayerApproachedTheDoor;
     public UnityAction<bool> PlayerApproachedTheItem;
-
-    private void Start()
-    {
-        _player = GetComponent<Player>();
-    }
 
     private void Update()
     {
@@ -54,7 +48,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingDoor()
     {
-        Collider2D doorCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _doorsLayerMask);
+        Collider2D doorCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _doorsLayerMask);
         if (doorCollider != null)
         {
             _imgPressE_Door.enabled = true;
@@ -85,7 +79,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingItem()
     {
-        Collider2D itemCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _itemsLayerMask);
+        Collider2D itemCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _itemsLayerMask);
         if (itemCollider != null)
         {
             _imgPressE_PickUpItem.enabled = true;
@@ -107,7 +101,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingCharacter()
     {
-        Collider2D characterCollider = Physics2D.OverlapCircle(_player.Position, _interactionDistance, _charactersLayerMask);
+        Collider2D characterCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _charactersLayerMask);
         if (characterCollider != null)
         {
             _imgPressE_Dialogue.enabled = true;
@@ -123,7 +117,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindingFloorChanger()
     {
-        Collider2D floorChangerCollider = Physics2D.OverlapPoint(_player.Position, _floorChangersLayerMask);
+        Collider2D floorChangerCollider = Physics2D.OverlapPoint(Player.instance.position, _floorChangersLayerMask);
         if (floorChangerCollider != null)
         {
             if (floorChangerCollider.layerOverridePriority == 1)

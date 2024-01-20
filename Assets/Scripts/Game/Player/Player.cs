@@ -2,40 +2,44 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerMover _mover;
-    private PlayerActions _actions;
+    [SerializeField] private DialogueWindow _dialogueWindow;
+    [SerializeField] private PauseMenu _pauseMenu;
 
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
     private const float _speedChangeRate = 6;
     private const float _animationChangeRate = 2;
 
+    private Rigidbody2D _rigidbody;
+    private Animator _animator;
     private Inventory _inventory;
-    private DialogueWindow _dialogueWindow;
-    private PauseMenu _pauseMenu;
 
-    public Vector3 Position
+    public static Player instance { get; private set; }
+    public PlayerActions actions { get; private set; }
+    public PlayerMover mover { get; private set; }
+    public Vector3 position
     {
         get => transform.position;
         private set { }
     }
 
+    private void Awake()
+    {
+        instance = this;
+
+        mover = GetComponent<PlayerMover>();
+        actions = GetComponent<PlayerActions>();
+    }
+
     private void Start()
     {
-        _mover = GetComponent<PlayerMover>();
-        _actions = GetComponent<PlayerActions>();
-
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
 
-        _inventory = FindObjectOfType<Inventory>();
-        _dialogueWindow = FindObjectOfType<DialogueWindow>();
-        _pauseMenu = FindObjectOfType<PauseMenu>();
+        _inventory = Inventory.instance;
     }
 
     private void Update()
     {
-        if (_dialogueWindow.isPlaying || _inventory.isOpened || FloorChanger.IsOpend)
+        if (_dialogueWindow.isPlaying || _inventory.isOpened || FloorChanger.isOpend)
         {
             SetActiveMover(false);
             SlowingDownPlayer();
@@ -54,7 +58,7 @@ public class Player : MonoBehaviour
 
     private void SetActiveMover(bool active)
     {
-        _mover.enabled = active;
+        mover.enabled = active;
     }
 
     private void SlowingDownPlayer()

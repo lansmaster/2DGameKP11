@@ -6,11 +6,11 @@ public class PlayerTracker : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<Player>();
+        _player = Player.instance;
     }
 
     private void LateUpdate()
     {
-        transform.position = new Vector3(_player.Position.x, _player.Position.y + 0.5f, transform.position.z);
+        transform.position = new Vector3(_player.position.x, _player.position.y + 0.5f, transform.position.z);
     }
 }

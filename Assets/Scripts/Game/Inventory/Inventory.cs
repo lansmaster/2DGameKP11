@@ -6,17 +6,22 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform _slotsContainer;
 
     private InventorySlot[] _inventorySlots = new InventorySlot[25];
-
     private ItemInfoWindow _itemInfoWindow;
 
+    public static Inventory instance { get; private set; }
     public bool isOpened { get; private set; }
 
     public UnityAction OnClose;
 
     private void Awake()
     {
-        transform.localScale = Vector3.zero;
+        instance = this;
 
+        transform.localScale = Vector3.zero;
+    }
+
+    private void Start()
+    {
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
             _inventorySlots[i] = _slotsContainer.GetChild(i).GetComponent<InventorySlot>();
@@ -26,6 +31,7 @@ public class Inventory : MonoBehaviour
         _itemInfoWindow = GetComponent<ItemInfoWindow>();
         _itemInfoWindow.Init();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))

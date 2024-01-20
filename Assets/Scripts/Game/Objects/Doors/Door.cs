@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        _playerActions = FindObjectOfType<PlayerActions>();
+        _playerActions = Player.instance.actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
@@ -34,31 +34,27 @@ public class Door : MonoBehaviour
 
     public void Actions()
     {
-        _playerActions.PlayerApproachedTheDoor += EnableEmission;
+        _playerActions.PlayerApproachedTheDoor += SwitchBehavior;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SwitchDoor();
+            OpeningSwitch();
         }
     }
 
-    private void SwitchDoor()
+    private void OpeningSwitch()
     {
         if (isOpened)
         {
-            SetBehaviorClosedDefault();
-
             isOpened = false;
         }
         else
         {
-            SetBehaviorOpenedDefault();
-
             isOpened = true;
         }
     }
 
-    private void EnableEmission(bool enable)
+    private void SwitchBehavior(bool enable)
     {
         if (enable)
         {
@@ -74,7 +70,7 @@ public class Door : MonoBehaviour
             else
                 SetBehaviorClosedDefault();
 
-            _playerActions.PlayerApproachedTheDoor -= EnableEmission;
+            _playerActions.PlayerApproachedTheDoor -= SwitchBehavior;
         }
     }
 

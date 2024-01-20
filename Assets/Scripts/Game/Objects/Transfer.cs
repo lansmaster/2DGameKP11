@@ -5,20 +5,20 @@ public class Transfer : MonoBehaviour
 {
     public static Transfer instance { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            return;
         }
-        else
-        {
-            Destroy(gameObject);    
-        }
+        Destroy(gameObject);
+    }
 
+    private void Start()
+    {
         SceneManager.sceneLoaded += DestroyOnLoad;
-
     }
 
     private void DestroyOnLoad(Scene scene, LoadSceneMode loadSceneMode)

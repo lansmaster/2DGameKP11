@@ -9,23 +9,20 @@ public class FloorChanger : MonoBehaviour
     [SerializeField] private GameObject[] _choices;
     [SerializeField] private Sprite _floorDoor_Emission;
 
-    private Player _player;
-
-    public static Vector3 LastPlayerPositionBeforeTeleportation { get; private set; }
-    public static bool IsOpend { get; private set; }
-
-    private int _currentSceneIndex;
-
     private TextMeshProUGUI[] _choicesText;
     private Button[] _choicesButtons;
-
+    private Player _player;
+    private int _currentSceneIndex;
     private string _upperText = "Поднятся на этаж выше";
     private string _downerText = "Опустится на этаж ниже";
     private string _stayerText = "Остатся на текущем этаже";
 
+    public static Vector3 LastPlayerPositionBeforeTeleportation { get; private set; }
+    public static bool isOpend { get; private set; }
+
     private void Start()
     {
-        _player = FindObjectOfType<Player>();
+        _player = Player.instance;
 
         InitChoises();
     }
@@ -42,9 +39,9 @@ public class FloorChanger : MonoBehaviour
         {
             _floorChangerWindow.SetActive(true);
 
-            IsOpend = true;
+            isOpend = true;
 
-            LastPlayerPositionBeforeTeleportation = _player.Position;
+            LastPlayerPositionBeforeTeleportation = _player.position;
 
             switch (_currentSceneIndex)
             {
@@ -127,7 +124,7 @@ public class FloorChanger : MonoBehaviour
 
     private void UpFloor()
     {
-        IsOpend = false;
+        isOpend = false;
 
         HideChoises();
 
@@ -138,7 +135,7 @@ public class FloorChanger : MonoBehaviour
 
     private void DownFloor()
     {
-        IsOpend = false;
+        isOpend = false;
 
         HideChoises();
 
@@ -149,7 +146,7 @@ public class FloorChanger : MonoBehaviour
 
     private void StayFloor()
     {
-        IsOpend = false;
+        isOpend = false;
 
         HideChoises();
 
