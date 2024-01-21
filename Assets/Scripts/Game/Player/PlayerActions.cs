@@ -6,37 +6,39 @@ using UnityEngine.UI;
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private float _interactionDistance;
+    [SerializeField] private Image _imgPressE;
 
     [Header("Взаимодействие с дверьми: ")]
-    [SerializeField] private Image _imgPressE_Door;
-    [SerializeField] private Sprite _pressEOpenDoor, _pressECloseDoor;
+    [SerializeField] private Sprite _pressE_OpenDoor;
+    [SerializeField] private Sprite _pressE_CloseDoor;
     [SerializeField] private LayerMask _doorsLayerMask;
 
     [Header("Взаимодействие с предметами: ")]
-    [SerializeField] private Image _imgPressE_PickUpItem;
+    [SerializeField] private Sprite _pressE_Item;
     [SerializeField] private LayerMask _itemsLayerMask;
 
     [Header("Взаимодействие с персонажами: ")]
-    [SerializeField] private Image _imgPressE_Dialogue;
+    [SerializeField] private Sprite _pressE_Dialogue;
     [SerializeField] private LayerMask _charactersLayerMask;
 
     [Header("Взаимодействие с лестницами: ")]
     [SerializeField] private FloorChanger _floorChanger;
-    [SerializeField] private Image _imgPressE_FloorChanger;
     [SerializeField] private LayerMask _floorChangersLayerMask;
 
     public UnityAction<bool> PlayerApproachedTheDoor;
     public UnityAction<bool> PlayerApproachedTheItem;
+    public UnityAction<bool> PlayerApproachedTheCharacter;
+    public UnityAction<bool> PlayerApproachedTheFloorChanger;
 
     private void Update()
     {
-        FindingDoor();
+        FindiDoor();
 
-        FindingItem();
+        FindItem();
 
-        FindingCharacter();
+        FindCharacter();
 
-        FindingFloorChanger();
+        FindFloorChanger();
     }
 
     //private void OnDrawGizmos()
@@ -46,7 +48,7 @@ public class PlayerActions : MonoBehaviour
     //    Gizmos.DrawWireSphere(_player.transform.position, _interactionDistance);
     //}
 
-    private void FindingDoor()
+    private void FindiDoor()
     {
         Collider2D doorCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _doorsLayerMask);
 
@@ -54,31 +56,34 @@ public class PlayerActions : MonoBehaviour
         {
             PlayerApproachedTheDoor?.Invoke(false);
 
-            _imgPressE_Door.enabled = false;
-
             return;
         }
 
-        _imgPressE_Door.enabled = true;
-
         if (doorCollider.gameObject.TryGetComponent(out Door door))
         {
-            PlayerApproachedTheDoor?.Invoke(true);
-
-            if (door.isOpened)
+            if (PlayerApproachedTheDoor != null)
             {
-                _imgPressE_Door.sprite = _pressECloseDoor;
+                PlayerApproachedTheDoor.Invoke(true);
             }
             else
             {
-                _imgPressE_Door.sprite = _pressEOpenDoor;
+                PlayerApproachedTheDoor += ShowImagePressE_Door;
+            }
+
+            if (door.isOpened)
+            {
+                _imgPressE.sprite = _pressE_CloseDoor;
+            }
+            else
+            {
+                _imgPressE.sprite = _pressE_OpenDoor;
             }
 
             door.Actions();
         }
     }
 
-    private void FindingItem()
+    private void FindItem()
     {
         Collider2D itemCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _itemsLayerMask);
         
@@ -86,56 +91,131 @@ public class PlayerActions : MonoBehaviour
         {
             PlayerApproachedTheItem?.Invoke(false);
 
-            _imgPressE_PickUpItem.enabled = false;
-
             return;
         }
 
-        _imgPressE_PickUpItem.enabled = true;
-
         if (itemCollider.gameObject.TryGetComponent(out Item item))
         {
-            PlayerApproachedTheItem?.Invoke(true);
-                
+            if (PlayerApproachedTheItem != null)
+            {
+                PlayerApproachedTheItem.Invoke(true);
+            }
+            else
+            {
+                PlayerApproachedTheItem += ShowImagePressE_Item;
+            }
+               
             item.PickUp();
         }
     }
 
-    private void FindingCharacter()
+    private void FindCharacter()
     {
         Collider2D characterCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _charactersLayerMask);
         
         if (characterCollider == null)
         {
-            _imgPressE_Dialogue.enabled = false;
+            PlayerApproachedTheCharacter?.Invoke(false);
 
             return;
         }
 
-        _imgPressE_Dialogue.enabled = true;
+        if (characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
+        {
+            if (PlayerApproachedTheCharacter != null)
+            {
+                PlayerApproachedTheCharacter.Invoke(true);
+            }
+            else
+            {
+                PlayerApproachedTheCharacter += ShowImagePressE_Dialogue;
+            }
 
-        if(characterCollider.gameObject.TryGetComponent(out NPCDialogueTrigger dialogueTrigger))
             dialogueTrigger.TriggerAction();
-        
+        }
     }
 
-    private void FindingFloorChanger()
+    private void FindFloorChanger()
     {
         Collider2D floorChangerCollider = Physics2D.OverlapPoint(Player.instance.position, _floorChangersLayerMask);
         
         if (floorChangerCollider == null || floorChangerCollider.layerOverridePriority != 1)
         {
-            _imgPressE_FloorChanger.enabled = false;
-        
+            PlayerApproachedTheFloorChanger?.Invoke(false);
+
             return;
         }
         
         if (floorChangerCollider.layerOverridePriority == 1)
         {
-            _imgPressE_FloorChanger.enabled = true;
-            _imgPressE_FloorChanger.sprite = _pressEOpenDoor;
+            if (PlayerApproachedTheFloorChanger != null)
+            {
+                PlayerApproachedTheFloorChanger.Invoke(true);
+            }
+            else
+            {
+                PlayerApproachedTheFloorChanger += ShowImagePressE_FloorChanger;
+            }
 
             _floorChanger.Actions(floorChangerCollider.gameObject);
+        }
+    }
+
+    private void ShowImagePressE_Door(bool show)
+    {
+        if (show)
+        {
+            _imgPressE.enabled = true;
+        }
+        else
+        {
+            _imgPressE.enabled = false;
+            PlayerApproachedTheDoor -= ShowImagePressE_Door;
+        }
+    }
+
+    private void ShowImagePressE_Item(bool show)
+    {
+        _imgPressE.sprite = _pressE_Item;
+
+        if (show)
+        {
+            _imgPressE.enabled = true;
+        }
+        else
+        {
+            _imgPressE.enabled = false;
+            PlayerApproachedTheItem -= ShowImagePressE_Item;
+        }
+    }
+
+    private void ShowImagePressE_Dialogue(bool show)
+    {
+        _imgPressE.sprite = _pressE_Dialogue;
+
+        if (show)
+        {
+            _imgPressE.enabled = true;
+        }
+        else
+        {
+            _imgPressE.enabled = false;
+            PlayerApproachedTheCharacter -= ShowImagePressE_Dialogue;
+        }
+    }
+
+    private void ShowImagePressE_FloorChanger(bool show)
+    {
+        _imgPressE.sprite = _pressE_OpenDoor;
+
+        if (show)
+        {
+            _imgPressE.enabled = true;
+        }
+        else
+        {
+            _imgPressE.enabled = false;
+            PlayerApproachedTheFloorChanger -= ShowImagePressE_FloorChanger;
         }
     }
 }

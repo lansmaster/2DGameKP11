@@ -11,7 +11,6 @@ public class FloorChanger : MonoBehaviour
 
     private TextMeshProUGUI[] _choicesText;
     private Button[] _choicesButtons;
-    private Player _player;
     private int _currentSceneIndex;
     private string _upperText = "Поднятся на этаж выше";
     private string _downerText = "Опустится на этаж ниже";
@@ -22,8 +21,6 @@ public class FloorChanger : MonoBehaviour
 
     private void Start()
     {
-        _player = Player.instance;
-
         InitChoises();
     }
 
@@ -41,7 +38,7 @@ public class FloorChanger : MonoBehaviour
 
             isOpend = true;
 
-            LastPlayerPositionBeforeTeleportation = _player.position;
+            LastPlayerPositionBeforeTeleportation = Player.instance.position;
 
             switch (_currentSceneIndex)
             {

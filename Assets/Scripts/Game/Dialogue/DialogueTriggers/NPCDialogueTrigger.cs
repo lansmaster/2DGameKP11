@@ -6,28 +6,38 @@ public class NPCDialogueTrigger : MonoBehaviour
 
     private DialogueController _dialogueController;
     private DialogueWindow _dialogueWindow;
-
+    private PlayerActions _playerActions;
     private Animator _animator;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
 
+        _playerActions = Player.instance.actions;
         _dialogueController = FindObjectOfType<DialogueController>();
         _dialogueWindow = FindObjectOfType<DialogueWindow>();
     }
 
-    private void FixedUpdate()
-    {
-        _animator.SetBool("Emission", false);
-    }
-
     public void TriggerAction()
     {
-        _animator.SetBool("Emission", true);
+        _playerActions.PlayerApproachedTheCharacter += EnableEmission;
 
         if (Input.GetKeyDown(KeyCode.E) && !_dialogueWindow.isPlaying)
         {
             _dialogueController.EnterDialogueMode(_inkJSON);
+        }
+    }
+
+    private void EnableEmission(bool enable)
+    {
+        if (enable)
+        {
+            _animator.SetBool("Emission", true);
+        }
+        else
+        {
+            _animator.SetBool("Emission", false);
+            _playerActions.PlayerApproachedTheCharacter -= EnableEmission;
         }
     }
 }

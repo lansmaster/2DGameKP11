@@ -186,6 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612d1e5d6dda15f4c8de232c87ad9e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueWindow: {fileID: 0}
+  _pauseMenu: {fileID: 0}
 --- !u!114 &1514913066721360042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,17 +216,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionDistance: 0.5
   _imgPressE: {fileID: 0}
-  _pressEOpenDoor: {fileID: 21300000, guid: c2c93393e8a20624e9bf77a3e13aed8d, type: 3}
-  _pressECloseDoor: {fileID: 21300000, guid: 5b6309ff9af29ca47859960d2f39e408, type: 3}
+  _pressE_OpenDoor: {fileID: 21300000, guid: c2c93393e8a20624e9bf77a3e13aed8d, type: 3}
+  _pressE_CloseDoor: {fileID: 21300000, guid: 5b6309ff9af29ca47859960d2f39e408, type: 3}
   _doorsLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _pressE_Item: {fileID: 21300000, guid: ee7724663931e8849a5edfdbea53b2f2, type: 3}
   _itemsLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  _pressE_Dialogue: {fileID: 21300000, guid: 25184e65e975571489292c527e851f08, type: 3}
   _charactersLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  _floorChanger: {fileID: 0}
   _floorChangersLayerMask:
     serializedVersion: 2
     m_Bits: 1024
