@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (_dialogueWindow.isPlaying || _inventory.isOpened || FloorChanger.isOpend)
+        if (_dialogueWindow.isPlaying || /*_inventory.isOpened*/ FloorChanger.isOpend)
         {
             SetActiveMover(false);
             SlowingDownPlayer();
@@ -50,10 +50,10 @@ public class Player : MonoBehaviour
             SetActiveMover(true);
         }
 
-        if(_inventory.isOpened)
-            _pauseMenu.canOpen = false;
-        else
-            _pauseMenu.canOpen = true;
+        //if(_inventory.isOpened)
+        //    _pauseMenu.canOpen = false;
+        //else
+        //    _pauseMenu.canOpen = true;
 
     }
 

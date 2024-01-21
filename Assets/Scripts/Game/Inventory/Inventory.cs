@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void PutInEmptySlot(AssetItem item, string itemName)
+    public void PutInEmptySlot(ItemAsset item, string itemName)
     {
         for (int i = 0; i < _inventorySlots.Length; i++)
         {

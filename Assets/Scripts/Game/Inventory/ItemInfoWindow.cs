@@ -26,7 +26,7 @@ public class ItemInfoWindow : MonoBehaviour
         _inventory.OnClose += Close;
     }
 
-    private void SetInfo(AssetItem item, string itemName, InventorySlot currentSlot)
+    private void SetInfo(ItemAsset item, string itemName, InventorySlot currentSlot)
     {
         _title.text = item.Name;
         _description.text = item.Description;
@@ -55,7 +55,7 @@ public class ItemInfoWindow : MonoBehaviour
         Close();
     }
 
-    public void Open(AssetItem item, string itemName, InventorySlot currentSlot)
+    public void Open(ItemAsset item, string itemName, InventorySlot currentSlot)
     {
         SetInfo(item, itemName, currentSlot);
 

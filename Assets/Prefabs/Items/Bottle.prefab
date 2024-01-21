@@ -185,4 +185,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _default: {fileID: 1089311838, guid: 92095bc3dfd0f11438aea2bd067390d8, type: 3}
   _emission: {fileID: 817297002, guid: 92095bc3dfd0f11438aea2bd067390d8, type: 3}
-  _assetItem: {fileID: 11400000, guid: 43ba94c641bb4d94ea10648e50bca580, type: 2}
+  _itemAsset: {fileID: 11400000, guid: 43ba94c641bb4d94ea10648e50bca580, type: 2}

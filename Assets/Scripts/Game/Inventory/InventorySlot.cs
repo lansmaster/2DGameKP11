@@ -5,7 +5,7 @@ public class InventorySlot : MonoBehaviour
 {   
     private ItemInfoWindow _itemInfoWindow;
 
-    private AssetItem _itemInSlot;
+    private ItemAsset _itemInSlot;
     private string _itemName;
 
     private Image _slotIcon;
@@ -21,7 +21,7 @@ public class InventorySlot : MonoBehaviour
         IsEmpty = true;
     }
 
-    public void PutInSlot(AssetItem item, string itemName)
+    public void PutInSlot(ItemAsset item, string itemName)
     {
         IsEmpty = false;
 

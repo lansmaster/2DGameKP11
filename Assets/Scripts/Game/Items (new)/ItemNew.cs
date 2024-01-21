@@ -1,20 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class Item : MonoBehaviour
-{   
+public class ItemNew : MonoBehaviour
+{
     [SerializeField] private Sprite _default, _emission;
     [SerializeField] private ItemAsset _itemAsset;
+    [SerializeField] private InventoryViewModel _inventory;
 
     private PlayerActions _playerActions;
-    private Inventory _inventory;
     private SpriteRenderer _spriteRenderer;
+
+    public static UnityAction<ItemAsset> ItemPickUped;
 
     public string Name { get { return _itemAsset.name; } private set { } }
 
     private void Start()
     {
-        _inventory = Inventory.instance;
         _playerActions = Player.instance.actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -25,9 +26,10 @@ public class Item : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _inventory.PutInEmptySlot(_itemAsset, Name);
+            ItemPickUped?.Invoke(_itemAsset);
             Destroy(gameObject);
         }
+
     }
 
     private void EnableEmission(bool enable)
