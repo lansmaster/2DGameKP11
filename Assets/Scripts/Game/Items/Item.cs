@@ -1,20 +1,20 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class Item : MonoBehaviour
-{   
+{
     [SerializeField] private Sprite _default, _emission;
     [SerializeField] private ItemAsset _itemAsset;
 
     private PlayerActions _playerActions;
-    private Inventory _inventory;
     private SpriteRenderer _spriteRenderer;
+
+    public static UnityAction<ItemAsset> ItemPickUped;
 
     public string Name { get { return _itemAsset.name; } private set { } }
 
     private void Start()
     {
-        _inventory = Inventory.instance;
         _playerActions = Player.instance.actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -25,9 +25,10 @@ public class Item : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _inventory.PutInEmptySlot(_itemAsset, Name);
+            ItemPickUped?.Invoke(_itemAsset);
             Destroy(gameObject);
         }
+
     }
 
     private void EnableEmission(bool enable)
@@ -38,13 +39,9 @@ public class Item : MonoBehaviour
         }
         else
         {
-            _spriteRenderer.sprite = _default;
             _playerActions.PlayerApproachedTheItem -= EnableEmission;
-        }
-    }
 
-    private void OnDisable()
-    {
-        _playerActions.PlayerApproachedTheItem -= EnableEmission;
+            _spriteRenderer.sprite = _default;
+        }
     }
 }

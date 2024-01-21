@@ -7,9 +7,10 @@ public class InventoryViewModel : MonoBehaviour
     private InventoryController _inventoryController;
     private InventoryView _inventoryView;
 
-    public event Action<ItemAsset, int> ItemAddedNotification;
-    public event Action<ItemAsset, int> ItemDroppedNotification;
-    public event Action<ItemAsset> ItemSelectedNotification;
+    public event Action<ItemAsset, int> ItemAddedNotificationForView;
+    public event Action<ItemAsset> ItemSelectedNotificationForView;
+    public event Action<ItemAsset, int> ItemDroppedNotificationForView;
+    public event Action<ItemAsset> ItemDroppedNotificationForPlayer;
 
     public void Init(InventoryView InventoryVeiw, int inventorySizeInVeiw)
     {
@@ -37,7 +38,7 @@ public class InventoryViewModel : MonoBehaviour
         _inventoryController.ItemSelected += SendItemSelected;
         _inventoryController.ItemDropped += SendItemDropped;
 
-        ItemNew.ItemPickUped += SendAddItem;
+        Item.ItemPickUped += SendAddItem;
 
         _inventoryView.DropClicked += SendDropItem;
         _inventoryView.SlotSelected += SendSelectItem;
@@ -60,16 +61,17 @@ public class InventoryViewModel : MonoBehaviour
 
     private void SendItemAdded(ItemAsset itemAsset, int slotIndex)
     {
-        ItemAddedNotification?.Invoke(itemAsset, slotIndex);
+        ItemAddedNotificationForView?.Invoke(itemAsset, slotIndex);
     }
 
     private void SendItemSelected(ItemAsset itemAsset)
     {
-        ItemSelectedNotification?.Invoke(itemAsset);
+        ItemSelectedNotificationForView?.Invoke(itemAsset);
     }
 
     private void SendItemDropped(ItemAsset itemAsset, int slotIndex)
     {
-        ItemDroppedNotification?.Invoke(itemAsset, slotIndex);
+        ItemDroppedNotificationForView?.Invoke(itemAsset, slotIndex);
+        ItemDroppedNotificationForPlayer?.Invoke(itemAsset);
     }
 }

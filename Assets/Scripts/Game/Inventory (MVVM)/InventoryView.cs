@@ -23,6 +23,9 @@ public class InventoryView : MonoBehaviour
 
     private void Start()
     {
+        transform.localScale = Vector3.zero;
+        isOpened = false;
+
         _itemInfoWindow.SetActive(false);
 
         _inventory = GetComponent<InventoryViewModel>();
@@ -35,9 +38,9 @@ public class InventoryView : MonoBehaviour
             _inventorySlotViews[i].SlotClicked += SelectSlot;
         }
 
-        _inventory.ItemAddedNotification += SetItemInfo;
-        _inventory.ItemDroppedNotification += ClearItemInfo;
-        _inventory.ItemSelectedNotification += ShowItemInfo;
+        _inventory.ItemAddedNotificationForView += SetItemInfo;
+        _inventory.ItemDroppedNotificationForView += ClearItemInfo;
+        _inventory.ItemSelectedNotificationForView += ShowItemInfo;
     }
 
     private void Update()
@@ -100,9 +103,9 @@ public class InventoryView : MonoBehaviour
 
     private void SelectSlot(int slotIndex)
     {
-        SlotSelected?.Invoke(slotIndex);
-
         _currentSlotIndex = slotIndex;
+
+        SlotSelected?.Invoke(slotIndex);
     }
 
     private void ShowItemInfo(ItemAsset itemAsset)

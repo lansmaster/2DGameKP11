@@ -55,7 +55,6 @@ public class InventoryController
         slot.Clean();
 
         ItemDropped?.Invoke(itemAsset, slotIndex);
-
         return true;
     }
 
@@ -73,7 +72,9 @@ public class InventoryController
             }
 
             slot.ItemAsset = itemAsset;
+
             ItemAdded?.Invoke(itemAsset, slotIndex);
+            return;
         }
     }
 }

@@ -17,7 +17,7 @@ public class FloorChanger : MonoBehaviour
     private string _stayerText = "Остатся на текущем этаже";
 
     public static Vector3 LastPlayerPositionBeforeTeleportation { get; private set; }
-    public static bool isOpend { get; private set; }
+    public bool isOpend { get; private set; }
 
     private void Start()
     {
