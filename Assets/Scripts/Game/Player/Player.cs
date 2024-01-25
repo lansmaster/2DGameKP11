@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
     [SerializeField] private PauseMenu _pauseMenu;
     [SerializeField] private FloorChanger _floorChanger;
     [SerializeField] private InventoryView _inventoryView;
-    [SerializeField] private InventoryViewModel _inventoryViewModel;
 
 
     private const float _speedChangeRate = 6;
@@ -37,8 +36,6 @@ public class Player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
-        _inventoryViewModel.ItemDroppedNotificationForPlayer += DropItem;
     }
 
     private void Update()
@@ -58,21 +55,6 @@ public class Player : MonoBehaviour
         else
             _pauseMenu.canOpen = true;
 
-    }
-
-    private void DropItem(ItemAsset itemAsset)
-    {
-        var item = Items.instance.GetItem(itemAsset.name);
-
-        float positiveRandomValue = Random.Range(0.2f, 0.5f);
-        float negativeRandomValue = Random.Range(-0.5f, -0.2f);
-        float xRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
-        float yRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
-        Vector3 dropPosition = new Vector3(position.x + xRandomValue, position.y + yRandomValue, position.z);
-        GameObject currentItem = Instantiate(item, dropPosition, Quaternion.identity);
-        Rigidbody2D currentItemRigidbody = currentItem.GetComponent<Rigidbody2D>();
-
-        currentItemRigidbody.velocity = new Vector2(xRandomValue * 2, yRandomValue * 2);
     }
 
     private void SetActiveMover(bool active)

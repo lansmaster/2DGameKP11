@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(InventoryViewModel))]
 public class InventoryView : MonoBehaviour
 {
     [SerializeField] private GameObject _itemInfoWindow;
@@ -28,7 +27,7 @@ public class InventoryView : MonoBehaviour
 
         _itemInfoWindow.SetActive(false);
 
-        _inventory = GetComponent<InventoryViewModel>();
+        _inventory = new InventoryViewModel();
         _inventory.Init(this, _inventorySlotViews.Length);
 
         for (int i = 0; i < _inventorySlotViews.Length; i++)
@@ -40,6 +39,7 @@ public class InventoryView : MonoBehaviour
 
         _inventory.ItemAddedNotificationForView += SetItemInfo;
         _inventory.ItemDroppedNotificationForView += ClearItemInfo;
+        _inventory.ItemDroppedNotificationForView += DropItem;
         _inventory.ItemSelectedNotificationForView += ShowItemInfo;
     }
 
@@ -115,5 +115,20 @@ public class InventoryView : MonoBehaviour
         _infoItemIcon.sprite = itemAsset.Icon;
 
         _itemInfoWindow.SetActive(true);
+    }
+
+    private void DropItem(ItemAsset itemAsset, int slotIndex)
+    {
+        var item = Items.instance.GetItem(itemAsset.name);
+
+        float positiveRandomValue = Random.Range(0.2f, 0.5f);
+        float negativeRandomValue = Random.Range(-0.5f, -0.2f);
+        float xRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
+        float yRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
+        Vector3 dropPosition = new Vector3(Player.instance.position.x + xRandomValue, Player.instance.position.y + yRandomValue, Player.instance.position.z);
+        GameObject currentItem = Instantiate(item, dropPosition, Quaternion.identity);
+        Rigidbody2D currentItemRigidbody = currentItem.GetComponent<Rigidbody2D>();
+
+        currentItemRigidbody.velocity = new Vector2(xRandomValue * 2, yRandomValue * 2);
     }
 }

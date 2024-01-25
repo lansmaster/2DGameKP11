@@ -25,8 +25,8 @@ public class Transfer : MonoBehaviour
     {
         if (scene.buildIndex == 0)
         {
-            Destroy(gameObject);
             SceneManager.sceneLoaded -= DestroyOnLoad;
+            Destroy(gameObject);
         }
     }
 }

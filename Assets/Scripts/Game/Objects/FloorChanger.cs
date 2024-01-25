@@ -7,7 +7,6 @@ public class FloorChanger : MonoBehaviour
 {
     [SerializeField] private GameObject _floorChangerWindow;
     [SerializeField] private GameObject[] _choices;
-    [SerializeField] private Sprite _floorDoor_Emission;
 
     private TextMeshProUGUI[] _choicesText;
     private Button[] _choicesButtons;
@@ -24,16 +23,12 @@ public class FloorChanger : MonoBehaviour
         InitChoises();
     }
 
-    public void Actions(GameObject floorDoor)
+    public void Launch()
     {
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        SpriteRenderer spriteRenderer = floorDoor.GetComponent<SpriteRenderer>();
-
-        spriteRenderer.sprite = _floorDoor_Emission;
-
         if (Input.GetKeyDown(KeyCode.E))
         {
+            _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
             _floorChangerWindow.SetActive(true);
 
             isOpend = true;
@@ -127,6 +122,10 @@ public class FloorChanger : MonoBehaviour
 
         _floorChangerWindow.SetActive(false);
 
+        _choicesButtons[0].onClick.RemoveAllListeners();
+        _choicesButtons[1].onClick.RemoveAllListeners();
+        _choicesButtons[2].onClick.RemoveAllListeners();
+
         SceneManager.LoadScene(_currentSceneIndex + 1);
     }
 
@@ -137,6 +136,10 @@ public class FloorChanger : MonoBehaviour
         HideChoises();
 
         _floorChangerWindow.SetActive(false);
+
+        _choicesButtons[0].onClick.RemoveAllListeners();
+        _choicesButtons[1].onClick.RemoveAllListeners();
+        _choicesButtons[2].onClick.RemoveAllListeners();
 
         SceneManager.LoadScene(_currentSceneIndex - 1);
     }
@@ -150,5 +153,9 @@ public class FloorChanger : MonoBehaviour
         _floorChangerWindow.SetActive(false);
 
         LastPlayerPositionBeforeTeleportation = Vector3.zero;
+
+        _choicesButtons[0].onClick.RemoveAllListeners();
+        _choicesButtons[1].onClick.RemoveAllListeners();
+        _choicesButtons[2].onClick.RemoveAllListeners();
     }
 }

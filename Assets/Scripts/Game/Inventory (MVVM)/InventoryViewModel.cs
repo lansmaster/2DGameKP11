@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class InventoryViewModel : MonoBehaviour
+public class InventoryViewModel
 {
     private InventoryController _inventoryController;
     private InventoryView _inventoryView;
@@ -10,7 +9,6 @@ public class InventoryViewModel : MonoBehaviour
     public event Action<ItemAsset, int> ItemAddedNotificationForView;
     public event Action<ItemAsset> ItemSelectedNotificationForView;
     public event Action<ItemAsset, int> ItemDroppedNotificationForView;
-    public event Action<ItemAsset> ItemDroppedNotificationForPlayer;
 
     public void Init(InventoryView InventoryVeiw, int inventorySizeInVeiw)
     {
@@ -72,6 +70,5 @@ public class InventoryViewModel : MonoBehaviour
     private void SendItemDropped(ItemAsset itemAsset, int slotIndex)
     {
         ItemDroppedNotificationForView?.Invoke(itemAsset, slotIndex);
-        ItemDroppedNotificationForPlayer?.Invoke(itemAsset);
     }
 }

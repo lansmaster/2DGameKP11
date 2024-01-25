@@ -21,17 +21,14 @@ public class Item : MonoBehaviour
 
     public void PickUp()
     {
-        _playerActions.PlayerApproachedTheItem += EnableEmission;
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             ItemPickUped?.Invoke(_itemAsset);
             Destroy(gameObject);
         }
-
     }
 
-    private void EnableEmission(bool enable)
+    public void EnableEmission(bool enable)
     {
         if (enable)
         {

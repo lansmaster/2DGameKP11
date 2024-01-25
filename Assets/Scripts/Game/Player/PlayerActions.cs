@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Player))]
@@ -29,6 +30,16 @@ public class PlayerActions : MonoBehaviour
     public UnityAction<bool> PlayerApproachedTheItem;
     public UnityAction<bool> PlayerApproachedTheCharacter;
     public UnityAction<bool> PlayerApproachedTheFloorChanger;
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += (Scene scene, LoadSceneMode sceneMode) => { PlayerApproachedTheFloorChanger?.Invoke(false); };
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= (Scene scene, LoadSceneMode sceneMode) => { PlayerApproachedTheFloorChanger?.Invoke(false); };
+    }
 
     private void Update()
     {
@@ -103,6 +114,7 @@ public class PlayerActions : MonoBehaviour
             else
             {
                 PlayerApproachedTheItem += ShowImagePressE_Item;
+                PlayerApproachedTheItem += item.EnableEmission;
             }
                
             item.PickUp();
@@ -146,7 +158,7 @@ public class PlayerActions : MonoBehaviour
             return;
         }
         
-        if (floorChangerCollider.layerOverridePriority == 1)
+        if (floorChangerCollider.layerOverridePriority == 1 && floorChangerCollider.gameObject.TryGetComponent(out FloorDoor floorDoor))
         {
             if (PlayerApproachedTheFloorChanger != null)
             {
@@ -155,9 +167,10 @@ public class PlayerActions : MonoBehaviour
             else
             {
                 PlayerApproachedTheFloorChanger += ShowImagePressE_FloorChanger;
+                PlayerApproachedTheFloorChanger += floorDoor.EnableEmission;
             }
 
-            _floorChanger.Actions(floorChangerCollider.gameObject);
+            _floorChanger.Launch();
         }
     }
 

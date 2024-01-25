@@ -190,3 +190,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _default: {fileID: 21300000, guid: d5c0ef711a320314fb01e9138a255131, type: 3}
+  _emission: {fileID: 21300000, guid: b649a7c525a5f2d4ab43cb47e7539509, type: 3}
