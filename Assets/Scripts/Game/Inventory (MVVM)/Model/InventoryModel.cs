@@ -1,17 +1,16 @@
 using System;
 
-public class InventoryController
+public class InventoryModel
 {
     public event Action<ItemAsset, int> ItemAdded;
-    //public event Action<ItemAsset> ItemRemoved;
     public event Action<ItemAsset> ItemSelected;
-    public event Action<ItemAsset, int> ItemDropped;
+    public event Action<ItemAsset, int> ItemRemoved;
     
 
     private readonly InventoryData _inventoryData;
     private readonly InventoryConfig _inventoryConfig;
 
-    public InventoryController(InventoryData inventoryData, InventoryConfig inventoryConfig)
+    public InventoryModel(InventoryData inventoryData, InventoryConfig inventoryConfig)
     {
         _inventoryData = inventoryData; 
         _inventoryConfig = inventoryConfig;
@@ -21,11 +20,6 @@ public class InventoryController
     {
         AddToFirstAvailableSlot(itemAsset);
     }
-
-    //public void Remove()
-    //{
-
-    //}
 
     public bool Select(int slotIndex)
     {
@@ -42,7 +36,7 @@ public class InventoryController
         return true;
     }
 
-    public bool Drop(int slotIndex)
+    public bool Remove(int slotIndex)
     {
         var slot = _inventoryData.Slots[slotIndex];
 
@@ -54,7 +48,7 @@ public class InventoryController
         var itemAsset = slot.ItemAsset;
         slot.Clean();
 
-        ItemDropped?.Invoke(itemAsset, slotIndex);
+        ItemRemoved?.Invoke(itemAsset, slotIndex);
         return true;
     }
 

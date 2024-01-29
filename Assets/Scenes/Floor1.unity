@@ -2780,10 +2780,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 35184899}
     m_Modifications:
-    - target: {fileID: 5289960798982072840, guid: d06509a074186264196f3f8a5bea7acb, type: 3}
-      propertyPath: _roomNumber
-      value: 209
-      objectReference: {fileID: 0}
     - target: {fileID: 1186163380145203646, guid: 506a42b9143246847a948ba0fe466ee2, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2836,6 +2832,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 5289960798982072840, guid: d06509a074186264196f3f8a5bea7acb, type: 3}
+      propertyPath: _roomNumber
+      value: 209
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16774,7 +16774,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1861279591}
         m_TargetAssemblyTypeName: InventoryView, Assembly-CSharp
-        m_MethodName: Drop
+        m_MethodName: DropButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17480,14 +17480,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1903107455}
     m_Modifications:
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _roomNumberSign
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4067750950666336126, guid: 3f63259c5d6823045a990d40fc2a9539, type: 3}
       propertyPath: m_Name
       value: HorizontalWall (1)
@@ -17535,6 +17527,14 @@ PrefabInstance:
     - target: {fileID: 8875989450263442654, guid: 3f63259c5d6823045a990d40fc2a9539, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumberSign
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
@@ -21298,18 +21298,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 860057977}
     m_Modifications:
-    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _roomNumber
-      value: 203
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1928880708}
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _imgPressE
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 618613894382212928, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.895
@@ -21369,6 +21357,18 @@ PrefabInstance:
     - target: {fileID: 9015858747947115767, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_SpriteTilingProperty.border.z
       value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _roomNumber
+      value: 203
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1928880708}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _imgPressE
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21798,10 +21798,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 860057977}
     m_Modifications:
-    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _roomNumber
-      value: 118
-      objectReference: {fileID: 0}
     - target: {fileID: 618613894382212928, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.895
@@ -21849,6 +21845,10 @@ PrefabInstance:
     - target: {fileID: 6204263280195902430, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_Name
       value: VerticalWallLeft (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _roomNumber
+      value: 118
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24479,7 +24479,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1861279591}
         m_TargetAssemblyTypeName: InventoryView, Assembly-CSharp
-        m_MethodName: CloseItemIfoWindow
+        m_MethodName: CloseItemInfoWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26168,10 +26168,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 35184899}
     m_Modifications:
-    - target: {fileID: 5289960798982072840, guid: d06509a074186264196f3f8a5bea7acb, type: 3}
-      propertyPath: _roomNumber
-      value: 211
-      objectReference: {fileID: 0}
     - target: {fileID: 1186163380145203646, guid: 506a42b9143246847a948ba0fe466ee2, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -26224,6 +26220,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 5289960798982072840, guid: d06509a074186264196f3f8a5bea7acb, type: 3}
+      propertyPath: _roomNumber
+      value: 211
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33329,10 +33329,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021777295}
     m_Modifications:
-    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
-      propertyPath: _roomNumber
-      value: 204
-      objectReference: {fileID: 0}
     - target: {fileID: 3750641299928217887, guid: e811f947c5e4411468b1cb46bdbc37b4, type: 3}
       propertyPath: m_Name
       value: HorizontalWallInRoom (3)
@@ -33389,6 +33385,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 7928460323682695597, guid: 7721662fb282c194081ddff9cc5c2303, type: 3}
+      propertyPath: _roomNumber
+      value: 204
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39122,30 +39122,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 860057977}
     m_Modifications:
-    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _roomNumber
-      value: 202
-      objectReference: {fileID: 0}
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1928880708}
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _imgPressE
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7638466235310818850, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.105
-      objectReference: {fileID: 0}
-    - target: {fileID: 7638466235310818850, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: m_SpriteTilingProperty.border.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7638466235310818850, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: m_SpriteTilingProperty.border.z
-      value: 0.78125
-      objectReference: {fileID: 0}
     - target: {fileID: 618613894382212928, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.895
@@ -39207,6 +39183,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015858747947115767, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396081881280852073, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _roomNumber
+      value: 202
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1928880708}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _imgPressE
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638466235310818850, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638466235310818850, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638466235310818850, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
       propertyPath: m_SpriteTilingProperty.border.z
       value: 0.78125
       objectReference: {fileID: 0}
@@ -41406,14 +41406,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 860057977}
     m_Modifications:
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1928880709}
-    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
-      propertyPath: _imgPressE
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 618613894382212928, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.895
@@ -41461,6 +41453,14 @@ PrefabInstance:
     - target: {fileID: 6204263280195902430, guid: 8e2e32b76f42e694fb007cb894572a3e, type: 3}
       propertyPath: m_Name
       value: VerticalWallLeft (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1928880709}
+    - target: {fileID: 7193505663953172859, guid: 6b76b53dd120ed24facf8c14ab9008bb, type: 3}
+      propertyPath: _imgPressE
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42157,6 +42157,7 @@ GameObject:
   - component: {fileID: 1861279590}
   - component: {fileID: 1861279589}
   - component: {fileID: 1861279591}
+  - component: {fileID: 1861279592}
   m_Layer: 5
   m_Name: Inventory (MVVM)
   m_TagString: Untagged
@@ -42242,6 +42243,18 @@ MonoBehaviour:
   _infoTitle: {fileID: 745284325}
   _infoDescription: {fileID: 1801487499}
   _infoItemIcon: {fileID: 146675756}
+--- !u!114 &1861279592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861279587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf64e24070245e4394fc07eb47ce27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1861666497
 PrefabInstance:
   m_ObjectHideFlags: 0

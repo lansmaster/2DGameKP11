@@ -11,36 +11,32 @@ public class InventoryView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _infoDescription;
     [SerializeField] private Image _infoItemIcon;
 
-    private InventoryViewModel _inventory;
     private InventorySlotView[] _inventorySlotViews = new InventorySlotView[25];
     private int _currentSlotIndex;
 
     public bool isOpened { get; private set; }
+    public int inventorySize { get; private set; }
 
     public UnityAction<int> DropClicked;
     public UnityAction<int> SlotSelected;
 
-    private void Start()
+    private void Awake()
     {
         transform.localScale = Vector3.zero;
+        _itemInfoWindow.SetActive(false);
         isOpened = false;
 
-        _itemInfoWindow.SetActive(false);
+        inventorySize = _inventorySlotViews.Length;
+    }
 
-        _inventory = new InventoryViewModel();
-        _inventory.Init(this, _inventorySlotViews.Length);
-
+    private void Start()
+    {
         for (int i = 0; i < _inventorySlotViews.Length; i++)
         {
             _inventorySlotViews[i] = _slotsContainer.GetChild(i).GetComponent<InventorySlotView>();
             _inventorySlotViews[i].SetSlotIndex(i);
             _inventorySlotViews[i].SlotClicked += SelectSlot;
         }
-
-        _inventory.ItemAddedNotificationForView += SetItemInfo;
-        _inventory.ItemDroppedNotificationForView += ClearItemInfo;
-        _inventory.ItemDroppedNotificationForView += DropItem;
-        _inventory.ItemSelectedNotificationForView += ShowItemInfo;
     }
 
     private void Update()
@@ -71,17 +67,17 @@ public class InventoryView : MonoBehaviour
         isOpened = false;
     }
 
-    public void Drop() // повесил на кнопку
+    public void DropButton() // повесил на кнопку
     {
         DropClicked?.Invoke(_currentSlotIndex);
     }
 
-    public void CloseItemIfoWindow() // повесил на кнопку
+    public void CloseItemInfoWindow() // повесил на кнопку
     {
         _itemInfoWindow.SetActive(false);
     }
 
-    private void SetItemInfo(ItemAsset itemAsset, int slotIndex)
+    public void SetItemInfo(ItemAsset itemAsset, int slotIndex)
     {
         _infoTitle.text = itemAsset.Name;
         _infoDescription.text = itemAsset.Description;
@@ -90,7 +86,7 @@ public class InventoryView : MonoBehaviour
         _inventorySlotViews[slotIndex].SetItemIcon(itemAsset.Icon);
     }
 
-    private void ClearItemInfo(ItemAsset itemAsset, int slotIndex)
+    public void ClearItemInfo(ItemAsset itemAsset, int slotIndex)
     {
         _infoTitle.text = null;
         _infoDescription.text = null;
@@ -108,7 +104,7 @@ public class InventoryView : MonoBehaviour
         SlotSelected?.Invoke(slotIndex);
     }
 
-    private void ShowItemInfo(ItemAsset itemAsset)
+    public void ShowItemInfo(ItemAsset itemAsset)
     {
         _infoTitle.text = itemAsset.Name;
         _infoDescription.text = itemAsset.Description;
@@ -117,7 +113,7 @@ public class InventoryView : MonoBehaviour
         _itemInfoWindow.SetActive(true);
     }
 
-    private void DropItem(ItemAsset itemAsset, int slotIndex)
+    public void DropItem(ItemAsset itemAsset, int slotIndex)
     {
         var item = Items.instance.GetItem(itemAsset.name);
 
