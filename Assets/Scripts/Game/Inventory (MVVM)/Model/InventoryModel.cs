@@ -6,7 +6,6 @@ public class InventoryModel
     public event Action<ItemAsset> ItemSelected;
     public event Action<ItemAsset, int> ItemRemoved;
     
-
     private readonly InventoryData _inventoryData;
     private readonly InventoryConfig _inventoryConfig;
 
@@ -51,6 +50,16 @@ public class InventoryModel
         ItemRemoved?.Invoke(itemAsset, slotIndex);
         return true;
     }
+
+    //public void SaveData()
+    //{
+    //    var size = _inventoryConfig.InventorySize;
+
+    //    for (int slotIndex = 0; slotIndex < size; slotIndex++)
+    //    {
+    //        var slot = _inventoryData.Slots[slotIndex];
+    //    }
+    //}
 
     private void AddToFirstAvailableSlot(ItemAsset itemAsset)
     {
