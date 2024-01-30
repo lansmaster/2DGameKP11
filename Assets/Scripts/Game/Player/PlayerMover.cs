@@ -15,7 +15,7 @@ public class PlayerMover : MonoBehaviour
     private float _currentWalkSpeed;
     private float _currentRunSpeed;
 
-    private void Start()
+    public void Init()
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();

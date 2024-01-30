@@ -1,4 +1,7 @@
+using System.Data;
+using System.Globalization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -20,7 +23,7 @@ public class Player : MonoBehaviour
     public Vector3 position
     {
         get => transform.position;
-        private set { }
+        private set => transform.position = value;
     }
 
     private void Awake()
@@ -36,6 +39,13 @@ public class Player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+     
+        mover.Init();
+
+        PauseMenu.SaveButtonClicked += SavePosition;
+        PauseMenu.LoadButtonClicked += LoadPosition;
+
+        LoadPosition();
     }
 
     private void Update()
@@ -69,5 +79,42 @@ public class Player : MonoBehaviour
         _animator.SetFloat("Horizontal", Mathf.MoveTowards(_animator.GetFloat("Horizontal"), 0, _animationChangeRate * Time.deltaTime));
         _animator.SetFloat("Vertical", Mathf.MoveTowards(_animator.GetFloat("Vertical"), 0, _animationChangeRate * Time.deltaTime));
         _animator.SetFloat("Magnitude", Mathf.MoveTowards(_animator.GetFloat("Magnitude"), 0, _animationChangeRate * Time.deltaTime));
+    }
+
+    private void SavePosition()
+    {
+        int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        string XAxisCurrentValue = position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+        string YAxisCurrentValue = position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+
+        DataBase.ExecuteQueryWithoutAnswer(string.Format("UPDATE PlayerPosition SET XAxis = {0}, YAxis = {1}, SceneIndex = {2} WHERE id = 1", XAxisCurrentValue, YAxisCurrentValue, CurrentSceneIndex));
+    }
+
+    private void LoadPosition()
+    {
+        if (DataBase.ExecuteQueryWithAnswer("SELECT EXISTS(SELECT * FROM PlayerPosition)") != "0")
+        {
+            DataTable PlayerPosition = DataBase.GetTable("SELECT * FROM PlayerPosition WHERE id = 1");
+
+            float XAxisSavedValue = float.Parse(PlayerPosition.Rows[0][1].ToString());
+            float YAxisSavedValue = float.Parse(PlayerPosition.Rows[0][2].ToString());
+            int SavedSceneIndex = int.Parse(PlayerPosition.Rows[0][3].ToString());
+
+            int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if (SavedSceneIndex != CurrentSceneIndex)
+                SceneManager.LoadScene(SavedSceneIndex);
+
+            position = new Vector3(XAxisSavedValue, YAxisSavedValue, 0);
+        }
+        else
+        {
+            int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            string XAxisCurrentValue = position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+            string YAxisCurrentValue = position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+
+            DataBase.ExecuteQueryWithoutAnswer($"INSERT INTO PlayerPosition (XAxis, YAxis, SceneIndex) VALUES ({XAxisCurrentValue}, {YAxisCurrentValue}, {CurrentSceneIndex})");
+        }
     }
 }

@@ -4,26 +4,29 @@ using UnityEngine.Events;
 public class Item : MonoBehaviour
 {
     [SerializeField] private Sprite _default, _emission;
-    [SerializeField] private ItemAsset _itemAsset;
+    [SerializeField] public ItemAsset itemAsset;
 
     private PlayerActions _playerActions;
     private SpriteRenderer _spriteRenderer;
 
     public static UnityAction<ItemAsset> ItemPickUped;
 
-    public string Name { get { return _itemAsset.name; } private set { } }
-
     private void Start()
     {
         _playerActions = Player.instance.actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        if (DataBase.ExecuteQueryWithAnswer($"SELECT EXISTS(SELECT * FROM Inventory WHERE ItemAssetName = '{itemAsset.Name}')") != "0")
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void PickUp()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ItemPickUped?.Invoke(_itemAsset);
+            ItemPickUped?.Invoke(itemAsset);
             Destroy(gameObject);
         }
     }

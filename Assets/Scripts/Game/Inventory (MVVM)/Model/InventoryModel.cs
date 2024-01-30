@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 
 public class InventoryModel
 {
@@ -13,6 +14,23 @@ public class InventoryModel
     {
         _inventoryData = inventoryData; 
         _inventoryConfig = inventoryConfig;
+    }
+
+    public void LoadDataFromDataBase()
+    {
+        if(DataBase.ExecuteQueryWithAnswer("SELECT EXISTS(SELECT * FROM Inventory)") != "0")
+        {
+            DataTable InventoryDataTable = DataBase.GetTable("SELECT * FROM Inventory");
+
+            for (int i = 0; i < InventoryDataTable.Rows.Count; i++)
+            {
+                int slotIndex = int.Parse(InventoryDataTable.Rows[i][2].ToString());
+                string itemAssetName = InventoryDataTable.Rows[i][1].ToString();
+                var slot = _inventoryData.Slots[slotIndex];
+                slot.ItemAsset = Items.instance.GetItemAsset(itemAssetName);
+                ItemAdded?.Invoke(slot.ItemAsset, slotIndex);
+            }
+        }
     }
 
     public void Add(ItemAsset itemAsset)
@@ -47,19 +65,11 @@ public class InventoryModel
         var itemAsset = slot.ItemAsset;
         slot.Clean();
 
+        RemoveSlotToDataBase(slotIndex);
+
         ItemRemoved?.Invoke(itemAsset, slotIndex);
         return true;
     }
-
-    //public void SaveData()
-    //{
-    //    var size = _inventoryConfig.InventorySize;
-
-    //    for (int slotIndex = 0; slotIndex < size; slotIndex++)
-    //    {
-    //        var slot = _inventoryData.Slots[slotIndex];
-    //    }
-    //}
 
     private void AddToFirstAvailableSlot(ItemAsset itemAsset)
     {
@@ -76,8 +86,24 @@ public class InventoryModel
 
             slot.ItemAsset = itemAsset;
 
+            SaveSlotToDataBase(itemAsset, slotIndex);
+
             ItemAdded?.Invoke(itemAsset, slotIndex);
+
             return;
+        }
+    }
+
+    private void SaveSlotToDataBase(ItemAsset itemAsset, int slotIndex)
+    {
+        DataBase.ExecuteQueryWithoutAnswer($"INSERT INTO Inventory (ItemAssetName, SlotIndex) VALUES ('{itemAsset.Name.ToString()}',{slotIndex})");
+    }
+
+    private void RemoveSlotToDataBase(int slotIndex)
+    {
+        if($"SELECT EXISTS(SELECT * FROM Inventory WHERE SlotIndex = {slotIndex})" != "0")
+        {
+            DataBase.ExecuteQueryWithoutAnswer($"DELETE FROM Inventory WHERE SlotIndex = {slotIndex}");
         }
     }
 }

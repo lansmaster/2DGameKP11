@@ -21,12 +21,17 @@ public class Items : MonoBehaviour
         foreach (var itemPrefab in _itemPrefabs)
         {
             Item item = itemPrefab.GetComponent<Item>();
-            _items.Add(item.Name, itemPrefab);
+            _items.Add(item.itemAsset.Name, itemPrefab);
         }
     }
 
-    public GameObject GetItem(string name)
+    public GameObject GetItemPrefab(string name)
     {
         return _items[name];
+    }
+
+    public ItemAsset GetItemAsset(string name)
+    {
+        return _items[name].GetComponent<Item>().itemAsset;
     }
 }

@@ -11,6 +11,7 @@ public class InventoryView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _infoDescription;
     [SerializeField] private Image _infoItemIcon;
 
+    private InventoryViewModel _viewModel;
     private InventorySlotView[] _inventorySlotViews = new InventorySlotView[25];
     private int _currentSlotIndex;
 
@@ -31,12 +32,19 @@ public class InventoryView : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < _inventorySlotViews.Length; i++)
+        _viewModel = GetComponent<InventoryViewModel>();
+
+        for (int i = 0; i < inventorySize; i++)
         {
             _inventorySlotViews[i] = _slotsContainer.GetChild(i).GetComponent<InventorySlotView>();
             _inventorySlotViews[i].SetSlotIndex(i);
             _inventorySlotViews[i].SlotClicked += SelectSlot;
         }
+
+        _viewModel.ItemAdded += SetItemInfo;
+        _viewModel.ItemSelected += ShowItemInfo;
+        _viewModel.ItemRemoved += ClearItemInfo;
+        _viewModel.ItemRemoved += DropItem;
     }
 
     private void Update()
@@ -77,7 +85,7 @@ public class InventoryView : MonoBehaviour
         _itemInfoWindow.SetActive(false);
     }
 
-    public void SetItemInfo(ItemAsset itemAsset, int slotIndex)
+    private void SetItemInfo(ItemAsset itemAsset, int slotIndex)
     {
         _infoTitle.text = itemAsset.Name;
         _infoDescription.text = itemAsset.Description;
@@ -86,7 +94,7 @@ public class InventoryView : MonoBehaviour
         _inventorySlotViews[slotIndex].SetItemIcon(itemAsset.Icon);
     }
 
-    public void ClearItemInfo(ItemAsset itemAsset, int slotIndex)
+    private void ClearItemInfo(ItemAsset itemAsset, int slotIndex)
     {
         _infoTitle.text = null;
         _infoDescription.text = null;
@@ -104,7 +112,7 @@ public class InventoryView : MonoBehaviour
         SlotSelected?.Invoke(slotIndex);
     }
 
-    public void ShowItemInfo(ItemAsset itemAsset)
+    private void ShowItemInfo(ItemAsset itemAsset)
     {
         _infoTitle.text = itemAsset.Name;
         _infoDescription.text = itemAsset.Description;
@@ -113,9 +121,9 @@ public class InventoryView : MonoBehaviour
         _itemInfoWindow.SetActive(true);
     }
 
-    public void DropItem(ItemAsset itemAsset, int slotIndex)
+    private void DropItem(ItemAsset itemAsset, int slotIndex)
     {
-        var item = Items.instance.GetItem(itemAsset.name);
+        var item = Items.instance.GetItemPrefab(itemAsset.Name);
 
         float positiveRandomValue = Random.Range(0.2f, 0.5f);
         float negativeRandomValue = Random.Range(-0.5f, -0.2f);

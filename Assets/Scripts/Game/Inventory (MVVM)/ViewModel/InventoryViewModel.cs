@@ -1,10 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InventoryViewModel : MonoBehaviour
 {
     private InventoryModel _inventoryModel;
     private InventoryView _inventoryView;
+
+    public UnityAction<ItemAsset, int> ItemAdded;
+    public UnityAction<ItemAsset> ItemSelected;
+    public UnityAction<ItemAsset, int> ItemRemoved;
 
     public void Start()
     {
@@ -28,14 +33,16 @@ public class InventoryViewModel : MonoBehaviour
 
         _inventoryModel = new InventoryModel(inventory, config);
 
-        _inventoryModel.ItemAdded += SetItemInView;
-        _inventoryModel.ItemSelected += DisplayItemInView;
-        _inventoryModel.ItemRemoved += RemoveItemInView;
+        _inventoryModel.ItemAdded += SendItemAdded;
+        _inventoryModel.ItemSelected += SendItemSelected;
+        _inventoryModel.ItemRemoved += SendItemRemoved;
 
         Item.ItemPickUped += SendAddItem;
 
         _inventoryView.DropClicked += SendRemoveItem;
         _inventoryView.SlotSelected += SendSelectItem;
+        
+        _inventoryModel.LoadDataFromDataBase();
     }
 
     private void SendAddItem(ItemAsset itemAsset)
@@ -53,20 +60,18 @@ public class InventoryViewModel : MonoBehaviour
         _inventoryModel.Remove(slotIndex);
     }
 
-    private void SetItemInView(ItemAsset itemAsset, int slotIndex)
+    private void SendItemAdded(ItemAsset itemAsset, int slotIndex)
     {
-        _inventoryView.SetItemInfo(itemAsset, slotIndex);
+        ItemAdded?.Invoke(itemAsset, slotIndex);
     }
 
-    private void DisplayItemInView(ItemAsset itemAsset)
+    private void SendItemSelected(ItemAsset itemAsset)
     {
-        _inventoryView.ShowItemInfo(itemAsset);
+        ItemSelected?.Invoke(itemAsset);
     }
 
-    private void RemoveItemInView(ItemAsset itemAsset, int slotIndex)
+    private void SendItemRemoved(ItemAsset itemAsset, int slotIndex)
     {
-        _inventoryView.ClearItemInfo(itemAsset, slotIndex);
-
-        _inventoryView.DropItem(itemAsset, slotIndex);
+        ItemRemoved?.Invoke(itemAsset, slotIndex);
     }
 }
