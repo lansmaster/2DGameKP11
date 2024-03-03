@@ -42,10 +42,12 @@ public class Player : MonoBehaviour
      
         mover.Init();
 
-        PauseMenu.SaveButtonClicked += SavePosition;
-        PauseMenu.LoadButtonClicked += LoadPosition;
-
         LoadPosition();
+    }
+
+    private void OnDestroy()
+    {
+        SavePosition();
     }
 
     private void Update()
@@ -109,6 +111,8 @@ public class Player : MonoBehaviour
         }
         else
         {
+            position = new Vector3(5f, 5.5f, 0f);
+
             int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
             string XAxisCurrentValue = position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));

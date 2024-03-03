@@ -11,9 +11,6 @@ public class PauseMenu: MonoBehaviour
 
     public bool canOpen { get; set; }
 
-    public static UnityAction SaveButtonClicked;
-    public static UnityAction LoadButtonClicked;
-
     private void Update()
     {
         if (canOpen)
@@ -28,16 +25,6 @@ public class PauseMenu: MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void Save() // кнопка
-    {
-        SaveButtonClicked?.Invoke();
-    }
-
-    public void Load() // кнопка
-    {
-        LoadButtonClicked?.Invoke();
     }
 
     public void SetActive(bool active)

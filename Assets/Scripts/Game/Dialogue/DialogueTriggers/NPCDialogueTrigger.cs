@@ -36,8 +36,8 @@ public class NPCDialogueTrigger : MonoBehaviour
         }
         else
         {
-            _animator.SetBool("Emission", false);
             _playerActions.PlayerApproachedTheCharacter -= EnableEmission;
+            _animator.SetBool("Emission", false);
         }
     }
 }
