@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            position = new Vector3(5f, 5.5f, 0f);
+            position = new Vector3(-2.4f, 4.05f, 0f);
 
             int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 

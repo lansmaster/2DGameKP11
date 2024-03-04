@@ -110,6 +110,10 @@ public class FloorChanger : MonoBehaviour
     {
         foreach (var button in _choices)
             button.SetActive(false);
+
+        _choicesButtons[0].onClick.RemoveAllListeners();
+        _choicesButtons[1].onClick.RemoveAllListeners();
+        _choicesButtons[2].onClick.RemoveAllListeners();
     }
     
     //
@@ -122,10 +126,6 @@ public class FloorChanger : MonoBehaviour
 
         _floorChangerWindow.SetActive(false);
 
-        _choicesButtons[0].onClick.RemoveAllListeners();
-        _choicesButtons[1].onClick.RemoveAllListeners();
-        _choicesButtons[2].onClick.RemoveAllListeners();
-
         SceneManager.LoadScene(_currentSceneIndex + 1);
     }
 
@@ -136,10 +136,6 @@ public class FloorChanger : MonoBehaviour
         HideChoises();
 
         _floorChangerWindow.SetActive(false);
-
-        _choicesButtons[0].onClick.RemoveAllListeners();
-        _choicesButtons[1].onClick.RemoveAllListeners();
-        _choicesButtons[2].onClick.RemoveAllListeners();
 
         SceneManager.LoadScene(_currentSceneIndex - 1);
     }
@@ -153,9 +149,5 @@ public class FloorChanger : MonoBehaviour
         _floorChangerWindow.SetActive(false);
 
         LastPlayerPositionBeforeTeleportation = Vector3.zero;
-
-        _choicesButtons[0].onClick.RemoveAllListeners();
-        _choicesButtons[1].onClick.RemoveAllListeners();
-        _choicesButtons[2].onClick.RemoveAllListeners();
     }
 }
