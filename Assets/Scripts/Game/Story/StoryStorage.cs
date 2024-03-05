@@ -50,7 +50,7 @@ public class StoryStorage : MonoBehaviour
 
     private void PlayStory(int stage)
     {
-        if(_currentStage >= stage)
+        if(_currentStage + 1 != stage)
         {
             return;
         }

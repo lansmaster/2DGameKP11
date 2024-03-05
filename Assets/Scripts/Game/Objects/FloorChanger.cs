@@ -14,6 +14,8 @@ public class FloorChanger : MonoBehaviour
     private string _upperText = "Поднятся на этаж выше";
     private string _downerText = "Опустится на этаж ниже";
     private string _stayerText = "Остатся на текущем этаже";
+    private string _assemblyHallEnterText = "Зайти в актовый зал";
+    private string _assemblyHallExitText = "Выйти из актового зала";
 
     public static Vector3 LastPlayerPositionBeforeTeleportation { get; private set; }
     public bool isOpend { get; private set; }
@@ -45,6 +47,10 @@ public class FloorChanger : MonoBehaviour
                     _choices[1].SetActive(true);
                     _choicesText[1].text = _stayerText;
                     _choicesButtons[1].onClick.AddListener(StayFloor);
+
+                    _choices[2].SetActive(true);
+                    _choicesText[2].text = _assemblyHallEnterText;
+                    _choicesButtons[2].onClick.AddListener(GoToAssemblyHall);
 
                     break;
                 case 2:
@@ -83,6 +89,17 @@ public class FloorChanger : MonoBehaviour
                     _choices[1].SetActive(true);
                     _choicesText[1].text = _stayerText;
                     _choicesButtons[1].onClick.AddListener(StayFloor);
+
+                    break;
+                case 5:
+                    _choices[0].SetActive(true);
+                    _choicesText[0].text = _assemblyHallExitText;
+                    _choicesButtons[0].onClick.AddListener(ExitFromAssemblyHall);
+
+                    _choices[1].SetActive(true);
+                    _choicesText[1].text = "Остаться в актовом зале";
+                    _choicesButtons[1].onClick.AddListener(StayFloor);
+
                     break;
             }
         }
@@ -149,5 +166,27 @@ public class FloorChanger : MonoBehaviour
         _floorChangerWindow.SetActive(false);
 
         LastPlayerPositionBeforeTeleportation = Vector3.zero;
+    }
+
+    private void GoToAssemblyHall()
+    {
+        isOpend = false;
+
+        HideChoises();
+
+        _floorChangerWindow.SetActive(false);
+
+        SceneManager.LoadScene(5);
+    }
+
+    private void ExitFromAssemblyHall()
+    {
+        isOpend = false;
+
+        HideChoises();
+
+        _floorChangerWindow.SetActive(false);
+
+        SceneManager.LoadScene(1);
     }
 }

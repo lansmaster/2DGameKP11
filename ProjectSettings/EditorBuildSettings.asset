@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Floor4.unity
     guid: 98780ff702f470c4993445f16946bcbe
+  - enabled: 1
+    path: Assets/Scenes/AssemblyHall.unity
+    guid: 2e055a8af9ef98b49b5308189ba065d8
   m_configObjects: {}

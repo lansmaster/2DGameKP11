@@ -6,6 +6,7 @@ public class StoryTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StoryTriggerManager.Trigger(_stage);
+        if(collision.CompareTag("Player"))
+            StoryTriggerManager.Trigger(_stage);
     }
 }
