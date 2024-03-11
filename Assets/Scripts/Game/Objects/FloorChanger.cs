@@ -18,7 +18,7 @@ public class FloorChanger : MonoBehaviour
     private string _assemblyHallExitText = "Выйти из актового зала";
 
     public static Vector3 LastPlayerPositionBeforeTeleportation { get; private set; }
-    public bool isOpend { get; private set; }
+    public bool IsOpened { get; private set; }
 
     private void Start()
     {
@@ -33,9 +33,9 @@ public class FloorChanger : MonoBehaviour
 
             _floorChangerWindow.SetActive(true);
 
-            isOpend = true;
+            IsOpened = true;
 
-            LastPlayerPositionBeforeTeleportation = Player.instance.position;
+            LastPlayerPositionBeforeTeleportation = Player.Instance.Position;
 
             switch (_currentSceneIndex)
             {
@@ -137,7 +137,7 @@ public class FloorChanger : MonoBehaviour
 
     private void UpFloor()
     {
-        isOpend = false;
+        IsOpened = false;
 
         HideChoises();
 
@@ -148,7 +148,7 @@ public class FloorChanger : MonoBehaviour
 
     private void DownFloor()
     {
-        isOpend = false;
+        IsOpened = false;
 
         HideChoises();
 
@@ -159,7 +159,7 @@ public class FloorChanger : MonoBehaviour
 
     private void StayFloor()
     {
-        isOpend = false;
+        IsOpened = false;
 
         HideChoises();
 
@@ -170,7 +170,7 @@ public class FloorChanger : MonoBehaviour
 
     private void GoToAssemblyHall()
     {
-        isOpend = false;
+        IsOpened = false;
 
         HideChoises();
 
@@ -181,7 +181,7 @@ public class FloorChanger : MonoBehaviour
 
     private void ExitFromAssemblyHall()
     {
-        isOpend = false;
+        IsOpened = false;
 
         HideChoises();
 

@@ -8,12 +8,12 @@ public class Items : MonoBehaviour
 
     private readonly Dictionary<string, GameObject> _items = new();
 
-    public static Items instance { get; private set; }
+    public static Items Instance { get; private set; }
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
     }
 
     private void Start()

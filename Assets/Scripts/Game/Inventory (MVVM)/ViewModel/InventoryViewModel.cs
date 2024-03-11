@@ -17,7 +17,7 @@ public class InventoryViewModel : MonoBehaviour
 
         var config = new InventoryConfig
         {
-            InventorySize = _inventoryView.inventorySize,
+            InventorySize = _inventoryView.InventorySize,
         };
 
         var inventorySize = config.InventorySize;

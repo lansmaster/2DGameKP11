@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu: MonoBehaviour
@@ -9,11 +8,11 @@ public class PauseMenu: MonoBehaviour
     
     private bool _isEnabled = false;
 
-    public bool canOpen { get; set; }
+    public bool CanOpen { get; set; }
 
     private void Update()
     {
-        if (canOpen)
+        if (CanOpen)
             if (Input.GetKeyDown(KeyCode.Escape))
                 if (_isEnabled)
                     SetActive(false);

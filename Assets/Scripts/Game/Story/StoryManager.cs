@@ -1,11 +1,8 @@
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
-public class StoryStorage : MonoBehaviour
+public class StoryManager : MonoBehaviour
 {
     [SerializeField] private DialogueController _dialogueController;
     
@@ -17,7 +14,7 @@ public class StoryStorage : MonoBehaviour
     [SerializeField] private TextAsset _5InkJSON;
 
     private Dictionary<int, TextAsset> _storyStages;
-    private int _currentStage;
+    public int CurrentStage { get; private set; }
 
     private void Start()
     {
@@ -50,11 +47,11 @@ public class StoryStorage : MonoBehaviour
 
     private void PlayStory(int stage)
     {
-        if(_currentStage + 1 != stage)
+        if(CurrentStage + 1 != stage)
         {
             return;
         }
-        _currentStage = stage;
+        CurrentStage = stage;
 
         TextAsset textAsset;
         if (_storyStages.TryGetValue(stage, out textAsset))
@@ -71,18 +68,18 @@ public class StoryStorage : MonoBehaviour
 
             int stage = int.Parse(PlayerPosition.Rows[0][1].ToString());
 
-            _currentStage = stage;
+            CurrentStage = stage;
         }
         else
         {
-            _currentStage = 0;
+            CurrentStage = 0;
 
-            DataBase.ExecuteQueryWithoutAnswer($"INSERT INTO Story (Stage) VALUES ({_currentStage})");
+            DataBase.ExecuteQueryWithoutAnswer($"INSERT INTO Story (Stage) VALUES ({CurrentStage})");
         }
     }
     
     private void SaveStage()
     {
-        DataBase.ExecuteQueryWithoutAnswer(string.Format("UPDATE Story SET Stage = {0} WHERE id = 1", _currentStage));
+        DataBase.ExecuteQueryWithoutAnswer(string.Format("UPDATE Story SET Stage = {0} WHERE id = 1", CurrentStage));
     }
 }

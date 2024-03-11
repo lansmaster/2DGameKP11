@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class ChangingResolution : MonoBehaviour
 {
-    private Resolution[] _resolutions;
-    private int _currentResolutionIndex;
-    private bool _isfullScreen = true;
     [SerializeField] private TMP_Text _textResolution;
+
+    private bool _isfullScreen = true;
+
+    private int _currentResolutionIndex;
+    private Resolution[] _resolutions;
 
     private void Start()
     {

@@ -11,7 +11,7 @@ public class FloorDoor : MonoBehaviour
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _playerActions = Player.instance.actions;
+        _playerActions = Player.Instance.Actions;
     }
 
     public void EnableEmission(bool enable)

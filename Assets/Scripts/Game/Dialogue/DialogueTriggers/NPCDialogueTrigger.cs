@@ -13,7 +13,7 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
 
-        _playerActions = Player.instance.actions;
+        _playerActions = Player.Instance.Actions;
         _dialogueController = FindObjectOfType<DialogueController>();
         _dialogueWindow = FindObjectOfType<DialogueWindow>();
     }
@@ -22,7 +22,7 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         _playerActions.PlayerApproachedTheCharacter += EnableEmission;
 
-        if (Input.GetKeyDown(KeyCode.E) && !_dialogueWindow.isPlaying)
+        if (Input.GetKeyDown(KeyCode.E) && !_dialogueWindow.IsPlaying)
         {
             _dialogueController.EnterDialogueMode(_inkJSON);
         }

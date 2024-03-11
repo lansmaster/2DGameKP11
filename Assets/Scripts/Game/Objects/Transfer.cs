@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class Transfer : MonoBehaviour
 {
-    public static Transfer instance { get; private set; }
+    public static Transfer Instance { get; private set; }
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
             return;
         }

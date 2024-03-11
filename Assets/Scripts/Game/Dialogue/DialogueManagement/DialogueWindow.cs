@@ -19,7 +19,7 @@ public class DialogueWindow : MonoBehaviour
     private DialogueChoice _dialogueChoice;
 
     public bool IsStatusAnswer { get; private set; }
-    public bool isPlaying { get; private set; }
+    public bool IsPlaying { get; private set; }
     public bool CanContinueToNextLine { get; private set; }
 
     public float CoolDownNewLettew
@@ -54,7 +54,7 @@ public class DialogueWindow : MonoBehaviour
 
     public void SetActive(bool active)
     {
-        isPlaying = active;
+        IsPlaying = active;
         _dialogueWindow.SetActive(active);
     }
 

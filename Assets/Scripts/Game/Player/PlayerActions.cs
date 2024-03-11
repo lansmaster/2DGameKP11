@@ -61,7 +61,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindiDoor()
     {
-        Collider2D doorCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _doorsLayerMask);
+        Collider2D doorCollider = Physics2D.OverlapCircle(Player.Instance.Position, _interactionDistance, _doorsLayerMask);
 
         if (doorCollider == null)
         {
@@ -81,7 +81,7 @@ public class PlayerActions : MonoBehaviour
                 PlayerApproachedTheDoor += ShowImagePressE_Door;
             }
 
-            if (door.isOpened)
+            if (door.IsOpened)
             {
                 _imgPressE.sprite = _pressE_CloseDoor;
             }
@@ -96,7 +96,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindItem()
     {
-        Collider2D itemCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _itemsLayerMask);
+        Collider2D itemCollider = Physics2D.OverlapCircle(Player.Instance.Position, _interactionDistance, _itemsLayerMask);
         
         if (itemCollider == null)
         {
@@ -123,7 +123,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindCharacter()
     {
-        Collider2D characterCollider = Physics2D.OverlapCircle(Player.instance.position, _interactionDistance, _charactersLayerMask);
+        Collider2D characterCollider = Physics2D.OverlapCircle(Player.Instance.Position, _interactionDistance, _charactersLayerMask);
         
         if (characterCollider == null)
         {
@@ -149,7 +149,7 @@ public class PlayerActions : MonoBehaviour
 
     private void FindFloorChanger()
     {
-        Collider2D floorChangerCollider = Physics2D.OverlapPoint(Player.instance.position, _floorChangersLayerMask);
+        Collider2D floorChangerCollider = Physics2D.OverlapPoint(Player.Instance.Position, _floorChangersLayerMask);
         
         if (floorChangerCollider == null || floorChangerCollider.layerOverridePriority != 1)
         {

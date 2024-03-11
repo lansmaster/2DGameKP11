@@ -4,6 +4,6 @@ public class PlayerTracker : MonoBehaviour
 {
     private void LateUpdate()
     {
-        transform.position = new Vector3(Player.instance.position.x, Player.instance.position.y + 0.5f, transform.position.z);
+        transform.position = new Vector3(Player.Instance.Position.x, Player.Instance.Position.y + 0.5f, transform.position.z);
     }
 }

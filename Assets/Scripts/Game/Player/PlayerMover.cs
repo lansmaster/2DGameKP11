@@ -7,13 +7,13 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
+    private float _currentWalkSpeed;
+    private float _currentRunSpeed;
+
     private Animator _animator;
     private Rigidbody2D _rigidbody;
 
     private const float _speedChangeRate = 4.0f;
-
-    private float _currentWalkSpeed;
-    private float _currentRunSpeed;
 
     public void Init()
     {

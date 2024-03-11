@@ -9,8 +9,6 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private Sprite _closedDoorDefault, _openedDoorDefault, _closedDoorEmission, _openedDoorEmission;
     
-    public bool isOpened { get; private set; }
-
     private PlayerActions _playerActions;
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxCollider;
@@ -19,10 +17,12 @@ public class Door : MonoBehaviour
 
     private Dictionary<Type, IDoorBehavior> _behaviorsMap;
     private IDoorBehavior _behaviorCurrent;
+    
+    public bool IsOpened { get; private set; }
 
     private void Start()
     {
-        _playerActions = Player.instance.actions;
+        _playerActions = Player.Instance.Actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _polygonCollider = GetComponent<PolygonCollider2D>();
@@ -44,13 +44,13 @@ public class Door : MonoBehaviour
 
     private void OpeningSwitch()
     {
-        if (isOpened)
+        if (IsOpened)
         {
-            isOpened = false;
+            IsOpened = false;
         }
         else
         {
-            isOpened = true;
+            IsOpened = true;
         }
     }
 
@@ -58,14 +58,14 @@ public class Door : MonoBehaviour
     {
         if (enable)
         {
-            if (isOpened)
+            if (IsOpened)
                 SetBehaviorOpenedEmission();
             else 
                 SetBehaviorClosedEmission();
         }
         else
         {
-            if (isOpened)
+            if (IsOpened)
                 SetBehaviorOpenedDefault();
             else
                 SetBehaviorClosedDefault();

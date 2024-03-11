@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class ChangingVolume : MonoBehaviour
 {
     [SerializeField] private Slider _volumeSlider;
+
     private float _oldVolume;
 
     private void Start()

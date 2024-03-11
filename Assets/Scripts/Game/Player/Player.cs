@@ -10,17 +10,16 @@ public class Player : MonoBehaviour
     [SerializeField] private FloorChanger _floorChanger;
     [SerializeField] private InventoryView _inventoryView;
 
-
+    private Rigidbody2D _rigidbody;
+    private Animator _animator;
+    
     private const float _speedChangeRate = 6;
     private const float _animationChangeRate = 2;
 
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
-
-    public static Player instance { get; private set; }
-    public PlayerActions actions { get; private set; }
-    public PlayerMover mover { get; private set; }
-    public Vector3 position
+    public static Player Instance { get; private set; }
+    public PlayerActions Actions { get; private set; }
+    public PlayerMover Mover { get; private set; }
+    public Vector3 Position
     {
         get => transform.position;
         private set => transform.position = value;
@@ -28,11 +27,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
 
-        mover = GetComponent<PlayerMover>();
-        actions = GetComponent<PlayerActions>();
+        Mover = GetComponent<PlayerMover>();
+        Actions = GetComponent<PlayerActions>();
     }
 
     private void Start()
@@ -40,7 +39,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
      
-        mover.Init();
+        Mover.Init();
 
         LoadPosition();
     }
@@ -52,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (_dialogueWindow.isPlaying || _inventoryView.isOpened || _floorChanger.isOpend)
+        if (_dialogueWindow.IsPlaying || _inventoryView.IsOpened || _floorChanger.IsOpened)
         {
             SetActiveMover(false);
             SlowingDownPlayer();
@@ -62,16 +61,16 @@ public class Player : MonoBehaviour
             SetActiveMover(true);
         }
 
-        if (_inventoryView.isOpened)
-            _pauseMenu.canOpen = false;
+        if (_inventoryView.IsOpened)
+            _pauseMenu.CanOpen = false;
         else
-            _pauseMenu.canOpen = true;
+            _pauseMenu.CanOpen = true;
 
     }
 
     private void SetActiveMover(bool active)
     {
-        mover.enabled = active;
+        Mover.enabled = active;
     }
 
     private void SlowingDownPlayer()
@@ -87,8 +86,8 @@ public class Player : MonoBehaviour
     {
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        string XAxisCurrentValue = position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
-        string YAxisCurrentValue = position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+        string XAxisCurrentValue = Position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+        string YAxisCurrentValue = Position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
 
         DataBase.ExecuteQueryWithoutAnswer(string.Format("UPDATE PlayerPosition SET XAxis = {0}, YAxis = {1}, SceneIndex = {2} WHERE id = 1", XAxisCurrentValue, YAxisCurrentValue, CurrentSceneIndex));
     }
@@ -107,16 +106,16 @@ public class Player : MonoBehaviour
             if (SavedSceneIndex != CurrentSceneIndex)
                 SceneManager.LoadScene(SavedSceneIndex);
 
-            position = new Vector3(XAxisSavedValue, YAxisSavedValue, 0);
+            Position = new Vector3(XAxisSavedValue, YAxisSavedValue, 0);
         }
         else
         {
-            position = new Vector3(-2.4f, 4.05f, 0f);
+            Position = new Vector3(-2.4f, 4.05f, 0f);
 
             int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            string XAxisCurrentValue = position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
-            string YAxisCurrentValue = position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+            string XAxisCurrentValue = Position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
+            string YAxisCurrentValue = Position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
 
             DataBase.ExecuteQueryWithoutAnswer($"INSERT INTO PlayerPosition (XAxis, YAxis, SceneIndex) VALUES ({XAxisCurrentValue}, {YAxisCurrentValue}, {CurrentSceneIndex})");
         }

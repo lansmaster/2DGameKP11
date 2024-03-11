@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
 
     private void Start()
     {
-        _playerActions = Player.instance.actions;
+        _playerActions = Player.Instance.Actions;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         
         if (DataBase.ExecuteQueryWithAnswer($"SELECT EXISTS(SELECT * FROM Inventory WHERE ItemAssetName = '{itemAsset.Name}')") != "0")

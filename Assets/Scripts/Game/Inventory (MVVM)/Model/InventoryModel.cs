@@ -27,7 +27,7 @@ public class InventoryModel
                 int slotIndex = int.Parse(InventoryDataTable.Rows[i][2].ToString());
                 string itemAssetName = InventoryDataTable.Rows[i][1].ToString();
                 var slot = _inventoryData.Slots[slotIndex];
-                slot.ItemAsset = Items.instance.GetItemAsset(itemAssetName);
+                slot.ItemAsset = Items.Instance.GetItemAsset(itemAssetName);
                 ItemAdded?.Invoke(slot.ItemAsset, slotIndex);
             }
         }

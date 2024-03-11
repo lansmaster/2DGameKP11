@@ -15,8 +15,8 @@ public class InventoryView : MonoBehaviour
     private InventorySlotView[] _inventorySlotViews = new InventorySlotView[25];
     private int _currentSlotIndex;
 
-    public bool isOpened { get; private set; }
-    public int inventorySize { get; private set; }
+    public bool IsOpened { get; private set; }
+    public int InventorySize { get; private set; }
 
     public UnityAction<int> DropClicked;
     public UnityAction<int> SlotSelected;
@@ -25,16 +25,16 @@ public class InventoryView : MonoBehaviour
     {
         transform.localScale = Vector3.zero;
         _itemInfoWindow.SetActive(false);
-        isOpened = false;
+        IsOpened = false;
 
-        inventorySize = _inventorySlotViews.Length;
+        InventorySize = _inventorySlotViews.Length;
     }
 
     private void Start()
     {
         _viewModel = GetComponent<InventoryViewModel>();
 
-        for (int i = 0; i < inventorySize; i++)
+        for (int i = 0; i < InventorySize; i++)
         {
             _inventorySlotViews[i] = _slotsContainer.GetChild(i).GetComponent<InventorySlotView>();
             _inventorySlotViews[i].SetSlotIndex(i);
@@ -51,14 +51,14 @@ public class InventoryView : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (isOpened)
+            if (IsOpened)
                 Close();
             else
                 Open();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isOpened)
+            if (IsOpened)
                 Close();
         }
     }
@@ -66,13 +66,13 @@ public class InventoryView : MonoBehaviour
     private void Open()
     {
         transform.localScale = Vector3.one;
-        isOpened = true;
+        IsOpened = true;
     }
 
     private void Close()
     {
         transform.localScale = Vector3.zero;
-        isOpened = false;
+        IsOpened = false;
     }
 
     public void DropButton() // повесил на кнопку
@@ -123,13 +123,13 @@ public class InventoryView : MonoBehaviour
 
     private void DropItem(ItemAsset itemAsset, int slotIndex)
     {
-        var item = Items.instance.GetItemPrefab(itemAsset.Name);
+        var item = Items.Instance.GetItemPrefab(itemAsset.Name);
 
         float positiveRandomValue = Random.Range(0.2f, 0.5f);
         float negativeRandomValue = Random.Range(-0.5f, -0.2f);
         float xRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
         float yRandomValue = Random.Range(0, 2) == 0 ? positiveRandomValue : negativeRandomValue;
-        Vector3 dropPosition = new Vector3(Player.instance.position.x + xRandomValue, Player.instance.position.y + yRandomValue, Player.instance.position.z);
+        Vector3 dropPosition = new Vector3(Player.Instance.Position.x + xRandomValue, Player.Instance.Position.y + yRandomValue, Player.Instance.Position.z);
         GameObject currentItem = Instantiate(item, dropPosition, Quaternion.identity);
         Rigidbody2D currentItemRigidbody = currentItem.GetComponent<Rigidbody2D>();
 
