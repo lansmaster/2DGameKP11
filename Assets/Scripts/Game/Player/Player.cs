@@ -49,6 +49,11 @@ public class Player : MonoBehaviour
         SavePosition();
     }
 
+    private void OnDisable()
+    {
+        SavePosition();
+    }
+
     private void Update()
     {
         if (_dialogueWindow.IsPlaying || _inventoryView.IsOpened || _floorChanger.IsOpened)
@@ -86,6 +91,9 @@ public class Player : MonoBehaviour
     {
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+        if(CurrentSceneIndex == 0)
+            return;
+
         string XAxisCurrentValue = Position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
         string YAxisCurrentValue = Position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
 
@@ -113,6 +121,9 @@ public class Player : MonoBehaviour
             Position = new Vector3(-2.4f, 4.05f, 0f);
 
             int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if (CurrentSceneIndex == 0)
+                return;
 
             string XAxisCurrentValue = Position.x.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
             string YAxisCurrentValue = Position.y.ToString("0.00", CultureInfo.GetCultureInfo("en-US"));
