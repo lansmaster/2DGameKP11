@@ -32,12 +32,12 @@ public class StoryManager : MonoBehaviour
 
     private void OnEnable()
     {
-        StoryTriggerManager.StoryTriggered += PlayStory;
+        StoryTrigger.StoryTriggered += PlayStory;
     }
 
     private void OnDisable()
     {
-        StoryTriggerManager.StoryTriggered -= PlayStory;
+        StoryTrigger.StoryTriggered -= PlayStory;
     }
 
     private void OnDestroy()
