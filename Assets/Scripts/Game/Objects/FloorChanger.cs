@@ -48,9 +48,12 @@ public class FloorChanger : MonoBehaviour
                     _choicesText[1].text = _stayerText;
                     _choicesButtons[1].onClick.AddListener(StayFloor);
 
-                    _choices[2].SetActive(true);
-                    _choicesText[2].text = _assemblyHallEnterText;
-                    _choicesButtons[2].onClick.AddListener(GoToAssemblyHall);
+                    if(Player.Instance.Position.x < 0) // костыль пока что
+                    {
+                        _choices[2].SetActive(true);
+                        _choicesText[2].text = _assemblyHallEnterText;
+                        _choicesButtons[2].onClick.AddListener(GoToAssemblyHall);
+                    }
 
                     break;
                 case 2:
